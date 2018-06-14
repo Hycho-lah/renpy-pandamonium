@@ -1,0 +1,508 @@
+The Character object is used to declare characters, and it can also be used to customize the way in which a character speaks.
+By supplying it with the appropriate arguments, we can really change around the feel of the game.
+In this section, we'll demonstrate some of what can be accomplished by customizing character objects.
+By supplying what_prefix and what_suffix arguments to a Character object, we can automatically add things before each line of text.
+This is a lot easier than having to put those quotes in by hand.
+We can also use who_prefix and who_suffix to add text to the name of the speaker.
+We can also supply arguments to the Character object that customize the look of the character name, the text that is being said, and the window itself.
+These can really change the look of the game.
+A more practical use of that is in conjunction with show_side_image, which lets us position an image next to the text.
+There's also show_two_window, which puts the character's name in its own window.
+Finally, we demonstrate a click to continue indicator. In this example, it's nestled in with the text.
+A click to continue image can also be placed at a fixed location on the screen.
+There's a lot more you can do with Character, as it lets you set style properties on all of the displayed text.
+Finally, let me point out a couple of special characters we pre-define.
+The "centered" character shows text at the center of the screen, without a window.
+It's just a highly customized normal character, that's useful for dates and titles.
+The "extend" character is very special.
+It lets you
+ extend the previous dialogue
+ with additional text.
+That lets you have things happen in the middle of text. If you didn't notice, I was changing my expression.
+Hopefully, these characters, along with the ones you define, will lead to a very expressive game.
+Ren'Py gives you quite a bit of control over how text appears.
+Text tags let us control the appearance of text that is shown to the user.
+Text tags can make text {b}bold{/b}, {i}italic{/i}, {s}struckthrough{/s}, or {u}underlined{/u}.
+They can make the font size {size=+12}bigger{/size} or {size=-8}smaller{/size}.
+They let you pause{w} the display of the text, optionally with{p}line breaks.
+They let you include images inside text{image=exclamation.png} Neat{image=exclamation.png}
+We can pause the text for a short time, and have it auto-advance.{w=1} Just like that.
+We can even have the text auto-advance,{nw}
+ when we reach the end of a block of text, in slow text mode.
+They can change the {color=#f00}color{/color} {color=#ff0}of{/color} {color=#0f0}the{/color} {color=#0ff}text{/color}.
+The kerning tag lets you adjust the spacing between characters.
+{k=.5}The spacing between characters can be increased.{/k}
+{k=-.5}The spacing between characters can be decreased.{/k}
+You are able to write ruby text, which can help clarify how to pronounce words, like {rb}Ren'Py{/rb}{rt}ren-pie{/rt}.
+{a=define_hyperlink}Hyperlinks{/a} let buttons be defined using text tags.
+The space and vspace tags add {space=30} horizontal and {vspace=20}vertical space, respectively.
+You can define your own text tags, {=pink}that use a style you define.{/=pink}
+If you find yourself using text tags on every line, you should probably look at style properties instead.
+Used with care, text tags can enhance {b}your{/b} game.
+{u}Used{/u} with {i}abandon,{/i} they {b}can{/b} make {b}your{/b} game {color=#333}hard{/color} {color=#888}to{/color} {color=#ccc}read{/color}.
+With great power comes great responsibility, after all.
+And we want to give you all the power you need.
+There are a couple of text adjustments that don't correspond to text tags.
+The outlines setting lets you put outlines around the text.
+You can have more than one outline, and each has its own color and offset.
+Here, we have two outlines around the white text.
+The bottom one is a translucent black that's offset a little, while the top one is green.
+By hiding the window and adjusting the layout method, we are able to create reasonable subtitles.
+This might be an interesting look for a game.
+For even more control, Ren'Py supports SFonts, image files containing font information.
+SFonts let you use fonts you otherwise couldn't, and apply special effects to fonts using your favorite image editor.
+Well, that's it for fonts and text tags.
+A hyperlink is a button that is defined inside text, using text tags. They're ideal for including definitions of words used in the script, but they shouldn't be used in place of menus.
+Ren'Py ships with a large number of built-in transitions, and also includes classes that let you define your own.
+What kind of transitions would you like demonstrated?
+Okay, I can tell you about simple transitions. We call them simple because they don't take much in the way of configuration.
+But don't let that get you down, since they're the transitions you'll probably use the most in a game.
+The 'dissolve' transition is probably the most useful, blending one scene into another.
+The 'Dissolve' function lets you create your own dissolves, taking a different amount of time.
+The 'fade' transition fades to black, and then fades back in to the new scene.
+If you're going to stay at a black screen, you'll probably want to use 'dissolve' rather than 'fade'.
+You can use 'Fade' to define your own fades. By changing the timing and the color faded to, you can use this for special effects, like flashbulbs.
+The 'pixellate' transition pixellates out the old scene, switches to the new scene, and then unpixellates that.
+It's probably not appropriate for most games, but we think it's kind of neat.
+You can use 'Pixellate' to change the details of the pixellation.
+Motions can also be used as transitions.
+...
+......
+Hey! Pay attention.
+I was about to demonstrate 'vpunch'... well, I guess I just did.
+We can also shake the screen horizontally, with 'hpunch'. These were defined using the 'Move' function.
+There's also the 'move' transition, which is confusingly enough defined using the 'MoveTransition' function.
+The 'move' transition finds images that have changed placement, and slides them to their new place. It's an easy way to get motion in your game.
+Finally, there's 'Pause', which lets you define a transition that just waits for a given amount of time.
+Why would you want to do that?
+It's because clicking during a sequence of transitions will skip all of the remaining transitions.
+Try clicking during the following transitions:
+Having 'Pause' makes it easy to implement skippable cut-scenes in terms of transitions.
+Anyway, that's it for the simple transitions.
+Perhaps the most flexible kind of transition is the ImageDissolve, which lets you use an image to control a dissolve.
+This lets us specify very complex transitions, fairly simply. Let's try some, and then I'll show you how they work.
+There are two ImageDissolve transitions built into Ren'Py.
+The 'blinds' transition opens and closes what looks like vertical blinds.
+The 'squares' transition uses these squares to show things.
+I'm not sure why anyone would want to use it, but it was used in some translated games, so we added it.
+The most interesting transitions aren't in the standard library.
+These ones require an image the size of the screen, and so we couldn't include them as the size of the screen can change from game to game.
+You can click the button above to see how they are defined in the demo script.
+We can hide things with a 'circleirisin'...
+... and show them again with a 'circleirisout'.
+The 'circlewipe' transitions changes screens using a circular wipe effect.
+The 'dream' transition does this weird wavy dissolve, and does it relatively slowly.
+The 'teleport' transition reveals the new scene one line at a time.
+This is the background picture used with the circleirisout transition.
+When we use an ImageDissolve, the white will dissolve in first, followed by progressively darker colors. Let's try it.
+If we give ImageDissolve the 'reverse' parameter, black areas will dissolve in first.
+This lets circleirisin and circleirisout use the same image.
+The teleport transition uses a different image, one that dissolves things in one line at a time.
+A dissolve only seems to affect parts of the scene that have changed...
+... which is how we apply the teleport effect to a single character.
+For more examples of ImageDissolve, check out the {i}Utsukushii Effects{/i} demo.
+It shows how a clever game-maker can use ImageDissolve to create all sorts of effects.
+The CropMove transition class provides a wide range of transition effects. It's not used very much in practice, though.
+I'll stand offscreen, so you can see some of its modes. I'll read out the mode name after each transition.
+We first have wiperight...
+...followed by wipeleft... 
+...wipeup...
+...and wipedown.
+Next, the slides.
+Slideright...
+...slideleft...
+...slideup...
+and slidedown.
+While the slide transitions slide in the new scene, the slideaways slide out the old scene.
+Slideawayright...
+...slideawayleft...
+...slideawayup...
+and slideawaydown.
+We also have a couple of transitions that use a rectangular iris.
+There's irisout...
+... and irisin.
+It's enough to make you feel a bit dizzy.
+The PushMove transitions use the new scene to push the old one out. Let's take a look.
+There's pushright...
+...pushleft...
+...pushdown...
+... and pushup. And that's it the for the PushMove-based transitions.
+The most common MoveTransition is move, which slides around images that have changed position on the screen.
+Just like that.
+There are also the moveout and movein transitions.
+The moveout transitions (moveoutleft, moveoutright, moveouttop, and moveoutbottom) slide hidden images off the appropriate side of the screen.
+The movein transitions (moveinleft, moveinright, moveintop, and moveinbottom) slide in new images.
+Let's see them all in action.
+That's it for the moveins and moveouts.
+Finally, there are the zoomin and zoomout transtions, which show and hide things using a zoom.
+And that's all there is.
+The AlphaDissolve transition lets you use one displayable to combine two others. For example...
+The AlphaDissolve displayable takes a control displayable, usually an ATL transform.
+To be useful, the control displayable should be partially transparent.
+During an AlphaDissolve, the old screen is used to fill the transparent areas of the image, while the new screen fills the opaque areas.
+For our spotlight example, the old screen is this all-black image.
+The new screen is me just standing here.
+By combining them using AlphaDissolve, we can build a complicated effect out of simpler parts.
+Ren'Py supports playing movies. There are two ways of doing this.
+The first way allows you to show a movie as an image, along with every other image that's displayed on the screen.
+To do this, we first have to define an image to be a Movie displayable. Movie displayables require a size argument, and also use properties to position themselves on the screen.
+Then, we can show the movie displayable, which starts the movie playing.
+When we no longer want to play the movie, we can hide it.
+The other way to show a movie is with the renpy.movie_cutscene python function. This shows the movie fullscreen, either until it ends or until the user clicks.
+And that's all there is when it comes to movie playback in Ren'Py.
+In this tutorial, I'll teach you how Ren'Py positions things on the screen. But before that, let's learn a little bit about how Python handles numbers.
+There are two main kinds of numbers in Python: integers and floating point numbers. An integer consists entirely of digits, while a floating point number has a decimal point.
+For example, 100 is an integer, while 0.5 is a floating point number, or float for short. In this system, there are two zeros: 0 is an integer, and 0.0 is a float.
+Ren'Py uses integers to represent absolute coordinates, and floats to represent fractions of an area with known size.
+When we're positioning something, the area is usually the entire screen.
+Let me get out of the way, and I'll show you where some positions are.
+The origin is the upper-left corner of the screen. That's where the x position (xpos) and the y position (ypos) are both zero.
+When we increase xpos, we move to the right. So here's an xpos of .5, meaning half the width across the screen.
+Increasing xpos to 1.0 moves us to the right-hand border of the screen.
+We can also use an absolute xpos, which is given in an absolute number of pixels from the left side of the screen. For example, since this window is 800 pixels across, using an xpos of 400 will return the target to the center of the top row.
+The y-axis position, or ypos works the same way. Right now, we have a ypos of 0.0.
+Here's a ypos of 0.5.
+A ypos of 1.0 specifies a position at the bottom of the screen. If you look carefully, you can see the position indicator spinning below the text window.
+Like xpos, ypos can also be an integer. In this case, ypos would give the total number of pixels from the top of the screen.
+Can you guess where this position is, relative to the screen?
+Sorry, that's wrong. The xpos is .75, and the ypos is .25.
+In other words, it's 75%% of the way from the left side, and 25%% of the way from the top.
+Good job! You got that position right.
+Sorry, that's wrong. The xpos is .75, and the ypos is .25.
+In other words, it's 75%% of the way from the left side, and 25%% of the way from the top.
+The second position we care about is the anchor. The anchor is a spot on the thing being positioned.
+For example, here we have an xanchor of 0.0 and a yanchor of 0.0. It's in the upper-left corner of the logo image.
+When we increase the xanchor to 1.0, the anchor moves to the right corner of the image.
+Similarly, when both xanchor and yanchor are 1.0, the anchor is the bottom-right corner.
+To place an image on the screen, we need both the position and the anchor.
+We then line them up, so that both the position and anchor are at the same point on the screen.
+When we place both in the upper-left corner, the image moves to the upper-left corner of the screen.
+With the right combination of position and anchor, any place on the screen can be specified, without even knowing the size of the image.
+It's often useful to set xpos and xanchor to the same value. We call that xalign, and it gives a fractional position on the screen.
+For example, when we set xalign to 0.0, things are aligned to the left side of the screen.
+When we set it to 1.0, then we're aligned to the right side of the screen.
+And when we set it to 0.5, we're back to the center of the screen.
+Setting yalign is similar, except along the y-axis.
+Remember that xalign is just setting xpos and xanchor to the same value, and yalign is just setting ypos and yanchor to the same value.
+Once you understand positions, you can use transformations to move things around the Ren'Py screen.
+While showing static images is often enough for most games, occasionally we'll want to change images, or move them around the screen.
+We call this a Transform, and it's what ATL, Ren'Py's Animation and Transformation Language, is for.
+But first, let's have... a Gratuitous Rock Concert!
+That was a lot of work, and before you can do that, we'll need to start with the basics of using ATL.
+There are currently three places where ATL can be used in Ren'Py.
+The first place ATL can be used is as part of an image statement. Instead of a displayable, an image may be defined as a block of ATL code.
+When used in this way, we have to be sure that ATL includes one or more displayables to actually show.
+The second way is through the use of the transform statement. This assigns the ATL block to a python variable, allowing it to be used in at clauses and inside other transforms.
+Finally, an ATL block can be used as part of a show statement, instead of the at clause.
+The key to ATL is what we call composeability. ATL is made up of relatively simple commands, which can be combined together to create complicated transforms.
+Before I explain how ATL works, let me explain what animation and transformation are.
+Animation is when the displayable being shown changes. For example, right now I am changing my expression.
+Transformation involves moving or distorting an image. This includes placing it on the screen, zooming it in and out, rotating it, and changing its opacity.
+To introduce ATL, let's start by looking at at a simple animation. Here's one that consists of five lines of ATL code, contained within an image statement.
+In ATL, to change a displayable, simply mention it on a line of ATL code. Here, we're switching back and forth between two images.
+Since we're defining an image, the first line of ATL has to name a displayable. Otherwise, there would be nothing to show.
+The second and fourth lines are pause statements, which cause ATL to wait half of a second each before continuing. That's how we give the delay between images.
+The final line is a repeat statement. This causes the current block of ATL to be restarted. You can only have one repeat statement per block.
+If we were to write repeat 2 instead, the animation would loop twice, then stop.
+Omitting the repeat statement means that the animation stops once we reach the end of the block of ATL code.
+By default, displayables are replaced instantaneously. We can also use a with clause to give a transition between displayables.
+Now, let's move on to see how we can use ATL to transform an image. We'll start off by seeing what we can do to position images on the screen.
+Perhaps the simplest thing we can do is to position the images on the screen. This can be done by simply giving the names of the transform properties, each followed by the value.
+With a few more statements, we can move things around on the screen.
+This code starts the image off at the top-right of the screen, and waits a second.
+It then moves it to the left side, waits another second, and repeats.
+The pause and repeat statements are the same statements we used in our animations. They work throughout ATL code.
+Having the image jump around on the screen isn't all that useful. That's why ATL has the interpolation statement.
+The interpolation statement allows you to smoothly vary the value of a transform property, from an old to a new value.
+Here, we have an interpolation statement on the second ATL line. It starts off with the name of a time function, in this case linear.
+That's followed by an amount of time, in this case three seconds. It ends with a list of properties, each followed by its new value.
+The old value is the value of the transform property at the start of the statement. By interpolating the property over time, we can change things on the screen.
+ATL supports more complicated move types, like circle and spline motion. But I won't be showing those here.
+Next, let's take a look at some of the transform properties that we can change using ATL.
+We've already seen the position properties. Along with xalign and yalign, we support the xpos, ypos, xanchor, and yanchor properties.
+We can perform a pan by using xpos and ypos to position images off of the screen.
+This usually means giving them negative positions.
+The zoom property lets us scale the displayable by a factor, making it bigger and smaller. For best results, zoom should always be greater than 0.5.
+The xzoom and yzoom properties allow the displayable to be scaled in the X and Y directions independently.
+The size property can be used to set a size, in pixels, that the displayable is scaled to.
+The alpha property allows us to vary the opacity of a displayable. This can make it appear and disappear.
+The rotate property lets us rotate a displayable.
+Since rotation can change the size, usually you'll want to set xanchor and yanchor to 0.5 when positioning a rotated displayable.
+The crop property crops a rectangle out of a displayable, showing only part of it.
+When used together, they can be used to focus in on specific parts of an image.
+Apart from displayables, pause, interpolation, and repeat, there are a few other statements we can use as part of ATL.
+When we create an ATL transform using the transform statement, we can use that transform as an ATL statement.
+Since the default positions are also transforms, this means that we can use left, right, and center inside of an ATL block.
+Here, we have two new statements. The block statement allows you to include a block of ATL code. Since the repeat statement applies to blocks, this lets you repeat only part of an ATL transform.
+We also have the time statement, which runs after the given number of seconds have elapsed from the start of the block. It will run even if another statement is running, stopping the other statement.
+So this code will bounce the image back and forth for eleven and a half seconds, and then move back to the right side of the screen.
+The parallel statement lets us run two blocks of ATL code at the same time.
+Here, the top block move the image in the horizontal direction, and the bottom block moves it in the vertical direction. Since they're moving at different speeds, it looks like the image is bouncing on the screen.
+Finally, the choice statement makes Ren'Py randomly pick a block of ATL code. This allows you to add some variation as to what Ren'Py shows.
+This tutorial game has only scratched the surface of what you can do with ATL. For example, we haven't even covered the on and event statements. For more information, you might want to check out the ATL chapter in the reference manual.
+But for now, just remember that when it comes to animating and transforming, ATL is the hot new thing.
+Ren'Py gives a number of ways of interacting with the user.
+You've already seen say statements and menus.
+But were you aware that you can have dialogue and menus onscreen at the same time?
+Good!
+Well, now you know.
+We can also prompt the user to enter some text.
+My name is [povname!t].
+Imagemaps let the user click on an image to make a choice. For example, the following screen lets you pick what to do after school:
+You chose swimming.
+Swimming seems like a lot of fun, but I didn't bring my bathing suit with me.
+You chose science.
+I've heard that some schools have a competitive science team, but to me research is something that can't be rushed.
+You chose art.
+Really good background art is hard to make, which is why so many games use filtered photographs. Maybe you can change that.
+You chose to go home.
+Anyway...
+We also support viewports, that allow us to display things that are bigger than the screen.
+This viewport can be adjusted by dragging, by the mouse wheel, and by the scrollbars.
+Viewports also support edge scrolling, which is automatic scrolling when the mouse reaches their edge.
+While these constructs are probably enough for most visual novels, dating simulations may be more complicated.
+The ui functions allow you to create quite complicated interfaces.
+For example, try the following scheduling and stats screen, which could be used by a stat-based dating simulation.
+For a better implementation of this, take a look at the dating sim engine (DSE) that ships with Ren'Py.
+The ui functions can be also be used to show the sorts of stats you'd need if your game involves combat.
+Hopefully, the ui functions will let you write whatever visual novel or dating sim you want.
+The DynamicDisplayable function lets you change what's displayed over the course of an interaction.
+This makes it possible to display things like countdown timers and progress bars.
+Remember, people read at different speeds, so it's probably better to use this for flavor, rather then to make games time-sensitive.
+Image operations allow us to manipulate images as they are loaded in.
+They're efficient, as they are only evaluated when an image is first loaded.
+This way, there's no extra work that needs to be done when each frame is drawn to the screen.
+Let me show you a test image, the Ren'Py logo.
+We'll be applying some image operations to it, to see how they can be used.
+The im.Crop operation can take the image, and chop it up into a smaller image.
+The im.Composite operation lets us take multiple images, and draw them into a single image.
+While you can do this by showing multiple images, this is often more efficient.
+There's also LiveComposite, which is less efficent, but allows for animation.
+It isn't really an image operation, but we don't know where else to put it.
+The im.Scale operation lets us scale an image to a particular size.
+im.FactorScale lets us do the same thing, except to a factor of the original size.
+The im.Map operation lets us mess with the red, green, blue, and alpha channels of an image.
+In this case, we removed all the red from the image, leaving only the blue and green channels.
+The im.Recolor operation can do the same thing, but is more efficient when we're linearly mapping colors.
+The im.Twocolor operation lets you take a black and white image, like this one...
+... and assign colors to replace black and white.
+The im.MatrixColor operation lets you use a matrix to alter the colors. With the right matrix, you can desaturate colors...
+... tint the image blue...
+... rotate the hue... 
+... or invert the colors, for a kinda scary look.
+It can even adjust brightness and contrast.
+We've made some of the most common matrices into image operators.
+im.Grayscale can make an image grayscale...
+... while im.Sepia can sepia-tone an image.
+The im.Alpha operation can adjust the alpha channel on an image, making things partially transparent.
+It's useful if a character just happens to be ghost.
+But that isn't the case with me.
+Finally, there's im.Flip, which can flip an image horizontally or vertically.
+I think the less I say about this, the better.
+Ren'Py lets you define layers, and show images on specific layers.
+The "onlayer" clause of the scene, show, and hide statements lets us pick which layers the commands affect.
+As you can see, layers do not have to take up the entire screen. When a layer doesn't, images are clipped to the layer.
+The "as" clause lets you change the tag of an image.
+This is useful when you want to show two copies of the same image.
+Or if a character has a twin.
+You can use "show expression" to show things that aren't just images, like text.
+The "behind" clause lets you place an image behind another.
+Finally, the "show layer" statement allows you to apply a transform to an entire layer.
+And that's it for layers and advanced show.
+As someone who has played more than a few visual novels, there are many features that I expect all games to have.
+Features like saving, loading, changing preferences, and so on.
+One of the nice things about Ren'Py is that the engine provides many of these features for you. You can spend your time creating your game, and let us provide these things.
+While you're in the game, you can access the game menu by right clicking or hitting the escape key.
+When you first enter the game menu, you'll see the save screen. Clicking on a numbered slot will save the game.
+Unlike other engines, Ren'Py doesn't limit the number of save slots that you can use.
+The load screen looks quite similar to the save screen, and lets you load a game from a save slot.
+It also lets you load one of the auto-saves that Ren'Py makes for you.
+The other screen of the game menu is the preferences screen.
+This screen lets you decide how Ren'Py displays, pick what Ren'Py skips, control text speed and auto-click speed, and adjust sound, music, and voice volumes.
+The game menu also lets you end the game and return to the main menu, or quit Ren'Py entirely.
+While the default game menus look a bit generic, with a little work they can be customized or even entirely replaced, allowing you to create menus as unique as your game.
+While inside the game, there are a few more things you can do.
+When I'm liking a visual novel, I want to see all the endings. Ren'Py's skip function lets me easily do this, by skipping text that I've already seen.
+I can skip a few lines by holding down Control, or I can toggle skip mode by pressing tab.
+By default, we only skip read text, so this won't do anything the first time through the game.
+Pressing the 's' key saves a screenshot to disk, so I can upload pictures of the game to websites like {a=http://www.renpy.org}renpy.org{/a}.
+Finally, there's rollback, which lets you go back in time to previous screens, letting you re-read text.
+Would you like to hear more about rollback?
+You can invoke a rollback by scrolling the mouse wheel up, or by pushing the page up key. That'll bring you back to the previous screen.
+While at a previous screen, you can roll forward by scrolling the mouse wheel down, or pushing the page down key.
+Rolling forward through a menu will make the same choice you did last time. But unlike other engines, Ren'Py's rollback system allows you to make a different choice.
+You can try it by rolling back through the last menu, and saying 'No'.
+Press page up, or scroll up the mouse wheel.
+Well, are you going to try it?
+Your loss.
+Moving on.
+By allowing Ren'Py to take care of out-of-game issues like loading and saving, you can focus on making your game, while still giving users the experience they've come to expect.
+Ren'Py supports a sprite system, which allows many similar objects to be shown on the screen at once.
+The background behind me consists of one hundred and seventy-five stars, being moved at several different speeds, to give a starflight effect.
+The OpenGL system should be able to animate this smoothly, but you might see a bit of stuttering if your computer is using software.
+You'll need to decide which older systems to support.
+The sprite manager requires you to write a python function to move the sprites around.
+In many cases, all you need is something moving around the screen - like cherry blossoms, or snow.
+That's what the snowblossom function gives you - a simple way to have things falling from the top of the screen.
+And that's it for sprites.
+NVL-style games are games that cover the full screen with text, rather then placing it in a file at the bottom of the screen.
+Ren'Py ships with a file, nvl_mode.rpy, that implements NVL-style games. You're seeing an example of NVL-mode at work.
+To use NVL-mode, you need to define Characters with a kind=nvl.
+You use 'nvl clear' to clear the screen when that becomes necessary.
+The 'nvl show' and 'nvl hide' statements use transitions to show and hide the NVL window.
+The nvl_erase function removes a line from the screen.
+Like that.
+The nvl_mode also supports showing menus to the user, provided they are the last thing on the screen. Understand?
+Good!
+Well, it might help if you take a look at the demo code.
+You can specify transitions that occur when going from NVL-mode to ADV-mode.
+As well as when going from ADV-mode to NVL-mode.
+Text tags like {{w}{w} work in NVL-mode.
+ As does the "extend" special character.
+And that's it for NVL-mode.
+You may want to mix Ren'Py with other forms of gameplay. There are many ways to do this.
+The first is with the UI functions, which can be used to create powerful button and menu based interfaces.
+These are often enough for many simulation-style games.
+We also have two more ways in which Ren'Py can be extended. Both require experience with Python programming, and so aren't for the faint of heart.
+Renpygame is a library that allows pygame games to be run inside Ren'Py.
+When using renpygame, Ren'Py steps out of the way and gives you total control over the user's experience.
+You can get renpygame from the Frameworks page of the Ren'Py website.
+If you want to integrate your code with Ren'Py, you can write a user-defined displayable.
+User-defined displayables are somewhat more limited, but integrate better with the rest of Ren'Py.
+For example, one could support loading and saving while a user-defined displayable is shown.
+Now, why don't we play some pong?
+I win!
+You won! Congratulations.
+Would you like to play again?
+Remember to be careful about putting minigames in a visual novel, since not every visual novel player wants to be good at arcade games.
+Probably the best way to learn Ren'Py is to see it in action. In this tutorial, I'll be showing you some of the things Ren'Py can do, and also showing you how to do them.
+Code examples will show up in a window like the one above. You'll need to click outside of the example window in order to advance the tutorial.
+When an example is bigger than the screen, you can scroll around in it using the mouse wheel or by simply dragging the mouse.
+To create a new project, you can click New Project in the Ren'Py launcher.
+If it's your first time making a Ren'Py game, you'll be asked to pick a directory to store your projects in.
+You'll then be asked for the name of the project, and also to choose a theme for the interface.
+Once that's done, Ren'Py will automatically create a directory and fill it with the files needed to make a project.
+If you have Java installed, you'll be able to click Edit Script to open your project's script.
+Let's see the simplest possible Ren'Py game.
+Wow, It's really really dark in here.
+Better watch out. You don't want to be eaten by a Grue.
+I'll show you the code for that example.
+This code demonstrates two kinds of Ren'Py statements, labels and say statements.
+The first line is a label statement. The label statement is used to give a name to a place in the program.
+In this case, we're naming a place "start". The start label is special, as it marks the place a game begins running.
+The next line is a simple say statement. It consists of a string beginning with a double-quote, and ending at the next double-quote.
+Special characters in strings can be escaped with a backslash. To include " in a string, we have to write \".
+Wow, It's really really dark in here.
+When Ren'Py sees a single string on a line by itself, it uses the narrator to say that string. So a single string can be used to express a character's thoughts.
+Better watch out. You don't want to be eaten by a Grue.
+When we have two strings separated by a space, the first is used as the character's name, and the second is what the character is saying.
+This two-argument form of the say statement is used for dialogue, where a character is speaking out loud.
+If you'd like, you can run this game yourself by erasing everything in your project's script.rpy file, and replacing it with the code in the box above.
+Be sure to preserve the spacing before lines. That's known as indentation, and it's used to help Ren'Py group lines of script into blocks.
+Using a string for a character's name is inconvenient, for two reasons.
+The first is that's it's a bit verbose. While typing "Lucy" isn't so bad, imagine if you had to type "Eileen Richardson" thousands of times.
+The second is that it doesn't leave any place to put styling, which can change the look of a character.
+To solve these problems, Ren'Py lets you define Characters.
+Here's an example Character definition. It begins with the word "define". That tells Ren'Py that we are defining something.
+Define is followed by a short name for the character, like "l". We'll be able to use that short name when writing dialogue.
+This is followed by an equals sign, and the thing that we're defining. In this case, it's a Character.
+On the first line, the character's name is given to be "Lucy", and her name will be drawn a reddish color.
+These short names are case-sensitive. Capital L is a different name from lower-case l, so you'll need to be careful about that.
+Now that we have a character defined, we can use it to say dialogue.
+Why are you trying to put words into my mouth? And who are you calling "it"?
+What's more, what are you going to do about the Grue problem? Are you just going to leave me here?
+Here's the full game, including the two new lines of dialogue, both of which use the Character we defined to say dialogue.
+The one-argument form of the say statement is unchanged, but in the two-argument form, instead of the first string we can use a short name.
+When this say statement is run, Ren'Py will look up the short name, which is really a Python variable. It will then use the associated Character to show the dialogue.
+The Character object controls who is speaking, the color of their name, and many other properties of the dialogue.
+Since the bulk of a visual novel is dialogue, we've tried to make it as easy to write as possible.
+Hopefully, by allowing the use of short names for characters, we've succeeded.
+A visual novel isn't much without images. So let's add some images to our little game.
+Before we can show images, we must first put the image files into the game directory.
+The easiest way to open the game directory is to click the Game Directory button in the Ren'Py launcher.
+All of the image files we'll be using here are in the game directory, under the tutorial directory, under the Ren'Py directory.
+Here are some sample image definitions. They should be placed at the start of the file, without any indentation.
+The image statement begins with the keyword "image", which is followed by an image name, a space-separated list of words.
+The first word in the image name is the image tag. For the first image the tag is "bg", and for the others, it's "lucy".
+This is followed by an equals sign, and a string giving an image name.
+A string giving an image name is only one of the dozens of kinds of displayable that Ren'Py supports.
+Let's see what those look like in the game.
+Now that the lights are on, we don't have to worry about Grues anymore.
+But what's the deal with me being in a cave? Eileen gets to be out in the sun, and I'm stuck here!
+Here's the script for that scene. Notice how it includes two new statements, the scene and show statement.
+The scene statement clears the screen, and then adds a background image.
+The show statement adds a background image on top of all the other images on the screen.
+If there was already an image with the same tag, the new image is used to replace the old one.
+Changes to the list of shown images take place instantly, so in the example, the user won't see the background by itself.
+The second show statement has an at clause, which gives a location on the screen. Common locations are left, right, and center, but you can define many more.
+In this example, we show an image named logo base, and we show it at a user-defined position, logopos.
+We also specify that it should be shown behind another image, in this case eileen. That's me.
+Finally, there's the hide statement, which hides the image with the given tag.
+Since the show statement replaces an image, and the scene statement clears the scene, it's pretty rare to hide an image.
+The main use is for when a character or prop leaves before the scene is over.
+It can be somewhat jarring for the game to jump from place to place.
+To help take some of edge off a change in scene, Ren'Py supports the use of transitions. Let's try that scene change again, but this time we'll use transitions.
+That's much smoother. Here's some example code showing how we include transitions in our game.
+It uses the with statement. The with statement causes the scene to transition from the last things shown to the things currently being shown.
+It takes a transition as an argument. In this case, we're using the Dissolve transition. This transition takes as an argument the amount of time the dissolve should take.
+In this case, each transition takes half a second.
+We can define a short name for a transition, using the define statement. Here, we're defining slowdissolve to be a dissolve that takes a whole second.
+Once a transition has been given a short name, we can use it in our game.
+Ren'Py defines some transitions for you, like dissolve, fade, and move. For more complex or customized transitions, you'll have to define your own.
+If you're interested, check out the Transitions Gallery section of the tutorial.
+Another important part of a visual novel or simulation game is the soundtrack.
+Ren'Py breaks sound up into channels. The channel a sound is played on determines if the sound loops, and if it is saved and restored with the game.
+When a sound is played on the music channel, it is looped, and it is saved when the game is saved.
+When the channel named sound is used, the sound is played once and then stopped. It isn't saved.
+The sounds themselves are stored in audio files. Ren'Py supports the Ogg Vorbis, mp3, mp2, and wav file formats.
+Let's check out some of the commands that can effect the music channel.
+The play music command replaces the currently playing music, and replaces it with the named filename.
+If you specify the currently-playing song, it will restart it.
+If the optional fadeout clause is given, it will fade out the currently playing music before starting the new music.
+The queue statement also adds music to the named channel, but it waits until the currently-playing song is finished before playing the new music.
+The third statement is the stop statement. It stops the music playing on a channel. It too takes the fadeout clause.
+Unlike the music channel, playing a sound on the sound channel causes it to play only once.
+You can queue up multiple sounds on the sound channel, but they will only play one at a time.
+Ren'Py has separate mixers for sound, music, and voices, so the player can adjust them as he likes.
+Many visual novels require the player to make choices from in-game menus. These choices can add some challenge to the game, or adjust it to the player's preferences.
+Do you think your game will use menus?
+While creating a multi-path visual novel can be a bit more work, it can yield a unique experience.
+Games without menus are called kinetic novels, and there are dozens of them available to play.
+Here, you can see the code for that menu. If you scroll down, you can see the code we run after the menu.
+Menus are introduced by the menu statement. The menu statement takes an indented block, in which each line must contain a choice in quotes.
+The choices must end with a colon, as each choice has its own block of Ren'Py code, that is run when that choice is selected.
+Here, each block jumps to a label. While you could put small amounts of Ren'Py code inside a menu label, it's probably good practice to usually jump to a bigger block of code.
+Scrolling down past the menu, you can see the labels that the menu jumps to. There are three labels here, named choice1_yes, choice1_no, and choice1_done.
+When the first menu choice is picked, we jump to the choice1_yes, which runs two lines of script before jumping to choice1_done.
+Similarly, picking the second choice jumps us to choice1_no, which also runs two lines of script.
+The lines beginning with the dollar sign are lines of python code, which are used to set a flag based on the user's choice.
+The flag is named menu_flag, and it's set to True or False based on the user's choice. The if statement can be used to test a flag, so the game can remember the user's choices.
+For example, I remember that you plan to use menus in your game.
+For example, I remember that you're planning to make a kinetic novel, without menus.
+Here's an example that shows how we can test a flag, and do different things if it is true or not.
+Although we won't demonstrate it here, Ren'Py supports making decisions based on a combinations of points, flags, and other factors.
+One of Ren'Py's big advantages is the flexibility using a scripting language like Python provides us. It lets us easily scale from kinetic novels to complex simulation games.
+We look forward to seeing what you make with it.
+Hi! My name is Eileen, and I'd like to welcome you to the Ren'Py tutorial.
+In this tutorial, we'll teach you the basics of Ren'Py, so you can make games of your own. We'll also demonstrate many features, so you can see what Ren'Py is capable of.
+Thank you for viewing this tutorial.
+If you'd like to see a full Ren'Py game, select "The Question" in the launcher.
+You can download new versions of Ren'Py from {a=http://www.renpy.org/}http://www.renpy.org/{/a}. For help and discussion, check out the {a=http://lemmasoft.renai.us/forums/}Lemma Soft Forums{/a}.
+We'd like to thank Piroshki for contributing my sprites, Mugenjohncel for Lucy and the band, and Jake for the magic circle.
+The background music is "Sunflower Slow Drag", by Scott Joplin and Scott Hayden, performed by the United States Marine Band. The concert music is by Alessio.
+We look forward to seeing what you can make with Ren'Py. Have fun!
+The Transform function allows you to rotate, zoom, move, and adjust the alpha of a displayable.
+It does this under the control of a Python function, making it incredibly flexible at the cost of some complexity.
+Here's a simple example, showing how we can change an image as it moves around the screen.
+A nice thing about Transform is that it's "one price".
+If you use it to do a rotation, you can zoom or adjust alpha at no additional cost.
+As the python functions get more complicated, more advanced behavior is possible.
+This can include coordinating more than one Transform.
+Finally, transforms can be applied to buttons, and work even while the button is zoomed.
+With a little Python code, transforms let you do a lot of things.
+Ren'Py supports per-game and multi-game persistent data.
+Persistent data can store flags and other per-game information that should be shared between plays of a single game.
+For example, I can tell you that you've see this line [plays] time(s) since you cleared the per-game persistent data.
+Multipersistent data is shared between games, which lets one game unlock features in a second.
+A sequel might play differently if the player has beaten the first game.
+According to the multipersistent data, you've seen this line [plays] times total.

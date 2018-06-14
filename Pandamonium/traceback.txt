@@ -1,0 +1,21 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 981, in script
+    hide pda backpack
+ScriptError: could not find label 'grammarcorrect4'.
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 981, in script
+    hide pda backpack
+  File "/Users/yeelissa/Documents/renpy/renpy/ast.py", line 1527, in execute
+    rv = renpy.game.script.lookup(target)
+  File "/Users/yeelissa/Documents/renpy/renpy/script.py", line 858, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'grammarcorrect4'.
+
+Darwin-17.3.0-x86_64-i386-64bit
+Ren'Py 6.99.12.4.2187
+Pandamonium 1.0

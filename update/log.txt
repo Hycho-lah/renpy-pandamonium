@@ -1,0 +1,2 @@
+running ['/Users/yeelissa/Desktop/renpy-6.99.12.4-sdk/renpy.app/Contents/MacOS/lib/darwin-x86_64/zsync', '-o', '/Users/yeelissa/Desktop/renpy-6.99.12.4-sdk/update/editra-mac.update.new', '-k', '/Users/yeelissa/Desktop/renpy-6.99.12.4-sdk/update/editra-mac.zsync', '-i', '/Users/yeelissa/Desktop/renpy-6.99.12.4-sdk/update/editra-mac.update', 'http://update.renpy.org/6.99.12.4/renpy-6.99.12.4-editra-mac.zsync']
+partfile does not exist

@@ -1,0 +1,617 @@
+Identifier	Character	Dialogue	Filename	Line Number
+		Eileen	game/demo_character.rpy	6
+demo_character_16897d85	e	The Character object is used to declare characters, and it can also be used to customize the way in which a character speaks.	game/demo_character.rpy	45
+demo_character_7ad48073	e	By supplying it with the appropriate arguments, we can really change around the feel of the game.	game/demo_character.rpy	47
+demo_character_6fc5bef5	e	In this section, we'll demonstrate some of what can be accomplished by customizing character objects.	game/demo_character.rpy	49
+demo_character_2edcd1df	equote	By supplying what_prefix and what_suffix arguments to a Character object, we can automatically add things before each line of text.	game/demo_character.rpy	51
+demo_character_3ba649df	equote	This is a lot easier than having to put those quotes in by hand.	game/demo_character.rpy	53
+demo_character_48dc5333	equote	We can also use who_prefix and who_suffix to add text to the name of the speaker.	game/demo_character.rpy	55
+demo_character_77ce5256	e	We can also supply arguments to the Character object that customize the look of the character name, the text that is being said, and the window itself.	game/demo_character.rpy	57
+demo_character_fceb39fb	eweird	These can really change the look of the game.	game/demo_character.rpy	59
+demo_character_92ae524c	eside	A more practical use of that is in conjunction with show_side_image, which lets us position an image next to the text.	game/demo_character.rpy	61
+demo_character_ba09ee13	etwo	There's also show_two_window, which puts the character's name in its own window.	game/demo_character.rpy	63
+demo_character_91f8f1cc	ectc	Finally, we demonstrate a click to continue indicator. In this example, it's nestled in with the text.	game/demo_character.rpy	65
+demo_character_90e5383f	ectcf	A click to continue image can also be placed at a fixed location on the screen.	game/demo_character.rpy	67
+demo_character_4a210bad	e	There's a lot more you can do with Character, as it lets you set style properties on all of the displayed text.	game/demo_character.rpy	69
+demo_character_0393756f	e	Finally, let me point out a couple of special characters we pre-define.	game/demo_character.rpy	71
+demo_character_29688b7c	centered	The \"centered\" character shows text at the center of the screen, without a window.	game/demo_character.rpy	76
+demo_character_496243d7	centered	It's just a highly customized normal character, that's useful for dates and titles.	game/demo_character.rpy	78
+demo_character_e79e9042	e	The \"extend\" character is very special.	game/demo_character.rpy	83
+demo_character_0b55b872	e	It lets you	game/demo_character.rpy	85
+demo_character_7c80c8fc	extend	 extend the previous dialogue	game/demo_character.rpy	89
+demo_character_645bb443	extend	 with additional text.	game/demo_character.rpy	93
+demo_character_170d938b	e	That lets you have things happen in the middle of text. If you didn't notice, I was changing my expression.	game/demo_character.rpy	95
+demo_character_4adb20a9	e	Hopefully, these characters, along with the ones you define, will lead to a very expressive game.	game/demo_character.rpy	97
+		Start Game	game/screens.rpy	194
+		Load Game	game/screens.rpy	195
+		Preferences	game/screens.rpy	196
+		Help	game/screens.rpy	197
+		Save Game	game/screens.rpy	230
+		Main Menu	game/screens.rpy	232
+		Previous	game/screens.rpy	266
+		Auto	game/screens.rpy	269
+		Quick	game/screens.rpy	272
+		Next	game/screens.rpy	279
+		Empty Slot.	game/screens.rpy	305
+		Display	game/screens.rpy	361
+		Window	game/screens.rpy	362
+		Transitions	game/screens.rpy	369
+		All	game/screens.rpy	370
+		None	game/screens.rpy	371
+		Text Speed	game/screens.rpy	377
+		Joystick...	game/screens.rpy	384
+		Language	game/screens.rpy	391
+		Skip	game/screens.rpy	406
+		Seen Messages	game/screens.rpy	407
+		All Messages	game/screens.rpy	408
+		Begin Skipping	game/screens.rpy	414
+		After Choices	game/screens.rpy	420
+		Stop Skipping	game/screens.rpy	421
+		Keep Skipping	game/screens.rpy	422
+		Auto-Forward Time	game/screens.rpy	428
+		Wait for Voice	game/screens.rpy	432
+		Music Volume	game/screens.rpy	439
+		Sound Volume	game/screens.rpy	446
+		Test	game/screens.rpy	450
+		Voice Volume	game/screens.rpy	459
+		Voice Sustain	game/screens.rpy	462
+		Yes	game/screens.rpy	523
+		No	game/screens.rpy	524
+		Back	game/screens.rpy	552
+		Save	game/screens.rpy	553
+		Q.Save	game/screens.rpy	554
+		Q.Load	game/screens.rpy	555
+		F.Skip	game/screens.rpy	557
+		Prefs	game/screens.rpy	559
+demo_text_ff47a1f2	e	Ren'Py gives you quite a bit of control over how text appears.	game/demo_text.rpy	65
+demo_text_ab9b2f08	e	Text tags let us control the appearance of text that is shown to the user.	game/demo_text.rpy	67
+demo_text_12663c84	e	Text tags can make text bold, italic, struckthrough, or underlined.	game/demo_text.rpy	69
+demo_text_bdfcba5a	e	They can make the font size bigger or smaller.	game/demo_text.rpy	71
+demo_text_4230bb93	e	They let you pause the display of the text, optionally withline breaks.	game/demo_text.rpy	73
+demo_text_e8aec30a	e	They let you include images inside text Neat	game/demo_text.rpy	75
+demo_text_b647b4d4	e	We can pause the text for a short time, and have it auto-advance. Just like that.	game/demo_text.rpy	77
+demo_text_90c83bb6	eslow	We can even have the text auto-advance,	game/demo_text.rpy	79
+demo_text_a134abb3	extend	 when we reach the end of a block of text, in slow text mode.	game/demo_text.rpy	82
+demo_text_d2b1ebbe	e	They can change the color of the text.	game/demo_text.rpy	84
+demo_text_6d050f89	e	The kerning tag lets you adjust the spacing between characters.\nThe spacing between characters can be increased.\nThe spacing between characters can be decreased.	game/demo_text.rpy	88
+demo_text_e8835287	eruby	You are able to write ruby text, which can help clarify how to pronounce words, like Ren'Pyren-pie.	game/demo_text.rpy	90
+demo_text_6e1b95f0	e	Hyperlinks let buttons be defined using text tags.	game/demo_text.rpy	92
+demo_text_245e745a	e	The space and vspace tags add  horizontal and vertical space, respectively.	game/demo_text.rpy	94
+demo_text_362f67bb	e	You can define your own text tags, that use a style you define.	game/demo_text.rpy	96
+demo_text_9225af3b	e	If you find yourself using text tags on every line, you should probably look at style properties instead.	game/demo_text.rpy	98
+demo_text_3b409933	e	Used with care, text tags can enhance your game.	game/demo_text.rpy	100
+demo_text_fcb34ec8	e	Used with abandon, they can make your game hard to read.	game/demo_text.rpy	102
+demo_text_3154619a	e	With great power comes great responsibility, after all.	game/demo_text.rpy	104
+demo_text_12873855	e	And we want to give you all the power you need.	game/demo_text.rpy	106
+demo_text_63b9c010	e	There are a couple of text adjustments that don't correspond to text tags.	game/demo_text.rpy	108
+demo_text_1a6f274c	eoutline	The outlines setting lets you put outlines around the text.	game/demo_text.rpy	110
+demo_text_c130dcd4	eoutline	You can have more than one outline, and each has its own color and offset.	game/demo_text.rpy	112
+demo_text_9eb0448e	esubtitle	Here, we have two outlines around the white text.	game/demo_text.rpy	116
+demo_text_eb22992d	esubtitle	The bottom one is a translucent black that's offset a little, while the top one is green.	game/demo_text.rpy	118
+demo_text_7067acb5	esubtitle	By hiding the window and adjusting the layout method, we are able to create reasonable subtitles.	game/demo_text.rpy	120
+demo_text_123ff836	esubtitle	This might be an interesting look for a game.	game/demo_text.rpy	122
+demo_text_d742e133	esfont	For even more control, Ren'Py supports SFonts, image files containing font information.	game/demo_text.rpy	126
+demo_text_2a8833c0	esfont	SFonts let you use fonts you otherwise couldn't, and apply special effects to fonts using your favorite image editor.	game/demo_text.rpy	128
+demo_text_418ffc27	e	Well, that's it for fonts and text tags.	game/demo_text.rpy	130
+define_hyperlink_8863ed04	definition	A hyperlink is a button that is defined inside text, using text tags. They're ideal for including definitions of words used in the script, but they shouldn't be used in place of menus.	game/demo_text.rpy	138
+demo_transitions_5bbc72fe	e	Ren'Py ships with a large number of built-in transitions, and also includes classes that let you define your own.	game/demo_transitions.rpy	44
+demo_transitions_menu_3caf78d3	e	What kind of transitions would you like demonstrated?	game/demo_transitions.rpy	46
+		Simple Transitions	game/demo_transitions.rpy	46
+		ImageDissolve Transitions	game/demo_transitions.rpy	46
+		MoveTransition Transitions	game/demo_transitions.rpy	46
+		CropMove Transitions	game/demo_transitions.rpy	46
+		PushMove Transitions	game/demo_transitions.rpy	46
+		AlphaDissolve Transitions	game/demo_transitions.rpy	46
+			game/demo_transitions.rpy	46
+		How about something else?	game/demo_transitions.rpy	46
+demo_simple_transitions_2b4fbae3	e	Okay, I can tell you about simple transitions. We call them simple because they don't take much in the way of configuration.	game/demo_transitions.rpy	85
+demo_simple_transitions_4b235ac2	e	But don't let that get you down, since they're the transitions you'll probably use the most in a game.	game/demo_transitions.rpy	87
+demo_simple_transitions_af0431ac	e	The 'dissolve' transition is probably the most useful, blending one scene into another.	game/demo_transitions.rpy	92
+demo_simple_transitions_5b9f711f	e	The 'Dissolve' function lets you create your own dissolves, taking a different amount of time.	game/demo_transitions.rpy	97
+demo_simple_transitions_79816523	e	The 'fade' transition fades to black, and then fades back in to the new scene.	game/demo_transitions.rpy	102
+demo_simple_transitions_141bb95d	e	If you're going to stay at a black screen, you'll probably want to use 'dissolve' rather than 'fade'.	game/demo_transitions.rpy	104
+demo_simple_transitions_f059f4ae	e	You can use 'Fade' to define your own fades. By changing the timing and the color faded to, you can use this for special effects, like flashbulbs.	game/demo_transitions.rpy	108
+demo_simple_transitions_e948905b	e	The 'pixellate' transition pixellates out the old scene, switches to the new scene, and then unpixellates that.	game/demo_transitions.rpy	113
+demo_simple_transitions_6a1ae05f	e	It's probably not appropriate for most games, but we think it's kind of neat.	game/demo_transitions.rpy	115
+demo_simple_transitions_bdfcd85a	e	You can use 'Pixellate' to change the details of the pixellation.	game/demo_transitions.rpy	118
+demo_simple_transitions_432f7224	e	Motions can also be used as transitions.	game/demo_transitions.rpy	120
+demo_simple_transitions_a20cefa7		...	game/demo_transitions.rpy	122
+demo_simple_transitions_0fd4d656		......	game/demo_transitions.rpy	124
+demo_simple_transitions_fbf11906	e	Hey! Pay attention.	game/demo_transitions.rpy	129
+demo_simple_transitions_51c1c5b8	e	I was about to demonstrate 'vpunch'... well, I guess I just did.	game/demo_transitions.rpy	131
+demo_simple_transitions_57f19473	e	We can also shake the screen horizontally, with 'hpunch'. These were defined using the 'Move' function.	game/demo_transitions.rpy	136
+demo_simple_transitions_fce83e12	e	There's also the 'move' transition, which is confusingly enough defined using the 'MoveTransition' function.	game/demo_transitions.rpy	138
+demo_simple_transitions_1050b6a4	e	The 'move' transition finds images that have changed placement, and slides them to their new place. It's an easy way to get motion in your game.	game/demo_transitions.rpy	145
+demo_simple_transitions_fbb1838e	e	Finally, there's 'Pause', which lets you define a transition that just waits for a given amount of time.	game/demo_transitions.rpy	147
+demo_simple_transitions_654a7a87	e	Why would you want to do that?	game/demo_transitions.rpy	149
+demo_simple_transitions_3b8c0bce	e	It's because clicking during a sequence of transitions will skip all of the remaining transitions.	game/demo_transitions.rpy	151
+demo_simple_transitions_6cad71a4	e	Try clicking during the following transitions:	game/demo_transitions.rpy	153
+demo_simple_transitions_c75a0d2d	e	Having 'Pause' makes it easy to implement skippable cut-scenes in terms of transitions.	game/demo_transitions.rpy	161
+demo_simple_transitions_4632f134	e	Anyway, that's it for the simple transitions.	game/demo_transitions.rpy	163
+demo_imagedissolve_transitions_2db67018	e	Perhaps the most flexible kind of transition is the ImageDissolve, which lets you use an image to control a dissolve.	game/demo_transitions.rpy	170
+demo_imagedissolve_transitions_429f8d03	e	This lets us specify very complex transitions, fairly simply. Let's try some, and then I'll show you how they work.	game/demo_transitions.rpy	172
+demo_imagedissolve_transitions_1ce501b0	e	There are two ImageDissolve transitions built into Ren'Py.	game/demo_transitions.rpy	174
+demo_imagedissolve_transitions_ea0413be	e	The 'blinds' transition opens and closes what looks like vertical blinds.	game/demo_transitions.rpy	185
+demo_imagedissolve_transitions_12e2e0d0	e	The 'squares' transition uses these squares to show things.	game/demo_transitions.rpy	194
+demo_imagedissolve_transitions_bbf73d1c	e	I'm not sure why anyone would want to use it, but it was used in some translated games, so we added it.	game/demo_transitions.rpy	196
+demo_imagedissolve_transitions_0ab2902d	e	The most interesting transitions aren't in the standard library.	game/demo_transitions.rpy	198
+demo_imagedissolve_transitions_54aa9bf9	e	These ones require an image the size of the screen, and so we couldn't include them as the size of the screen can change from game to game.	game/demo_transitions.rpy	200
+demo_imagedissolve_transitions_70cfd5ed	e	You can click the button above to see how they are defined in the demo script.	game/demo_transitions.rpy	202
+demo_imagedissolve_transitions_ca316184	e	We can hide things with a 'circleirisin'...	game/demo_transitions.rpy	207
+demo_imagedissolve_transitions_b8fdf2b6	e	... and show them again with a 'circleirisout'.	game/demo_transitions.rpy	212
+demo_imagedissolve_transitions_ee427486	e	The 'circlewipe' transitions changes screens using a circular wipe effect.	game/demo_transitions.rpy	217
+demo_imagedissolve_transitions_6f089276	e	The 'dream' transition does this weird wavy dissolve, and does it relatively slowly.	game/demo_transitions.rpy	222
+demo_imagedissolve_transitions_c0b9d74d	e	The 'teleport' transition reveals the new scene one line at a time.	game/demo_transitions.rpy	227
+demo_imagedissolve_transitions_72ba11d4	e	This is the background picture used with the circleirisout transition.	game/demo_transitions.rpy	232
+demo_imagedissolve_transitions_fc3b3339	e	When we use an ImageDissolve, the white will dissolve in first, followed by progressively darker colors. Let's try it.	game/demo_transitions.rpy	234
+demo_imagedissolve_transitions_4327dca2	e	If we give ImageDissolve the 'reverse' parameter, black areas will dissolve in first.	game/demo_transitions.rpy	239
+demo_imagedissolve_transitions_3a401ee7	e	This lets circleirisin and circleirisout use the same image.	game/demo_transitions.rpy	244
+demo_imagedissolve_transitions_20d9cf6c	e	The teleport transition uses a different image, one that dissolves things in one line at a time.	game/demo_transitions.rpy	249
+demo_imagedissolve_transitions_906f7800	e	A dissolve only seems to affect parts of the scene that have changed...	game/demo_transitions.rpy	254
+demo_imagedissolve_transitions_4b557a29	e	... which is how we apply the teleport effect to a single character.	game/demo_transitions.rpy	259
+demo_imagedissolve_transitions_e16f8d3a	e	For more examples of ImageDissolve, check out the Utsukushii Effects demo.	game/demo_transitions.rpy	261
+demo_imagedissolve_transitions_b6dbf68b	e	It shows how a clever game-maker can use ImageDissolve to create all sorts of effects.	game/demo_transitions.rpy	263
+demo_cropmove_transitions_1711a91e	e	The CropMove transition class provides a wide range of transition effects. It's not used very much in practice, though.	game/demo_transitions.rpy	269
+demo_cropmove_transitions_6d82cfd7	e	I'll stand offscreen, so you can see some of its modes. I'll read out the mode name after each transition.	game/demo_transitions.rpy	274
+demo_cropmove_transitions_4427c78c	e	We first have wiperight...	game/demo_transitions.rpy	279
+demo_cropmove_transitions_6d1810a1	e	...followed by wipeleft... 	game/demo_transitions.rpy	284
+demo_cropmove_transitions_1dd1c6a1	e	...wipeup...	game/demo_transitions.rpy	289
+demo_cropmove_transitions_0ea0fa83	e	...and wipedown.	game/demo_transitions.rpy	294
+demo_cropmove_transitions_c7cb4c16	e	Next, the slides.	game/demo_transitions.rpy	296
+demo_cropmove_transitions_462a442f	e	Slideright...	game/demo_transitions.rpy	301
+demo_cropmove_transitions_f9a2e523	e	...slideleft...	game/demo_transitions.rpy	306
+demo_cropmove_transitions_20ce3e9c	e	...slideup...	game/demo_transitions.rpy	311
+demo_cropmove_transitions_9e00a7a6	e	and slidedown.	game/demo_transitions.rpy	316
+demo_cropmove_transitions_b8a710c1	e	While the slide transitions slide in the new scene, the slideaways slide out the old scene.	game/demo_transitions.rpy	318
+demo_cropmove_transitions_1efb4cd0	e	Slideawayright...	game/demo_transitions.rpy	324
+demo_cropmove_transitions_bfb5dfd7	e	...slideawayleft...	game/demo_transitions.rpy	329
+demo_cropmove_transitions_6c1a4a6f	e	...slideawayup...	game/demo_transitions.rpy	334
+demo_cropmove_transitions_1f994a7b	e	and slideawaydown.	game/demo_transitions.rpy	339
+demo_cropmove_transitions_025ef723	e	We also have a couple of transitions that use a rectangular iris.	game/demo_transitions.rpy	341
+demo_cropmove_transitions_d00d505e	e	There's irisout...	game/demo_transitions.rpy	347
+demo_cropmove_transitions_016a1e0a	e	... and irisin.	game/demo_transitions.rpy	353
+demo_cropmove_transitions_08d753ed	e	It's enough to make you feel a bit dizzy.	game/demo_transitions.rpy	355
+demo_pushmove_transitions_003e506d	e	The PushMove transitions use the new scene to push the old one out. Let's take a look.	game/demo_transitions.rpy	361
+demo_pushmove_transitions_124f375d		There's pushright...	game/demo_transitions.rpy	367
+demo_pushmove_transitions_ce380ccb		...pushleft...	game/demo_transitions.rpy	372
+demo_pushmove_transitions_77629638		...pushdown...	game/demo_transitions.rpy	377
+demo_pushmove_transitions_b7f33c95		... and pushup. And that's it the for the PushMove-based transitions.	game/demo_transitions.rpy	383
+demo_movetransition_14df0e34	e	The most common MoveTransition is move, which slides around images that have changed position on the screen.	game/demo_transitions.rpy	389
+demo_movetransition_84e40422	e	Just like that.	game/demo_transitions.rpy	394
+demo_movetransition_098ee9f1	e	There are also the moveout and movein transitions.	game/demo_transitions.rpy	396
+demo_movetransition_09748f81	e	The moveout transitions (moveoutleft, moveoutright, moveouttop, and moveoutbottom) slide hidden images off the appropriate side of the screen.	game/demo_transitions.rpy	398
+demo_movetransition_5edf6007	e	The movein transitions (moveinleft, moveinright, moveintop, and moveinbottom) slide in new images.	game/demo_transitions.rpy	400
+demo_movetransition_20946d36	e	Let's see them all in action.	game/demo_transitions.rpy	402
+demo_movetransition_569952e3	e	That's it for the moveins and moveouts.	game/demo_transitions.rpy	428
+demo_movetransition_af4c53cf	e	Finally, there are the zoomin and zoomout transtions, which show and hide things using a zoom.	game/demo_transitions.rpy	430
+demo_movetransition_dc5ccd54	e	And that's all there is.	game/demo_transitions.rpy	438
+demo_alphadissolve_3efbde9f	e	The AlphaDissolve transition lets you use one displayable to combine two others. For example...	game/demo_transitions.rpy	444
+demo_alphadissolve_7c08cf8b	e	The AlphaDissolve displayable takes a control displayable, usually an ATL transform.	game/demo_transitions.rpy	452
+demo_alphadissolve_068e3e98	e	To be useful, the control displayable should be partially transparent.	game/demo_transitions.rpy	457
+demo_alphadissolve_6a1b6203	e	During an AlphaDissolve, the old screen is used to fill the transparent areas of the image, while the new screen fills the opaque areas.	game/demo_transitions.rpy	459
+demo_alphadissolve_80a728b6	e	For our spotlight example, the old screen is this all-black image.	game/demo_transitions.rpy	463
+demo_alphadissolve_ce4380eb	e	The new screen is me just standing here.	game/demo_transitions.rpy	468
+demo_alphadissolve_2e95917b	e	By combining them using AlphaDissolve, we can build a complicated effect out of simpler parts.	game/demo_transitions.rpy	476
+tutorial_video_f34a17f5	e	Ren'Py supports playing movies. There are two ways of doing this.	../tutorial_video.rpyc	11
+tutorial_video_4aefd413	e	The first way allows you to show a movie as an image, along with every other image that's displayed on the screen.	../tutorial_video.rpyc	13
+tutorial_video_b927d009	e	To do this, we first have to define an image to be a Movie displayable. Movie displayables require a size argument, and also use properties to position themselves on the screen.	../tutorial_video.rpyc	17
+tutorial_video_fbaa71e4	e	Then, we can show the movie displayable, which starts the movie playing.	../tutorial_video.rpyc	27
+tutorial_video_bbbb242d	e	When we no longer want to play the movie, we can hide it.	../tutorial_video.rpyc	35
+tutorial_video_a66b154c	e	The other way to show a movie is with the renpy.movie_cutscene python function. This shows the movie fullscreen, either until it ends or until the user clicks.	../tutorial_video.rpyc	39
+tutorial_video_7b2dc95f	e	And that's all there is when it comes to movie playback in Ren'Py.	../tutorial_video.rpyc	47
+tutorial_positions_a09a3fd1	e	In this tutorial, I'll teach you how Ren'Py positions things on the screen. But before that, let's learn a little bit about how Python handles numbers.	../tutorial_atl.rpyc	187
+tutorial_positions_ba39aabc	e	There are two main kinds of numbers in Python: integers and floating point numbers. An integer consists entirely of digits, while a floating point number has a decimal point.	../tutorial_atl.rpyc	189
+tutorial_positions_a60b775d	e	For example, 100 is an integer, while 0.5 is a floating point number, or float for short. In this system, there are two zeros: 0 is an integer, and 0.0 is a float.	../tutorial_atl.rpyc	191
+tutorial_positions_7f1a560c	e	Ren'Py uses integers to represent absolute coordinates, and floats to represent fractions of an area with known size.	../tutorial_atl.rpyc	193
+tutorial_positions_8e7d3e52	e	When we're positioning something, the area is usually the entire screen.	../tutorial_atl.rpyc	195
+tutorial_positions_fdcf9d8b	e	Let me get out of the way, and I'll show you where some positions are.	../tutorial_atl.rpyc	197
+tutorial_positions_76d7a5bf	e	The origin is the upper-left corner of the screen. That's where the x position (xpos) and the y position (ypos) are both zero.	../tutorial_atl.rpyc	211
+tutorial_positions_be14c7c3	e	When we increase xpos, we move to the right. So here's an xpos of .5, meaning half the width across the screen.	../tutorial_atl.rpyc	217
+tutorial_positions_9b91be6c	e	Increasing xpos to 1.0 moves us to the right-hand border of the screen.	../tutorial_atl.rpyc	222
+tutorial_positions_80be064f	e	We can also use an absolute xpos, which is given in an absolute number of pixels from the left side of the screen. For example, since this window is 800 pixels across, using an xpos of 400 will return the target to the center of the top row.	../tutorial_atl.rpyc	228
+tutorial_positions_c4d18c0a	e	The y-axis position, or ypos works the same way. Right now, we have a ypos of 0.0.	../tutorial_atl.rpyc	230
+tutorial_positions_16933a61	e	Here's a ypos of 0.5.	../tutorial_atl.rpyc	236
+tutorial_positions_6eb36777	e	A ypos of 1.0 specifies a position at the bottom of the screen. If you look carefully, you can see the position indicator spinning below the text window.	../tutorial_atl.rpyc	241
+tutorial_positions_a423050f	e	Like xpos, ypos can also be an integer. In this case, ypos would give the total number of pixels from the top of the screen.	../tutorial_atl.rpyc	243
+tutorial_positions_bc7a809a	e	Can you guess where this position is, relative to the screen?	../tutorial_atl.rpyc	249
+		xpos 1.0 ypos .5	game/tutorial_atl.rpy	249
+		xpos .75 ypos .25	game/tutorial_atl.rpy	249
+		xpos .25 ypos .33	game/tutorial_atl.rpy	249
+tutorial_positions_6f926e18	e	Sorry, that's wrong. The xpos is .75, and the ypos is .25.	../tutorial_atl.rpyc	255
+tutorial_positions_5d5feb98	e	In other words, it's 75%% of the way from the left side, and 25%% of the way from the top.	../tutorial_atl.rpyc	257
+tutorial_positions_77b45218	e	Good job! You got that position right.	../tutorial_atl.rpyc	261
+tutorial_positions_6f926e18_1	e	Sorry, that's wrong. The xpos is .75, and the ypos is .25.	../tutorial_atl.rpyc	265
+tutorial_positions_5d5feb98_1	e	In other words, it's 75%% of the way from the left side, and 25%% of the way from the top.	../tutorial_atl.rpyc	267
+tutorial_positions_e4380a83	e	The second position we care about is the anchor. The anchor is a spot on the thing being positioned.	../tutorial_atl.rpyc	281
+tutorial_positions_d1db1246	e	For example, here we have an xanchor of 0.0 and a yanchor of 0.0. It's in the upper-left corner of the logo image.	../tutorial_atl.rpyc	283
+tutorial_positions_6056873f	e	When we increase the xanchor to 1.0, the anchor moves to the right corner of the image.	../tutorial_atl.rpyc	288
+tutorial_positions_7cdb8dcc	e	Similarly, when both xanchor and yanchor are 1.0, the anchor is the bottom-right corner.	../tutorial_atl.rpyc	293
+tutorial_positions_03a07da8	e	To place an image on the screen, we need both the position and the anchor.	../tutorial_atl.rpyc	301
+tutorial_positions_8945054f	e	We then line them up, so that both the position and anchor are at the same point on the screen.	../tutorial_atl.rpyc	309
+tutorial_positions_2b184a93	e	When we place both in the upper-left corner, the image moves to the upper-left corner of the screen.	../tutorial_atl.rpyc	319
+tutorial_positions_5aac4f3f	e	With the right combination of position and anchor, any place on the screen can be specified, without even knowing the size of the image.	../tutorial_atl.rpyc	328
+tutorial_positions_3b59b797	e	It's often useful to set xpos and xanchor to the same value. We call that xalign, and it gives a fractional position on the screen.	../tutorial_atl.rpyc	340
+tutorial_positions_b8ebf9fe	e	For example, when we set xalign to 0.0, things are aligned to the left side of the screen.	../tutorial_atl.rpyc	345
+tutorial_positions_8ce35d52	e	When we set it to 1.0, then we're aligned to the right side of the screen.	../tutorial_atl.rpyc	350
+tutorial_positions_6745825f	e	And when we set it to 0.5, we're back to the center of the screen.	../tutorial_atl.rpyc	355
+tutorial_positions_64428a07	e	Setting yalign is similar, except along the y-axis.	../tutorial_atl.rpyc	357
+tutorial_positions_cfb77d42	e	Remember that xalign is just setting xpos and xanchor to the same value, and yalign is just setting ypos and yanchor to the same value.	../tutorial_atl.rpyc	359
+tutorial_positions_0f4ca2b6	e	Once you understand positions, you can use transformations to move things around the Ren'Py screen.	../tutorial_atl.rpyc	366
+tutorial_atl_a1cc1bff	e	While showing static images is often enough for most games, occasionally we'll want to change images, or move them around the screen.	../tutorial_atl.rpyc	373
+tutorial_atl_81dbb8f2	e	We call this a Transform, and it's what ATL, Ren'Py's Animation and Transformation Language, is for.	../tutorial_atl.rpyc	375
+tutorial_atl_65badef3	e	But first, let's have... a Gratuitous Rock Concert!	../tutorial_atl.rpyc	383
+tutorial_atl_3ccfe2ac	e	That was a lot of work, and before you can do that, we'll need to start with the basics of using ATL.	../tutorial_atl.rpyc	391
+tutorial_atl_1f22f875	e	There are currently three places where ATL can be used in Ren'Py.	../tutorial_atl.rpyc	393
+tutorial_atl_fd036bdf	e	The first place ATL can be used is as part of an image statement. Instead of a displayable, an image may be defined as a block of ATL code.	../tutorial_atl.rpyc	397
+tutorial_atl_7cad2ab9	e	When used in this way, we have to be sure that ATL includes one or more displayables to actually show.	../tutorial_atl.rpyc	399
+tutorial_atl_c78b2a1e	e	The second way is through the use of the transform statement. This assigns the ATL block to a python variable, allowing it to be used in at clauses and inside other transforms.	../tutorial_atl.rpyc	403
+tutorial_atl_da7a7759	e	Finally, an ATL block can be used as part of a show statement, instead of the at clause.	../tutorial_atl.rpyc	407
+tutorial_atl_c21bc1d1	e	The key to ATL is what we call composeability. ATL is made up of relatively simple commands, which can be combined together to create complicated transforms.	../tutorial_atl.rpyc	411
+tutorial_atl_ed82983f	e	Before I explain how ATL works, let me explain what animation and transformation are.	../tutorial_atl.rpyc	413
+tutorial_atl_2807adff	e	Animation is when the displayable being shown changes. For example, right now I am changing my expression.	../tutorial_atl.rpyc	418
+tutorial_atl_3eec202b	e	Transformation involves moving or distorting an image. This includes placing it on the screen, zooming it in and out, rotating it, and changing its opacity.	../tutorial_atl.rpyc	445
+tutorial_atl_fbc9bf83	e	To introduce ATL, let's start by looking at at a simple animation. Here's one that consists of five lines of ATL code, contained within an image statement.	../tutorial_atl.rpyc	453
+tutorial_atl_12c839ee	e	In ATL, to change a displayable, simply mention it on a line of ATL code. Here, we're switching back and forth between two images.	../tutorial_atl.rpyc	455
+tutorial_atl_c671ed7d	e	Since we're defining an image, the first line of ATL has to name a displayable. Otherwise, there would be nothing to show.	../tutorial_atl.rpyc	457
+tutorial_atl_99386181	e	The second and fourth lines are pause statements, which cause ATL to wait half of a second each before continuing. That's how we give the delay between images.	../tutorial_atl.rpyc	459
+tutorial_atl_60f2a5e8	e	The final line is a repeat statement. This causes the current block of ATL to be restarted. You can only have one repeat statement per block.	../tutorial_atl.rpyc	461
+tutorial_atl_146cf4c4	e	If we were to write repeat 2 instead, the animation would loop twice, then stop.	../tutorial_atl.rpyc	466
+tutorial_atl_d90b1838	e	Omitting the repeat statement means that the animation stops once we reach the end of the block of ATL code.	../tutorial_atl.rpyc	471
+tutorial_atl_e5872360	e	By default, displayables are replaced instantaneously. We can also use a with clause to give a transition between displayables.	../tutorial_atl.rpyc	476
+tutorial_atl_a7f8ed01	e	Now, let's move on to see how we can use ATL to transform an image. We'll start off by seeing what we can do to position images on the screen.	../tutorial_atl.rpyc	483
+tutorial_atl_24501213	e	Perhaps the simplest thing we can do is to position the images on the screen. This can be done by simply giving the names of the transform properties, each followed by the value.	../tutorial_atl.rpyc	492
+tutorial_atl_43516492	e	With a few more statements, we can move things around on the screen.	../tutorial_atl.rpyc	497
+tutorial_atl_8b053b5a	e	This code starts the image off at the top-right of the screen, and waits a second.	../tutorial_atl.rpyc	499
+tutorial_atl_d7fc5372	e	It then moves it to the left side, waits another second, and repeats.	../tutorial_atl.rpyc	501
+tutorial_atl_7650ec09	e	The pause and repeat statements are the same statements we used in our animations. They work throughout ATL code.	../tutorial_atl.rpyc	503
+tutorial_atl_d3416d4f	e	Having the image jump around on the screen isn't all that useful. That's why ATL has the interpolation statement.	../tutorial_atl.rpyc	508
+tutorial_atl_4e7512ec	e	The interpolation statement allows you to smoothly vary the value of a transform property, from an old to a new value.	../tutorial_atl.rpyc	510
+tutorial_atl_685eeeaa	e	Here, we have an interpolation statement on the second ATL line. It starts off with the name of a time function, in this case linear.	../tutorial_atl.rpyc	512
+tutorial_atl_c5cb49de	e	That's followed by an amount of time, in this case three seconds. It ends with a list of properties, each followed by its new value.	../tutorial_atl.rpyc	514
+tutorial_atl_72d47fb6	e	The old value is the value of the transform property at the start of the statement. By interpolating the property over time, we can change things on the screen.	../tutorial_atl.rpyc	516
+tutorial_atl_2958f397	e	ATL supports more complicated move types, like circle and spline motion. But I won't be showing those here.	../tutorial_atl.rpyc	526
+tutorial_atl_4a02c8d8	e	Next, let's take a look at some of the transform properties that we can change using ATL.	../tutorial_atl.rpyc	528
+tutorial_atl_821fcb91	e	We've already seen the position properties. Along with xalign and yalign, we support the xpos, ypos, xanchor, and yanchor properties.	../tutorial_atl.rpyc	543
+tutorial_atl_cca5082b	e	We can perform a pan by using xpos and ypos to position images off of the screen.	../tutorial_atl.rpyc	558
+tutorial_atl_0394dd50	e	This usually means giving them negative positions.	../tutorial_atl.rpyc	560
+tutorial_atl_2624662e	e	The zoom property lets us scale the displayable by a factor, making it bigger and smaller. For best results, zoom should always be greater than 0.5.	../tutorial_atl.rpyc	577
+tutorial_atl_b6527546	e	The xzoom and yzoom properties allow the displayable to be scaled in the X and Y directions independently.	../tutorial_atl.rpyc	591
+tutorial_atl_9fe238de	e	The size property can be used to set a size, in pixels, that the displayable is scaled to.	../tutorial_atl.rpyc	602
+tutorial_atl_6b982a23	e	The alpha property allows us to vary the opacity of a displayable. This can make it appear and disappear.	../tutorial_atl.rpyc	617
+tutorial_atl_60d6d9f3	e	The rotate property lets us rotate a displayable.	../tutorial_atl.rpyc	631
+tutorial_atl_898a138a	e	Since rotation can change the size, usually you'll want to set xanchor and yanchor to 0.5 when positioning a rotated displayable.	../tutorial_atl.rpyc	633
+tutorial_atl_207b7fc8	e	The crop property crops a rectangle out of a displayable, showing only part of it.	../tutorial_atl.rpyc	644
+tutorial_atl_ebb84988	e	When used together, they can be used to focus in on specific parts of an image.	../tutorial_atl.rpyc	658
+tutorial_atl_d08fe8d9	e	Apart from displayables, pause, interpolation, and repeat, there are a few other statements we can use as part of ATL.	../tutorial_atl.rpyc	664
+tutorial_atl_db6302bd	e	When we create an ATL transform using the transform statement, we can use that transform as an ATL statement.	../tutorial_atl.rpyc	678
+tutorial_atl_785911cf	e	Since the default positions are also transforms, this means that we can use left, right, and center inside of an ATL block.	../tutorial_atl.rpyc	680
+tutorial_atl_331126c1	e	Here, we have two new statements. The block statement allows you to include a block of ATL code. Since the repeat statement applies to blocks, this lets you repeat only part of an ATL transform.	../tutorial_atl.rpyc	698
+tutorial_atl_24f67b67	e	We also have the time statement, which runs after the given number of seconds have elapsed from the start of the block. It will run even if another statement is running, stopping the other statement.	../tutorial_atl.rpyc	700
+tutorial_atl_30dc0008	e	So this code will bounce the image back and forth for eleven and a half seconds, and then move back to the right side of the screen.	../tutorial_atl.rpyc	702
+tutorial_atl_f903bc3b	e	The parallel statement lets us run two blocks of ATL code at the same time.	../tutorial_atl.rpyc	718
+tutorial_atl_5d0f8f9d	e	Here, the top block move the image in the horizontal direction, and the bottom block moves it in the vertical direction. Since they're moving at different speeds, it looks like the image is bouncing on the screen.	../tutorial_atl.rpyc	720
+tutorial_atl_28a7d27e	e	Finally, the choice statement makes Ren'Py randomly pick a block of ATL code. This allows you to add some variation as to what Ren'Py shows.	../tutorial_atl.rpyc	737
+tutorial_atl_5fc8c0df	e	This tutorial game has only scratched the surface of what you can do with ATL. For example, we haven't even covered the on and event statements. For more information, you might want to check out the ATL chapter in the reference manual.	../tutorial_atl.rpyc	743
+tutorial_atl_1358c6b4	e	But for now, just remember that when it comes to animating and transforming, ATL is the hot new thing.	../tutorial_atl.rpyc	747
+		Dismiss	game/demo_ui.rpy	21
+		Morning	game/demo_ui.rpy	60
+		Afternoon	game/demo_ui.rpy	60
+		Evening	game/demo_ui.rpy	60
+		morning	game/demo_ui.rpy	61
+		afternoon	game/demo_ui.rpy	61
+		evening	game/demo_ui.rpy	61
+		Study	game/demo_ui.rpy	62
+		Exercise	game/demo_ui.rpy	62
+		Eat	game/demo_ui.rpy	62
+		Drink	game/demo_ui.rpy	62
+		Be Merry	game/demo_ui.rpy	62
+		March 25th	game/demo_ui.rpy	69
+		Strength	game/demo_ui.rpy	71
+		Intelligence	game/demo_ui.rpy	71
+		Moxie	game/demo_ui.rpy	71
+		Chutzpah	game/demo_ui.rpy	71
+		Statistics	game/demo_ui.rpy	104
+		Continue	game/demo_ui.rpy	135
+		What will you do in the [periods_small_selected!t]?	game/demo_ui.rpy	155
+		To get to the next screen, click the 'Continue' button.	game/demo_ui.rpy	169
+demo_ui_e1d49b5e	e	Ren'Py gives a number of ways of interacting with the user.	game/demo_ui.rpy	220
+demo_ui_313b38c2	e	You've already seen say statements and menus.	game/demo_ui.rpy	222
+demo_ui_fdeef56f	e	But were you aware that you can have dialogue and menus onscreen at the same time?	game/demo_ui.rpy	224
+		Yes.	game/demo_ui.rpy	224
+		No.	game/demo_ui.rpy	224
+demo_ui_d4d568aa	e	Good!	game/demo_ui.rpy	232
+demo_ui_f34995a5	e	Well, now you know.	game/demo_ui.rpy	238
+demo_ui_7cfaf270	e	We can also prompt the user to enter some text.	game/demo_ui.rpy	242
+		What is your name?	game/demo_ui.rpy	244
+		Guy Shy	game/demo_ui.rpy	244
+demo_ui_d77a671d	pov	My name is [povname!t].	game/demo_ui.rpy	246
+demo_ui_b50edd86	e	Imagemaps let the user click on an image to make a choice. For example, the following screen lets you pick what to do after school:	game/demo_ui.rpy	249
+demo_ui_405542a5	e	You chose swimming.	game/demo_ui.rpy	262
+demo_ui_264b5873	e	Swimming seems like a lot of fun, but I didn't bring my bathing suit with me.	game/demo_ui.rpy	264
+demo_ui_83e5c0cc	e	You chose science.	game/demo_ui.rpy	268
+demo_ui_319cdf4b	e	I've heard that some schools have a competitive science team, but to me research is something that can't be rushed.	game/demo_ui.rpy	270
+demo_ui_d2a94440	e	You chose art.	game/demo_ui.rpy	274
+demo_ui_e6af6f1d	e	Really good background art is hard to make, which is why so many games use filtered photographs. Maybe you can change that.	game/demo_ui.rpy	276
+demo_ui_373ea9a5	e	You chose to go home.	game/demo_ui.rpy	280
+demo_ui_48eca0a4	e	Anyway...	game/demo_ui.rpy	282
+demo_ui_aa9bd954	e	We also support viewports, that allow us to display things that are bigger than the screen.	game/demo_ui.rpy	284
+demo_ui_a9db7181	e	This viewport can be adjusted by dragging, by the mouse wheel, and by the scrollbars.	game/demo_ui.rpy	286
+demo_ui_7d821fb9	e	Viewports also support edge scrolling, which is automatic scrolling when the mouse reaches their edge.	game/demo_ui.rpy	299
+demo_ui_42b93520	e	While these constructs are probably enough for most visual novels, dating simulations may be more complicated.	game/demo_ui.rpy	307
+demo_ui_8300d819	e	The ui functions allow you to create quite complicated interfaces.	game/demo_ui.rpy	309
+demo_ui_a070bc2d	e	For example, try the following scheduling and stats screen, which could be used by a stat-based dating simulation.	game/demo_ui.rpy	311
+demo_ui_0d8b1a1c	e	For a better implementation of this, take a look at the dating sim engine (DSE) that ships with Ren'Py.	game/demo_ui.rpy	321
+_call_fight_1_cf0ffdb0	e	The ui functions can be also be used to show the sorts of stats you'd need if your game involves combat.	game/demo_ui.rpy	325
+_call_fight_2_7890ebb9	e	Hopefully, the ui functions will let you write whatever visual novel or dating sim you want.	game/demo_ui.rpy	329
+demo_dynamic_b72548ea	e	The DynamicDisplayable function lets you change what's displayed over the course of an interaction.	game/demo_dynamic.rpy	27
+demo_dynamic_0276dbb9	e	This makes it possible to display things like countdown timers and progress bars.	game/demo_dynamic.rpy	31
+demo_dynamic_4cabf539	e	Remember, people read at different speeds, so it's probably better to use this for flavor, rather then to make games time-sensitive.	game/demo_dynamic.rpy	33
+demo_imageops_0e0e59e0	e	Image operations allow us to manipulate images as they are loaded in.	game/demo_imageops.rpy	69
+demo_imageops_2dfc0c2e	e	They're efficient, as they are only evaluated when an image is first loaded.	game/demo_imageops.rpy	71
+demo_imageops_9ee5a075	e	This way, there's no extra work that needs to be done when each frame is drawn to the screen.	game/demo_imageops.rpy	73
+demo_imageops_3f73f4c2	e	Let me show you a test image, the Ren'Py logo.	game/demo_imageops.rpy	80
+demo_imageops_e3887927	e	We'll be applying some image operations to it, to see how they can be used.	game/demo_imageops.rpy	82
+demo_imageops_d05ba9d9	e	The im.Crop operation can take the image, and chop it up into a smaller image.	game/demo_imageops.rpy	87
+demo_imageops_f57f6496	e	The im.Composite operation lets us take multiple images, and draw them into a single image.	game/demo_imageops.rpy	92
+demo_imageops_634bc9da	e	While you can do this by showing multiple images, this is often more efficient.	game/demo_imageops.rpy	94
+demo_imageops_3a9392e4	e	There's also LiveComposite, which is less efficent, but allows for animation.	game/demo_imageops.rpy	99
+demo_imageops_aab0c08f	e	It isn't really an image operation, but we don't know where else to put it.	game/demo_imageops.rpy	101
+demo_imageops_23cd24da	e	The im.Scale operation lets us scale an image to a particular size.	game/demo_imageops.rpy	106
+demo_imageops_dcaf5d6b	e	im.FactorScale lets us do the same thing, except to a factor of the original size.	game/demo_imageops.rpy	111
+demo_imageops_eeaec24a	e	The im.Map operation lets us mess with the red, green, blue, and alpha channels of an image.	game/demo_imageops.rpy	116
+demo_imageops_a2ed064d	e	In this case, we removed all the red from the image, leaving only the blue and green channels.	game/demo_imageops.rpy	118
+demo_imageops_77b0a263	e	The im.Recolor operation can do the same thing, but is more efficient when we're linearly mapping colors.	game/demo_imageops.rpy	125
+demo_imageops_360723bc	e	The im.Twocolor operation lets you take a black and white image, like this one...	game/demo_imageops.rpy	130
+demo_imageops_0948998c	e	... and assign colors to replace black and white.	game/demo_imageops.rpy	135
+demo_imageops_75522403	e	The im.MatrixColor operation lets you use a matrix to alter the colors. With the right matrix, you can desaturate colors...	game/demo_imageops.rpy	140
+demo_imageops_6fe260b9	e	... tint the image blue...	game/demo_imageops.rpy	145
+demo_imageops_85c10beb	e	... rotate the hue... 	game/demo_imageops.rpy	150
+demo_imageops_09d2d97f	e	... or invert the colors, for a kinda scary look.	game/demo_imageops.rpy	155
+demo_imageops_6dd8f586	e	It can even adjust brightness and contrast.	game/demo_imageops.rpy	160
+demo_imageops_ba8ddf3e	e	We've made some of the most common matrices into image operators.	game/demo_imageops.rpy	162
+demo_imageops_4c62de6f	e	im.Grayscale can make an image grayscale...	game/demo_imageops.rpy	167
+demo_imageops_7d471e4b	e	... while im.Sepia can sepia-tone an image.	game/demo_imageops.rpy	172
+demo_imageops_59ca3a66	e	The im.Alpha operation can adjust the alpha channel on an image, making things partially transparent.	game/demo_imageops.rpy	179
+demo_imageops_514a55db	e	It's useful if a character just happens to be ghost.	game/demo_imageops.rpy	184
+demo_imageops_05fc1200	e	But that isn't the case with me.	game/demo_imageops.rpy	190
+demo_imageops_cf7fbb57	e	Finally, there's im.Flip, which can flip an image horizontally or vertically.	game/demo_imageops.rpy	197
+demo_imageops_49161c26	e	I think the less I say about this, the better.	game/demo_imageops.rpy	199
+demo_layers_c4715eb5	e	Ren'Py lets you define layers, and show images on specific layers.	game/demo_layers.rpy	15
+demo_layers_c385f69e	e	The \"onlayer\" clause of the scene, show, and hide statements lets us pick which layers the commands affect.	game/demo_layers.rpy	26
+demo_layers_89a87205	e	As you can see, layers do not have to take up the entire screen. When a layer doesn't, images are clipped to the layer.	game/demo_layers.rpy	28
+demo_layers_72b6169a	e	The \"as\" clause lets you change the tag of an image.	game/demo_layers.rpy	34
+demo_layers_31adea8e	e	This is useful when you want to show two copies of the same image.	game/demo_layers.rpy	43
+demo_layers_2659ae91	e	Or if a character has a twin.	game/demo_layers.rpy	45
+		This is text.	game/demo_layers.rpy	53
+demo_layers_fa599d50	e	You can use \"show expression\" to show things that aren't just images, like text.	game/demo_layers.rpy	56
+demo_layers_91559c86	e	The \"behind\" clause lets you place an image behind another.	game/demo_layers.rpy	64
+demo_layers_a983efbd	e	Finally, the \"show layer\" statement allows you to apply a transform to an entire layer.	game/demo_layers.rpy	77
+demo_layers_1185c462	e	And that's it for layers and advanced show.	game/demo_layers.rpy	90
+tutorial_playing_2985ab86	e	As someone who has played more than a few visual novels, there are many features that I expect all games to have.	../tutorial_playing.rpyc	16
+tutorial_playing_ca4769bb	e	Features like saving, loading, changing preferences, and so on.	../tutorial_playing.rpyc	18
+tutorial_playing_f30f1979	e	One of the nice things about Ren'Py is that the engine provides many of these features for you. You can spend your time creating your game, and let us provide these things.	../tutorial_playing.rpyc	20
+tutorial_playing_afa743e7	e	While you're in the game, you can access the game menu by right clicking or hitting the escape key.	../tutorial_playing.rpyc	22
+tutorial_playing_8360224a	e	When you first enter the game menu, you'll see the save screen. Clicking on a numbered slot will save the game.	../tutorial_playing.rpyc	28
+tutorial_playing_6d0ef6c9	e	Unlike other engines, Ren'Py doesn't limit the number of save slots that you can use.	../tutorial_playing.rpyc	30
+tutorial_playing_fea05c6b	e	The load screen looks quite similar to the save screen, and lets you load a game from a save slot.	../tutorial_playing.rpyc	32
+tutorial_playing_8e7e83a8	e	It also lets you load one of the auto-saves that Ren'Py makes for you.	../tutorial_playing.rpyc	34
+tutorial_playing_2bad7992	e	The other screen of the game menu is the preferences screen.	../tutorial_playing.rpyc	39
+tutorial_playing_eaac8ba9	e	This screen lets you decide how Ren'Py displays, pick what Ren'Py skips, control text speed and auto-click speed, and adjust sound, music, and voice volumes.	../tutorial_playing.rpyc	41
+tutorial_playing_b1562a34	e	The game menu also lets you end the game and return to the main menu, or quit Ren'Py entirely.	../tutorial_playing.rpyc	43
+tutorial_playing_790f9dc7	e	While the default game menus look a bit generic, with a little work they can be customized or even entirely replaced, allowing you to create menus as unique as your game.	../tutorial_playing.rpyc	48
+tutorial_playing_bc29822e	e	While inside the game, there are a few more things you can do.	../tutorial_playing.rpyc	54
+tutorial_playing_dc0f9cf7	e	When I'm liking a visual novel, I want to see all the endings. Ren'Py's skip function lets me easily do this, by skipping text that I've already seen.	../tutorial_playing.rpyc	56
+tutorial_playing_6dded697	e	I can skip a few lines by holding down Control, or I can toggle skip mode by pressing tab.	../tutorial_playing.rpyc	58
+tutorial_playing_d3553fbe	e	By default, we only skip read text, so this won't do anything the first time through the game.	../tutorial_playing.rpyc	60
+tutorial_playing_9a605016	e	Pressing the 's' key saves a screenshot to disk, so I can upload pictures of the game to websites like renpy.org.	../tutorial_playing.rpyc	62
+tutorial_playing_a9c70134	e	Finally, there's rollback, which lets you go back in time to previous screens, letting you re-read text.	../tutorial_playing.rpyc	64
+tutorial_playing_ffcaf528	e	Would you like to hear more about rollback?	../tutorial_playing.rpyc	65
+tutorial_rollback_40b09eaf	e	You can invoke a rollback by scrolling the mouse wheel up, or by pushing the page up key. That'll bring you back to the previous screen.	../tutorial_playing.rpyc	80
+tutorial_rollback_041be71b	e	While at a previous screen, you can roll forward by scrolling the mouse wheel down, or pushing the page down key.	../tutorial_playing.rpyc	82
+tutorial_rollback_1d0e55c3	e	Rolling forward through a menu will make the same choice you did last time. But unlike other engines, Ren'Py's rollback system allows you to make a different choice.	../tutorial_playing.rpyc	84
+tutorial_rollback_a4633f53	e	You can try it by rolling back through the last menu, and saying 'No'.	../tutorial_playing.rpyc	86
+tutorial_rollback_a30f8a06	e	Press page up, or scroll up the mouse wheel.	../tutorial_playing.rpyc	88
+tutorial_rollback_de0b6f5a	e	Well, are you going to try it?	../tutorial_playing.rpyc	92
+tutorial_rollback_6bbdedaa	e	Your loss.	../tutorial_playing.rpyc	94
+tutorial_rollback_dce979d4	e	Moving on.	../tutorial_playing.rpyc	96
+tutorial_rollback_done_54d6ee45	e	By allowing Ren'Py to take care of out-of-game issues like loading and saving, you can focus on making your game, while still giving users the experience they've come to expect.	../tutorial_playing.rpyc	102
+tutorial_sprite_d2ca6a0c	e	Ren'Py supports a sprite system, which allows many similar objects to be shown on the screen at once.	../tutorial_sprite.rpyc	63
+tutorial_sprite_40df8d5d	e	The background behind me consists of one hundred and seventy-five stars, being moved at several different speeds, to give a starflight effect.	../tutorial_sprite.rpyc	70
+tutorial_sprite_29c5e523	e	The OpenGL system should be able to animate this smoothly, but you might see a bit of stuttering if your computer is using software.	../tutorial_sprite.rpyc	72
+tutorial_sprite_90927173	e	You'll need to decide which older systems to support.	../tutorial_sprite.rpyc	74
+tutorial_sprite_9afa1448	e	The sprite manager requires you to write a python function to move the sprites around.	../tutorial_sprite.rpyc	80
+tutorial_sprite_2c9a79ad	e	In many cases, all you need is something moving around the screen - like cherry blossoms, or snow.	../tutorial_sprite.rpyc	84
+tutorial_sprite_595d03b3	e	That's what the snowblossom function gives you - a simple way to have things falling from the top of the screen.	../tutorial_sprite.rpyc	86
+tutorial_sprite_4f82c848	e	And that's it for sprites.	../tutorial_sprite.rpyc	91
+demo_nvlmode_a986703b	nvle	NVL-style games are games that cover the full screen with text, rather then placing it in a file at the bottom of the screen.	game/demo_nvlmode.rpy	17
+demo_nvlmode_37fd9ceb	nvle	Ren'Py ships with a file, nvl_mode.rpy, that implements NVL-style games. You're seeing an example of NVL-mode at work.	game/demo_nvlmode.rpy	19
+demo_nvlmode_66cbcf75	nvle	To use NVL-mode, you need to define Characters with a kind=nvl.	game/demo_nvlmode.rpy	23
+demo_nvlmode_ad2b8b67	nvle	You use 'nvl clear' to clear the screen when that becomes necessary.	game/demo_nvlmode.rpy	25
+demo_nvlmode_390a4eb1	nvle	The 'nvl show' and 'nvl hide' statements use transitions to show and hide the NVL window.	game/demo_nvlmode.rpy	30
+demo_nvlmode_74454519	nvle	The nvl_erase function removes a line from the screen.	game/demo_nvlmode.rpy	32
+demo_nvlmode_5e97d841	nvle	Like that.	game/demo_nvlmode.rpy	36
+demo_nvlmode_ea2d8a07	nvle	The nvl_mode also supports showing menus to the user, provided they are the last thing on the screen. Understand?	game/demo_nvlmode.rpy	43
+demo_nvlmode_0f2b7d59	nvle	Good!	game/demo_nvlmode.rpy	51
+demo_nvlmode_b64ad3b1	nvle	Well, it might help if you take a look at the demo code.	game/demo_nvlmode.rpy	59
+demo_nvlmode_edb031ab	eside	You can specify transitions that occur when going from NVL-mode to ADV-mode.	game/demo_nvlmode.rpy	63
+demo_nvlmode_d43b28d1	nvle	As well as when going from ADV-mode to NVL-mode.	game/demo_nvlmode.rpy	65
+demo_nvlmode_f056c7ad	nvle	Text tags like w work in NVL-mode.	game/demo_nvlmode.rpy	67
+demo_nvlmode_750cd9a1	extend	 As does the \"extend\" special character.	game/demo_nvlmode.rpy	69
+demo_nvlmode_146d840b	nvle	And that's it for NVL-mode.	game/demo_nvlmode.rpy	71
+		Player	game/demo_minigame.rpy	16
+		Click to Begin	game/demo_minigame.rpy	18
+demo_minigame_03fc91ef	e	You may want to mix Ren'Py with other forms of gameplay. There are many ways to do this.	game/demo_minigame.rpy	204
+demo_minigame_8c389a44	e	The first is with the UI functions, which can be used to create powerful button and menu based interfaces.	game/demo_minigame.rpy	206
+demo_minigame_0d5698fc	e	These are often enough for many simulation-style games.	game/demo_minigame.rpy	208
+demo_minigame_abc48e39	e	We also have two more ways in which Ren'Py can be extended. Both require experience with Python programming, and so aren't for the faint of heart.	game/demo_minigame.rpy	210
+demo_minigame_4d7b5701	e	Renpygame is a library that allows pygame games to be run inside Ren'Py.	game/demo_minigame.rpy	212
+demo_minigame_bb13a57e	e	When using renpygame, Ren'Py steps out of the way and gives you total control over the user's experience.	game/demo_minigame.rpy	214
+demo_minigame_4f4537ea	e	You can get renpygame from the Frameworks page of the Ren'Py website.	game/demo_minigame.rpy	216
+demo_minigame_b2baab12	e	If you want to integrate your code with Ren'Py, you can write a user-defined displayable.	game/demo_minigame.rpy	218
+demo_minigame_9d67e41d	e	User-defined displayables are somewhat more limited, but integrate better with the rest of Ren'Py.	game/demo_minigame.rpy	220
+demo_minigame_59b3fdfd	e	For example, one could support loading and saving while a user-defined displayable is shown.	game/demo_minigame.rpy	222
+demo_minigame_e02e509d	e	Now, why don't we play some pong?	game/demo_minigame.rpy	224
+demo_minigame_pong_ce00ff63	e	I win!	game/demo_minigame.rpy	246
+demo_minigame_pong_68c82e98	e	You won! Congratulations.	game/demo_minigame.rpy	250
+demo_minigame_pong_dde7e31a	e	Would you like to play again?	game/demo_minigame.rpy	255
+		Sure.	game/demo_minigame.rpy	255
+		No thanks.	game/demo_minigame.rpy	255
+demo_minigame_pong_cd12159e	e	Remember to be careful about putting minigames in a visual novel, since not every visual novel player wants to be good at arcade games.	game/demo_minigame.rpy	264
+		Lucy	game/tutorial_quickstart.rpy	5
+tutorial_dialogue_f6d3ddd3	e	Probably the best way to learn Ren'Py is to see it in action. In this tutorial, I'll be showing you some of the things Ren'Py can do, and also showing you how to do them.	../tutorial_quickstart.rpyc	20
+tutorial_dialogue_49c65906	e	Code examples will show up in a window like the one above. You'll need to click outside of the example window in order to advance the tutorial.	../tutorial_quickstart.rpyc	25
+tutorial_dialogue_5c2cb6f9	e	When an example is bigger than the screen, you can scroll around in it using the mouse wheel or by simply dragging the mouse.	../tutorial_quickstart.rpyc	27
+tutorial_dialogue_3528a1fe	e	To create a new project, you can click New Project in the Ren'Py launcher.	../tutorial_quickstart.rpyc	32
+tutorial_dialogue_3ef9231c	e	If it's your first time making a Ren'Py game, you'll be asked to pick a directory to store your projects in.	../tutorial_quickstart.rpyc	34
+tutorial_dialogue_15734bf9	e	You'll then be asked for the name of the project, and also to choose a theme for the interface.	../tutorial_quickstart.rpyc	36
+tutorial_dialogue_46edb91d	e	Once that's done, Ren'Py will automatically create a directory and fill it with the files needed to make a project.	../tutorial_quickstart.rpyc	38
+tutorial_dialogue_66d639af	e	If you have Java installed, you'll be able to click Edit Script to open your project's script.	../tutorial_quickstart.rpyc	40
+tutorial_dialogue_f0d66410	e	Let's see the simplest possible Ren'Py game.	../tutorial_quickstart.rpyc	42
+tutorial_dialogue_3e6b0068		Wow, It's really really dark in here.	../tutorial_quickstart.rpyc	48
+tutorial_dialogue_5072a404	"Lucy"	Better watch out. You don't want to be eaten by a Grue.	../tutorial_quickstart.rpyc	50
+tutorial_dialogue_871db44f	e	I'll show you the code for that example.	../tutorial_quickstart.rpyc	59
+tutorial_dialogue_6943c36d	e	This code demonstrates two kinds of Ren'Py statements, labels and say statements.	../tutorial_quickstart.rpyc	61
+tutorial_dialogue_bc7ec147	e	The first line is a label statement. The label statement is used to give a name to a place in the program.	../tutorial_quickstart.rpyc	63
+tutorial_dialogue_b20db833	e	In this case, we're naming a place \"start\". The start label is special, as it marks the place a game begins running.	../tutorial_quickstart.rpyc	65
+tutorial_dialogue_b0afbe96	e	The next line is a simple say statement. It consists of a string beginning with a double-quote, and ending at the next double-quote.	../tutorial_quickstart.rpyc	67
+tutorial_dialogue_628c9e4c	e	Special characters in strings can be escaped with a backslash. To include \" in a string, we have to write \\\".	../tutorial_quickstart.rpyc	69
+tutorial_dialogue_3e6b0068_1		Wow, It's really really dark in here.	../tutorial_quickstart.rpyc	74
+tutorial_dialogue_d7f0b5b7	e	When Ren'Py sees a single string on a line by itself, it uses the narrator to say that string. So a single string can be used to express a character's thoughts.	../tutorial_quickstart.rpyc	82
+tutorial_dialogue_5072a404_1	"Lucy"	Better watch out. You don't want to be eaten by a Grue.	../tutorial_quickstart.rpyc	87
+tutorial_dialogue_9dd2d543	e	When we have two strings separated by a space, the first is used as the character's name, and the second is what the character is saying.	../tutorial_quickstart.rpyc	95
+tutorial_dialogue_64ffe685	e	This two-argument form of the say statement is used for dialogue, where a character is speaking out loud.	../tutorial_quickstart.rpyc	97
+tutorial_dialogue_97a33275	e	If you'd like, you can run this game yourself by erasing everything in your project's script.rpy file, and replacing it with the code in the box above.	../tutorial_quickstart.rpyc	99
+tutorial_dialogue_c5e70d7e	e	Be sure to preserve the spacing before lines. That's known as indentation, and it's used to help Ren'Py group lines of script into blocks.	../tutorial_quickstart.rpyc	101
+tutorial_dialogue_90719f73	e	Using a string for a character's name is inconvenient, for two reasons.	../tutorial_quickstart.rpyc	106
+tutorial_dialogue_910f286a	e	The first is that's it's a bit verbose. While typing \"Lucy\" isn't so bad, imagine if you had to type \"Eileen Richardson\" thousands of times.	../tutorial_quickstart.rpyc	108
+tutorial_dialogue_9c9d59c2	e	The second is that it doesn't leave any place to put styling, which can change the look of a character.	../tutorial_quickstart.rpyc	110
+tutorial_dialogue_2a2d1e51	e	To solve these problems, Ren'Py lets you define Characters.	../tutorial_quickstart.rpyc	112
+tutorial_dialogue_16e8c5fd	e	Here's an example Character definition. It begins with the word \"define\". That tells Ren'Py that we are defining something.	../tutorial_quickstart.rpyc	116
+tutorial_dialogue_34fe5aa0	e	Define is followed by a short name for the character, like \"l\". We'll be able to use that short name when writing dialogue.	../tutorial_quickstart.rpyc	118
+tutorial_dialogue_67f90201	e	This is followed by an equals sign, and the thing that we're defining. In this case, it's a Character.	../tutorial_quickstart.rpyc	120
+tutorial_dialogue_4e454a89	e	On the first line, the character's name is given to be \"Lucy\", and her name will be drawn a reddish color.	../tutorial_quickstart.rpyc	122
+tutorial_dialogue_db11f026	e	These short names are case-sensitive. Capital L is a different name from lower-case l, so you'll need to be careful about that.	../tutorial_quickstart.rpyc	124
+tutorial_dialogue_1d161320	e	Now that we have a character defined, we can use it to say dialogue.	../tutorial_quickstart.rpyc	128
+tutorial_dialogue_3710169c	l	Why are you trying to put words into my mouth? And who are you calling \"it\"?	../tutorial_quickstart.rpyc	134
+tutorial_dialogue_6d463776	l	What's more, what are you going to do about the Grue problem? Are you just going to leave me here?	../tutorial_quickstart.rpyc	136
+tutorial_dialogue_023bcd31	e	Here's the full game, including the two new lines of dialogue, both of which use the Character we defined to say dialogue.	../tutorial_quickstart.rpyc	145
+tutorial_dialogue_48bb9547	e	The one-argument form of the say statement is unchanged, but in the two-argument form, instead of the first string we can use a short name.	../tutorial_quickstart.rpyc	147
+tutorial_dialogue_56a9936f	e	When this say statement is run, Ren'Py will look up the short name, which is really a Python variable. It will then use the associated Character to show the dialogue.	../tutorial_quickstart.rpyc	149
+tutorial_dialogue_d5984a21	e	The Character object controls who is speaking, the color of their name, and many other properties of the dialogue.	../tutorial_quickstart.rpyc	151
+tutorial_dialogue_a5bcac8b	e	Since the bulk of a visual novel is dialogue, we've tried to make it as easy to write as possible.	../tutorial_quickstart.rpyc	155
+tutorial_dialogue_6b9a42d0	e	Hopefully, by allowing the use of short names for characters, we've succeeded.	../tutorial_quickstart.rpyc	157
+tutorial_images_e09ac970	e	A visual novel isn't much without images. So let's add some images to our little game.	../tutorial_quickstart.rpyc	163
+tutorial_images_a664a8bc	e	Before we can show images, we must first put the image files into the game directory.	../tutorial_quickstart.rpyc	165
+tutorial_images_1d6236ee	e	The easiest way to open the game directory is to click the Game Directory button in the Ren'Py launcher.	../tutorial_quickstart.rpyc	167
+tutorial_images_e41986f0	e	All of the image files we'll be using here are in the game directory, under the tutorial directory, under the Ren'Py directory.	../tutorial_quickstart.rpyc	169
+tutorial_images_0b9f7257	e	Here are some sample image definitions. They should be placed at the start of the file, without any indentation.	../tutorial_quickstart.rpyc	173
+tutorial_images_5d67054c	e	The image statement begins with the keyword \"image\", which is followed by an image name, a space-separated list of words.	../tutorial_quickstart.rpyc	175
+tutorial_images_4c9a51ec	e	The first word in the image name is the image tag. For the first image the tag is \"bg\", and for the others, it's \"lucy\".	../tutorial_quickstart.rpyc	177
+tutorial_images_bda71aa3	e	This is followed by an equals sign, and a string giving an image name.	../tutorial_quickstart.rpyc	179
+tutorial_images_6d88aaa3	e	A string giving an image name is only one of the dozens of kinds of displayable that Ren'Py supports.	../tutorial_quickstart.rpyc	181
+tutorial_images_76b954de	e	Let's see what those look like in the game.	../tutorial_quickstart.rpyc	185
+tutorial_images_f04e72ea	l	Now that the lights are on, we don't have to worry about Grues anymore.	../tutorial_quickstart.rpyc	192
+tutorial_images_d77ffa1c	l	But what's the deal with me being in a cave? Eileen gets to be out in the sun, and I'm stuck here!	../tutorial_quickstart.rpyc	196
+tutorial_images_6c0c938b	e	Here's the script for that scene. Notice how it includes two new statements, the scene and show statement.	../tutorial_quickstart.rpyc	205
+tutorial_images_1a4660b9	e	The scene statement clears the screen, and then adds a background image.	../tutorial_quickstart.rpyc	207
+tutorial_images_672c8cb8	e	The show statement adds a background image on top of all the other images on the screen.	../tutorial_quickstart.rpyc	209
+tutorial_images_2fc7baee	e	If there was already an image with the same tag, the new image is used to replace the old one.	../tutorial_quickstart.rpyc	211
+tutorial_images_802825f2	e	Changes to the list of shown images take place instantly, so in the example, the user won't see the background by itself.	../tutorial_quickstart.rpyc	213
+tutorial_images_b246dfdd	e	The second show statement has an at clause, which gives a location on the screen. Common locations are left, right, and center, but you can define many more.	../tutorial_quickstart.rpyc	215
+tutorial_images_bc4ae0c7	e	In this example, we show an image named logo base, and we show it at a user-defined position, logopos.	../tutorial_quickstart.rpyc	223
+tutorial_images_9defda43	e	We also specify that it should be shown behind another image, in this case eileen. That's me.	../tutorial_quickstart.rpyc	225
+tutorial_images_73d331f7	e	Finally, there's the hide statement, which hides the image with the given tag.	../tutorial_quickstart.rpyc	233
+tutorial_images_f34f62d5	e	Since the show statement replaces an image, and the scene statement clears the scene, it's pretty rare to hide an image.	../tutorial_quickstart.rpyc	235
+tutorial_images_e06fa53a	e	The main use is for when a character or prop leaves before the scene is over.	../tutorial_quickstart.rpyc	237
+tutorial_transitions_9b8c714c	e	It can be somewhat jarring for the game to jump from place to place.	../tutorial_quickstart.rpyc	246
+tutorial_transitions_3e290ea8	e	To help take some of edge off a change in scene, Ren'Py supports the use of transitions. Let's try that scene change again, but this time we'll use transitions.	../tutorial_quickstart.rpyc	253
+tutorial_transitions_9c0a86c4	e	That's much smoother. Here's some example code showing how we include transitions in our game.	../tutorial_quickstart.rpyc	268
+tutorial_transitions_3e490d40	e	It uses the with statement. The with statement causes the scene to transition from the last things shown to the things currently being shown.	../tutorial_quickstart.rpyc	270
+tutorial_transitions_a43847df	e	It takes a transition as an argument. In this case, we're using the Dissolve transition. This transition takes as an argument the amount of time the dissolve should take.	../tutorial_quickstart.rpyc	272
+tutorial_transitions_6fcee414	e	In this case, each transition takes half a second.	../tutorial_quickstart.rpyc	274
+tutorial_transitions_033042cc	e	We can define a short name for a transition, using the define statement. Here, we're defining slowdissolve to be a dissolve that takes a whole second.	../tutorial_quickstart.rpyc	278
+tutorial_transitions_0ba82f00	e	Once a transition has been given a short name, we can use it in our game.	../tutorial_quickstart.rpyc	292
+tutorial_transitions_51ff9600	e	Ren'Py defines some transitions for you, like dissolve, fade, and move. For more complex or customized transitions, you'll have to define your own.	../tutorial_quickstart.rpyc	296
+tutorial_transitions_a7905e16	e	If you're interested, check out the Transitions Gallery section of the tutorial.	../tutorial_quickstart.rpyc	298
+tutorial_music_8b92efb7	e	Another important part of a visual novel or simulation game is the soundtrack.	../tutorial_quickstart.rpyc	304
+tutorial_music_53910317	e	Ren'Py breaks sound up into channels. The channel a sound is played on determines if the sound loops, and if it is saved and restored with the game.	../tutorial_quickstart.rpyc	306
+tutorial_music_a1e37712	e	When a sound is played on the music channel, it is looped, and it is saved when the game is saved.	../tutorial_quickstart.rpyc	308
+tutorial_music_d9086d22	e	When the channel named sound is used, the sound is played once and then stopped. It isn't saved.	../tutorial_quickstart.rpyc	310
+tutorial_music_45cd30df	e	The sounds themselves are stored in audio files. Ren'Py supports the Ogg Vorbis, mp3, mp2, and wav file formats.	../tutorial_quickstart.rpyc	312
+tutorial_music_a776b6ad	e	Let's check out some of the commands that can effect the music channel.	../tutorial_quickstart.rpyc	314
+tutorial_music_8b606a55	e	The play music command replaces the currently playing music, and replaces it with the named filename.	../tutorial_quickstart.rpyc	324
+tutorial_music_18650fe7	e	If you specify the currently-playing song, it will restart it.	../tutorial_quickstart.rpyc	326
+tutorial_music_413d91fc	e	If the optional fadeout clause is given, it will fade out the currently playing music before starting the new music.	../tutorial_quickstart.rpyc	328
+tutorial_music_a282a0e3	e	The queue statement also adds music to the named channel, but it waits until the currently-playing song is finished before playing the new music.	../tutorial_quickstart.rpyc	330
+tutorial_music_01ca6bad	e	The third statement is the stop statement. It stops the music playing on a channel. It too takes the fadeout clause.	../tutorial_quickstart.rpyc	339
+tutorial_music_384937da	e	Unlike the music channel, playing a sound on the sound channel causes it to play only once.	../tutorial_quickstart.rpyc	348
+tutorial_music_dc707e58	e	You can queue up multiple sounds on the sound channel, but they will only play one at a time.	../tutorial_quickstart.rpyc	359
+tutorial_music_abcc2214	e	Ren'Py has separate mixers for sound, music, and voices, so the player can adjust them as he likes.	../tutorial_quickstart.rpyc	366
+tutorial_menus_0426904b	e	Many visual novels require the player to make choices from in-game menus. These choices can add some challenge to the game, or adjust it to the player's preferences.	../tutorial_quickstart.rpyc	372
+tutorial_menus_9c3b9154	e	Do you think your game will use menus?	../tutorial_quickstart.rpyc	374
+		Yes, I do.	game/tutorial_quickstart.rpy	377
+		No, I don't.	game/tutorial_quickstart.rpy	377
+choice1_yes_f6d95df8	e	While creating a multi-path visual novel can be a bit more work, it can yield a unique experience.	../tutorial_quickstart.rpyc	388
+choice1_no_72958b50	e	Games without menus are called kinetic novels, and there are dozens of them available to play.	../tutorial_quickstart.rpyc	396
+choice1_done_acba9504	e	Here, you can see the code for that menu. If you scroll down, you can see the code we run after the menu.	../tutorial_quickstart.rpyc	408
+choice1_done_d18afbdf	e	Menus are introduced by the menu statement. The menu statement takes an indented block, in which each line must contain a choice in quotes.	../tutorial_quickstart.rpyc	410
+choice1_done_2865a192	e	The choices must end with a colon, as each choice has its own block of Ren'Py code, that is run when that choice is selected.	../tutorial_quickstart.rpyc	412
+choice1_done_59cac95d	e	Here, each block jumps to a label. While you could put small amounts of Ren'Py code inside a menu label, it's probably good practice to usually jump to a bigger block of code.	../tutorial_quickstart.rpyc	414
+choice1_done_2851a313	e	Scrolling down past the menu, you can see the labels that the menu jumps to. There are three labels here, named choice1_yes, choice1_no, and choice1_done.	../tutorial_quickstart.rpyc	416
+choice1_done_ff761b03	e	When the first menu choice is picked, we jump to the choice1_yes, which runs two lines of script before jumping to choice1_done.	../tutorial_quickstart.rpyc	418
+choice1_done_664fe702	e	Similarly, picking the second choice jumps us to choice1_no, which also runs two lines of script.	../tutorial_quickstart.rpyc	420
+choice1_done_31d12b1e	e	The lines beginning with the dollar sign are lines of python code, which are used to set a flag based on the user's choice.	../tutorial_quickstart.rpyc	422
+choice1_done_88398d3e	e	The flag is named menu_flag, and it's set to True or False based on the user's choice. The if statement can be used to test a flag, so the game can remember the user's choices.	../tutorial_quickstart.rpyc	424
+choice1_done_2828dbfc	e	For example, I remember that you plan to use menus in your game.	../tutorial_quickstart.rpyc	432
+choice1_done_503786e4	e	For example, I remember that you're planning to make a kinetic novel, without menus.	../tutorial_quickstart.rpyc	436
+choice1_done_819e234a	e	Here's an example that shows how we can test a flag, and do different things if it is true or not.	../tutorial_quickstart.rpyc	441
+choice1_done_47fa2268	e	Although we won't demonstrate it here, Ren'Py supports making decisions based on a combinations of points, flags, and other factors.	../tutorial_quickstart.rpyc	445
+choice1_done_826a600b	e	One of Ren'Py's big advantages is the flexibility using a scripting language like Python provides us. It lets us easily scale from kinetic novels to complex simulation games.	../tutorial_quickstart.rpyc	447
+choice1_done_c2efd260	e	We look forward to seeing what you make with it.	../tutorial_quickstart.rpyc	449
+		User Experience	game/script.rpy	9
+		Writing Dialogue	game/script.rpy	9
+		Adding Images	game/script.rpy	9
+		Music and Sound Effects	game/script.rpy	9
+		In-Game Menus and Python	game/script.rpy	9
+		Screen Positions	game/script.rpy	9
+		Animation and Transformation	game/script.rpy	9
+		Video Playback	game/script.rpy	9
+		Transition Gallery	game/script.rpy	9
+		Image Operations	game/script.rpy	9
+		User Interaction	game/script.rpy	9
+		Fonts and Text Tags	game/script.rpy	9
+		Character Objects	game/script.rpy	9
+		Layers & Advanced Show	game/script.rpy	9
+		NVL Mode	game/script.rpy	9
+		Dynamic Displayables	game/script.rpy	9
+		Minigames	game/script.rpy	9
+		Persistent Data	game/script.rpy	9
+		Transform	game/script.rpy	9
+		Sprites	game/script.rpy	9
+		That's enough for now.	game/script.rpy	55
+start_0e6a5bb4	e	Hi! My name is Eileen, and I'd like to welcome you to the Ren'Py tutorial.	game/script.rpy	76
+start_d3abb53c	e	In this tutorial, we'll teach you the basics of Ren'Py, so you can make games of your own. We'll also demonstrate many features, so you can see what Ren'Py is capable of.	game/script.rpy	80
+		What would you like to see?	game/script.rpy	91
+		Is there anything else you'd like to see?	game/script.rpy	93
+end_b2482727	e	Thank you for viewing this tutorial.	game/script.rpy	111
+end_38362e36	e	If you'd like to see a full Ren'Py game, select \"The Question\" in the launcher.	game/script.rpy	113
+end_894a9e66	e	You can download new versions of Ren'Py from http://www.renpy.org/. For help and discussion, check out the Lemma Soft Forums.	game/script.rpy	115
+end_a898b369	e	We'd like to thank Piroshki for contributing my sprites, Mugenjohncel for Lucy and the band, and Jake for the magic circle.	game/script.rpy	117
+end_762dc07a	e	The background music is \"Sunflower Slow Drag\", by Scott Joplin and Scott Hayden, performed by the United States Marine Band. The concert music is by Alessio.	game/script.rpy	119
+end_57c21073	e	We look forward to seeing what you can make with Ren'Py. Have fun!	game/script.rpy	123
+demo_transform_f10e08f5	e	The Transform function allows you to rotate, zoom, move, and adjust the alpha of a displayable.	game/demo_transform.rpy	156
+demo_transform_295804e0	e	It does this under the control of a Python function, making it incredibly flexible at the cost of some complexity.	game/demo_transform.rpy	158
+demo_transform_1afd3e7b	e	Here's a simple example, showing how we can change an image as it moves around the screen.	game/demo_transform.rpy	165
+demo_transform_a5427276	e	A nice thing about Transform is that it's \"one price\".	game/demo_transform.rpy	167
+demo_transform_108aec8f	e	If you use it to do a rotation, you can zoom or adjust alpha at no additional cost.	game/demo_transform.rpy	169
+demo_transform_55f784e4	e	As the python functions get more complicated, more advanced behavior is possible.	game/demo_transform.rpy	198
+demo_transform_43798bbe	e	This can include coordinating more than one Transform.	game/demo_transform.rpy	200
+		A Working Button	game/demo_transform.rpy	211
+demo_transform_3f4f14bb	e	Finally, transforms can be applied to buttons, and work even while the button is zoomed.	game/demo_transform.rpy	213
+demo_transform_a439ffaa	e	With a little Python code, transforms let you do a lot of things.	game/demo_transform.rpy	218
+demo_persistent_abef5d83		Ren'Py supports per-game and multi-game persistent data.	game/demo_persistent.rpy	6
+demo_persistent_539955e4		Persistent data can store flags and other per-game information that should be shared between plays of a single game.	game/demo_persistent.rpy	8
+demo_persistent_c8164f03		For example, I can tell you that you've see this line [plays] time(s) since you cleared the per-game persistent data.	game/demo_persistent.rpy	19
+demo_persistent_54bc6648		Multipersistent data is shared between games, which lets one game unlock features in a second.	game/demo_persistent.rpy	21
+demo_persistent_4ff5d824		A sequel might play differently if the player has beaten the first game.	game/demo_persistent.rpy	23
+demo_persistent_634f6d6d		According to the multipersistent data, you've seen this line [plays] times total.	game/demo_persistent.rpy	35

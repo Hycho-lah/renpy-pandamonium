@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 91: invalid syntax
-    im.Scale("Chinese Food Sketch.png",200,200，xoffset=0, yoffset=-5)
-                                               ^
+File "game/script.rpy", line 395: end of line expected.
+    jump politefrui:
+                   ^
 
 Ren'Py Version: Ren'Py 6.99.12.4.2187

@@ -36,7 +36,7 @@ define gui.about = _("")
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
 
-define build.name = "some"
+define build.name = "Pandamonium"
 
 define config.layers = [ 'master', 'transient', 'screens', 'top','overlay' ]
 

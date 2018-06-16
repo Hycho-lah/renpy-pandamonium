@@ -39,9 +39,11 @@ image bg trainStation = im.Scale("Train Station Sketch.png", 1280, 780)
 image bg insideTrain = im.Scale("Inside Train Sketch.png",1280,780)
 image bg ticketBooth = im.Scale("Train Ticket Booth Sketch.png",1280,780)
 image bg clothes store=im.Scale("Mall Clothing Store Sketch.png", 1280, 780)
-
+image bg street = im.Scale("Street in Sichuan Sketch.png", 1280, 780)
+image bg panda base = im.Scale("Chengdu Panda Base.png",1280,780)
 image bg restaurant=im.Scale("Restaurant Sketch.png", 1280, 780)
 image bg restaurant bathroom=im.Scale("Restaurant Bathroom Sketch.png", 1280, 780)
+image bg food = "food bg.png"
 image pda talk1="panda normal speaking 1"
 image pda talk2="panda normal speaking 2"
 image pda talk3="panda normal speaking 3"
@@ -54,11 +56,12 @@ image pda talk:
     0.1
     repeat
 image pda backpack s=im.Scale("panda backpack.png",400,400, xoffset=500, yoffset=0)
+image pda yawn = im.Scale("panda yawn.png",400,400,xoffset=0, yoffset=-45)
 image driv standard=im.Scale("bus driver hello (1).png",1280,780)
 image driv confused=im.Scale("bus driver confused.png",1280,780)
 image driv happy=im.Scale("bus driver happy.png",1280,780)
-image prof happy=im.Scale("prof happy.png",600,796)
-image prof angry=im.Scale("prof angery.png",600,796)
+image prof happy=im.Scale("prof happy.png",600,796, xoffset=0, yoffset=75)
+image prof angry=im.Scale("prof angery.png",600,796, xoffset=0, yoffset=75)
 image vendor normal=im.Scale("fruit_vendor_normal.png",1280,720)
 image vendor angry=im.Scale("fruit_vendor_angry.png",1280,720)
 image vendor confused=im.Scale("fruit_vendor_confused.png",1280,720)
@@ -85,13 +88,14 @@ image hotelclerk normal=im.Scale("hotel clerk normal.png",680,680,xoffset=0, yof
 image friend normal=im.Scale("friend normal.png",1280,720)
 image friend angry=im.Scale("friend angry.png",1280,720)
 image friend confused=im.Scale("friend confused.png",1280,720)
-image waiter normal=im.Scale("waiter normal.png",700,700,xoffset=0, yoffset=60)
-image waiter angry=im.Scale("waiter angry.png",700,700,xoffset=0, yoffset=60)
-image waiter confused=im.Scale("waiter confused.png",700,700,xoffset=0, yoffset=60)
+image waiter normal=im.Scale("waiter normal.png",750,750,xoffset=0, yoffset=60)
+image waiter angry=im.Scale("waiter angry.png",750,750,xoffset=0, yoffset=60)
+image waiter confused=im.Scale("waiter confused.png",750,750,xoffset=0, yoffset=60)
 image restaurant food=im.Scale("Chinese Food Sketch.png",200,200,xoffset=0, yoffset=-5)
-image stranger normal = "stranger normal.png"
-image stranger confused = "stranger confuse.png"
-image stranger angry = "stranger angry.png"
+image restaurant food zoomin =im.Scale("Chinese Food Sketch.png",800,800)
+image stranger normal = im.Scale("stranger normal.png",600,600)
+image stranger confused = im.Scale("stranger confuse.png",600,600)
+image stranger angry = im.Scale("stranger angry.png",600,600)
 
 # The game starts here.
 
@@ -103,6 +107,7 @@ label start:
     $povname = "You"
 
     scene bg park
+    with dissolve
     play music "Deep Chills.mp3"
     "You are an exchange student in Beijing University. You arrived in China a few days ago. One night, you go for a walk in Beihai park."
     scene bg parkbush 
@@ -155,6 +160,7 @@ label start:
 
 
     scene bg parkbush
+
     show text one
     with dissolve
 
@@ -172,6 +178,7 @@ label start:
 
 
     scene university
+    with dissolve
     show pda backpack
     with dissolve
     "The next day, you put the panda in your backpack and walk to the office building in your university."
@@ -326,6 +333,7 @@ label start:
             
     label politeOffice4:
         show prof angry
+        with dissolve
         "......"
         show pda backpack s onlayer top
         with dissolve
@@ -334,6 +342,7 @@ label start:
     
     label grammarOffice4:
         show prof angry
+        with dissolve
         "......"
         show pda backpack s onlayer top
         with dissolve
@@ -342,6 +351,7 @@ label start:
     
     label wrongOffice4:
         show prof angry
+        with dissolve
         "......"
         show pda backpack s onlayer top
         with dissolve
@@ -354,12 +364,15 @@ label start:
         
     "After you meet with your professor, you walk out of the university. Suddenly, you hear the panda crying."
     scene university
-    
-    show pda talk2
+    show pda yawn
     with dissolve
     player "Are you okay, buddy?"
-    show pda talk
+    hide pda yawn
+    with dissolve
+    show pda talk2
+    with dissolve
     panda "Do I look okay to you?"
+    show pda talk
     show pda talk2
     player "Sorry... I was just asking..."
     show pda talk
@@ -594,6 +607,7 @@ label start:
             hide taxidriver angry
             hide pda backpack s onlayer top
             show taxidriver normal
+            with dissolve
             taxi "你好!"
     
         menu tq1:
@@ -893,6 +907,7 @@ label start:
     
     label storeQ2:
         show sales normal
+        with dissolve
     
     menu store2:
         "请问，这件T恤衫贵吗？":
@@ -972,16 +987,18 @@ label start:
         hide pda backpack s onlayer top
         with dissolve
         salesperson "当然可以。那里是试衣间。"
-    
-    label storeQ4:
         "You try the clothes on in the fitting room and love it."
         show pda backpack
         with dissolve
-        Panda "It seems your taste in clothes isn’t too bad huh!"
+        panda "It seems your taste in clothes isn’t too bad huh!"
         hide pda backpack
         with dissolve
-        "To purchase the clothes, you walk towards the salesperson."
+    
+    label storeQ4:
+        hide pda backpack s onlayer top
+        with dissolve
         show sales normal
+        "To purchase the clothes, you walk towards the salesperson."
     
     menu store4: 
         "请问在哪儿收款台？":
@@ -1066,11 +1083,11 @@ label start:
         with dissolve
         salesperson "可以。"
         hide sales 
-        show pda backpack
+        show pda yawn
         with dissolve
         "After shopping, the panda seems really hungry, and you realize it’s almost time for dinner with your friend."
         
-    #restaurant scene
+#restaurant scene
         scene bg restaurant
         hide pda backpack s onlayer top
         "The next day, after taking a tour in Xi'an with Baobao, you rush to the restaurant to meet your friend."
@@ -1176,6 +1193,7 @@ label start:
         scene bg restaurant
         hide pda backpack s onlayer top
         show waiter normal
+        with dissolve
         waiter "请问点什么?"
     
     menu rest3:
@@ -1217,17 +1235,22 @@ label start:
         show waiter normal 
         waiter"好咧。"
         hide waiter normal
-        show friend normal
-        show restaurant food onlayer overlay
+        scene bg food
+        show restaurant food zoomin 
+        with dissolve 
         "The food you ordered has arrived. They look delicious!" 
         "After a while, you and your friend finish your meal." 
-        hide restaurant food onlayer overlay
+        scene bg restaurant
+        show restaurant food onlayer screens
+        show friend normal
         friend "好,吃完了。"
+        hide restaurant food onlayer screens
     
     label restaurantQ4:
         hide pda backpack s onlayer top
         hide friend normal
         show waiter normal
+        with dissolve
         waiter "请问需要什么?"
     
     menu rest4:
@@ -1268,8 +1291,154 @@ label start:
         hide pda backpack s onlayer top
         with dissolve 
         waiter"好咧。"
+        hide waiter normal 
+        with dissolve
+        "After saying goodbye to your friend, you leave the restaurant. It’s time to continue the journey onto Sichuan."
 
+    scene bg trainStation
+    with dissolve
+    "Hours and hours passed on the train until you finally arrive at Chengdu."
 
-# This ends the game.
+#Here start street scene 
+    scene bg street
+    with dissolve
+    "Finally, you brought the panda to his home Chengdu, Sichuan. After you get off the train, you see a busy street. It’s your first time in Chengdu, so you have no idea how to go to the Panda Base. So you decide to ask a stranger."
+    
+    label streetQ1:
+        hide pda backpack s onlayer top
+        with dissolve 
+        show stranger normal 
+        with dissolve 
+    
+    menu street1:
+        "请问，我想去熊猫基地，你知道吗?":
+            jump conventionalstreet1
+        "请问，你知道怎么去熊猫基地怎么走吗？":
+            jump correctstreet1
+        "请问，有没有可能请您告诉我怎么去熊猫基地呢?":
+            jump sociostreet1
+        "请问，去熊猫基地怎么办":
+            jump grammarstreet1
 
+    
+    label sociostreet1:
+        show stranger angry
+        "......"
+        show pda backpack s onlayer top
+        with dissolve
+        panda "“怎么去” “How to go somewhere”. Think about the situation."
+        jump streetQ1
+    
+    label grammarstreet1:
+        show stranger confused
+        "......"
+        show pda backpack s onlayer top
+        with dissolve
+        panda "“怎么办” “What to do”, is not used to ask for direction.  to ask for train stops."
+        jump streetQ1
+
+    label conventionalstreet1:
+        show stranger confused
+        "......"
+        show pda backpack s onlayer top
+        with dissolve
+        panda "This is not the conventional way to ask for direction."
+        jump streetQ1
+        
+    label correctstreet1:
+        hide pda backpack s onlayer top
+        with dissolve 
+        show stranger normal 
+        with dissolve
+        stranger "一直往前走，到第二个路口右拐，就到了。"
+    
+    menu street2:
+        "大概要多长?":
+            jump grammarstreet2
+        "时间要多少?":
+            jump conventionalstreet2
+        "你告诉我要多久?":
+            jump sociostreet2
+        "大概要多久?":
+            jump correctstreet2
+
+    label sociostreet2:
+        show stranger angry
+        "......"
+        show pda backpack s onlayer top
+        with dissolve
+        panda "“告诉” “tell me” might be rude here. Think about the situation. "
+        jump correctstreet1
+    
+    label grammarstreet2:
+        show stranger confused
+        "......"
+        show pda backpack s onlayer top
+        with dissolve
+        panda "“多长” “what is the length”."
+        jump correctstreet1
+
+    label conventionalstreet2:
+        show stranger confused
+        "......"
+        show pda backpack s onlayer top
+        with dissolve
+        panda "This is not the conventional way to say it."
+        jump correctstreet1
+        
+    label correctstreet2:
+        hide pda backpack s onlayer top
+        with dissolve 
+        show stranger normal 
+        with dissolve
+        stranger "大概20分钟吧。"
+    
+    menu street3:
+        "谢谢你啊!":
+            jump correctstreet3
+        "非常感谢你的帮助!":
+            jump sociostreet3
+        "太谢谢!":
+            jump grammarstreet3
+        "谢谢你帮了我!":
+            jump conventionalstreet3
+        
+    label sociostreet3:
+        show stranger angry
+        "......"
+        show pda backpack s onlayer top
+        with dissolve
+        panda "This expression might be too elaborate and formal. Think about the situation."
+        jump correctstreet2
+    
+    label grammarstreet3:
+        show stranger confused
+        "......"
+        show pda backpack s onlayer top
+        with dissolve
+        panda "“太” should be used with “了” to modify adjectives."
+        jump correctstreet2
+
+    label conventionalstreet3:
+        show stranger confused
+        "......"
+        show pda backpack s onlayer top
+        with dissolve
+        panda "This is not the conventional way to say thank you to a stranger."
+        jump correctstreet2
+        
+    label correctstreet3:
+        hide pda backpack s onlayer top
+        with dissolve 
+        stranger "不客气。"
+    
+    scene bg panda base 
+    with dissolve
+    "After about 30 minutes walk, you feel Baobao moving in your backpack. You put Baobao down and start to look around. Now on your right side, both you and Baobao are so excited to see a giant sign says “Chengdu Panda Base 成都大熊猫基地”."
+    show pda yawn 
+    with dissolve 
+    panda "Thank you, kid! Couldn't have made it without you!"
+    "Congratulations! You made it!"
+    
+ # This ends the game.
     return

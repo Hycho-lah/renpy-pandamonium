@@ -703,7 +703,7 @@ label start:
             show bankteller normal
             bankTeller "好的，您有银行卡吗？"
             player "有，在这里。"
-            bankTeller "好的，这是您的现金，一块800块。"
+            bankTeller "好的，这是您的现金，一共800块。"
 
         show bg insidebank
         show bankteller normal

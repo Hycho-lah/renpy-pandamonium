@@ -96,14 +96,18 @@ image restaurant food zoomin =im.Scale("Chinese Food Sketch.png",800,800)
 image stranger normal = im.Scale("stranger normal.png",600,600)
 image stranger confused = im.Scale("stranger confuse.png",600,600)
 image stranger angry = im.Scale("stranger angry.png",600,600)
-
+image point box = im.Scale("pointbox.png",550,80,xoffset=620, yoffset=-600)
+# Screen for displaying points  
+define points = 0
+screen Points_display:
+     text "[points]" xpos 1180 ypos 0.090 size 35
+     
 # The game starts here.
 
 label start:
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
-
     $povname = "You"
 
     scene bg park
@@ -179,6 +183,8 @@ label start:
 
     scene university
     with dissolve
+    show point box onlayer screens
+    show screen Points_display 
     show pda backpack
     with dissolve
     "The next day, you put the panda in your backpack and walk to the office building in your university."
@@ -207,6 +213,8 @@ label start:
             jump rightOffice1
             
     label grammarOffice1:
+        $ points -= 1 
+        play sound "wrong.wav"
         show prof angry
         "......"
         show pda backpack s onlayer top 
@@ -215,6 +223,8 @@ label start:
         jump officeQ1
         
     label usageOffice1:
+        $ points -= 1 
+        play sound "wrong.wav"
         show prof angry
         "......"
         show pda backpack s onlayer top 
@@ -223,6 +233,8 @@ label start:
         jump officeQ1
     
     label politeOffice1:
+        $ points -= 1 
+        play sound "wrong.wav"
         show prof angry
         "......"
         show pda backpack s onlayer top 
@@ -231,6 +243,8 @@ label start:
         jump officeQ1
     
     label rightOffice1:
+        $ points += 3 
+        play sound "right.mp3"
         show prof happy
         professor "嗯，好吧。"
         jump officeQ2
@@ -252,6 +266,8 @@ label start:
             jump wrongOffice2
     
     label wrongOffice2:
+        $ points -= 1 
+        play sound "wrong.wav"
         show prof angry
         "......"
         show pda backpack s onlayer top
@@ -260,6 +276,8 @@ label start:
         jump officeQ2
         
     label usageOffice2:
+        $ points -= 1 
+        play sound "wrong.wav"
         show prof angry
         professor "......"
         show pda backpack s onlayer top
@@ -268,6 +286,8 @@ label start:
         jump officeQ2
     
     label politeOffice2:
+        $ points -= 1 
+        play sound "wrong.wav"
         show prof angry
         "......"
         show pda backpack s onlayer top
@@ -276,8 +296,16 @@ label start:
         jump officeQ2
     
     label rightOffice2:
+        $ points += 3 
+        play sound "right.mp3"
         show prof happy
         hide pda backpack s onlayer top
+        professor "好的，那下星期回来以后补考吧。"
+        jump moq3
+    
+    label officeQ3:
+        hide pda backpack s onlayer top
+        show prof happy
         professor "好的，那下星期回来以后补考吧。"
         
     menu moq3:
@@ -291,35 +319,49 @@ label start:
             jump wrongOffice3
         
     label politeOffice3:
+        $ points -= 1 
+        play sound "wrong.wav"
         show prof angry
         "......"
         show pda backpack s onlayer top
         with dissolve
         panda "谢了啊 is too informal. Think about the context."
-        jump rightOffice2
+        jump officeQ3
         
     label grammarOffice3:
+        $ points -= 1 
+        play sound "wrong.wav"
         show prof angry
         "......"
         show pda backpack s onlayer top
         with dissolve
         panda "We don't say 很......了."
-        jump rightOffice2
+        jump officeQ3
         
     label wrongOffice3:
+        $ points -= 1 
+        play sound "wrong.wav"
         show prof angry
         "......"
         show pda backpack s onlayer top
         with dissolve
         panda "That's not the way Chinese people would say it."
-        jump rightOffice2
+        jump officeQ3
     
     label rightOffice3:
+        $ points += 3 
+        play sound "right.mp3"
         show prof happy
         hide pda backpack s onlayer top
         professor "不客气。还有别的事吗？"
         player "没事了，谢谢老师。"
+        jump moq4
 
+    label officeQ4:
+        hide pda backpack s onlayer top
+        show prof happy
+        player "没事了，谢谢老师。"
+        
     menu moq4:
 
         "我要离开了！再见！":
@@ -332,33 +374,41 @@ label start:
             jump wrongOffice4
             
     label politeOffice4:
+        $ points -= 1 
+        play sound "wrong.wav"
         show prof angry
         with dissolve
         "......"
         show pda backpack s onlayer top
         with dissolve
         panda "离开 (to leave/depart) is too formal here. "
-        jump rightOffice3
+        jump officeQ4
     
     label grammarOffice4:
+        $ points -= 1 
+        play sound "wrong.wav"
         show prof angry
         with dissolve
         "......"
         show pda backpack s onlayer top
         with dissolve
         panda "出去 means going out."
-        jump rightOffice3
+        jump officeQ4
     
     label wrongOffice4:
+        $ points -= 1 
+        play sound "wrong.wav"
         show prof angry
         with dissolve
         "......"
         show pda backpack s onlayer top
         with dissolve
         panda "我要走 is not the conventional way to say it. "
-        jump rightOffice3
+        jump officeQ4
         
     label rightOffice4:
+        $ points += 3 
+        play sound "right.mp3"
         show prof happy
         professor "好，再见！"
         
@@ -401,6 +451,8 @@ label start:
             jump wrongfruit1
             
     label wrongfruit1:
+        $ points -= 1 
+        play sound "wrong.wav"
         hide pda backpack s onlayer top
         hide vendor normal
         hide vendor angry
@@ -412,6 +464,8 @@ label start:
         jump fvq1
     
     label usagefruit1:
+        $ points -= 1 
+        play sound "wrong.wav"
         hide pda backpack s onlayer top
         hide vendor normal
         hide vendor angry
@@ -423,6 +477,8 @@ label start:
         jump fvq1
     
     label politefruit1:
+        $ points -= 1 
+        play sound "wrong.wav"
         hide pda backpack s onlayer top
         hide vendor normal
         hide vendor confused
@@ -434,6 +490,8 @@ label start:
         jump fvq1
             
     label fvq2:
+        $ points += 3 
+        play sound "right.mp3"
         hide pda backpack s onlayer top
         hide vendor angry
         hide vendor confused
@@ -451,6 +509,8 @@ label start:
             jump wrongfruit2
     
     label grammarfruit2:
+        $ points -= 1 
+        play sound "wrong.wav"
         hide pda backpack s onlayer top
         hide vendor angry
         hide vendor normal
@@ -462,6 +522,8 @@ label start:
         jump fvq2
     
     label usagefruit2:
+        $ points -= 1 
+        play sound "wrong.wav"
         hide pda backpack s onlayer top
         hide vendor angry
         hide vendor normal
@@ -473,6 +535,8 @@ label start:
         jump fvq2
     
     label wrongfruit2:
+        $ points -= 1 
+        play sound "wrong.wav"
         hide pda backpack s onlayer top
         hide vendor confused
         hide vendor normal
@@ -484,6 +548,8 @@ label start:
         jump fvq2
 
     label fruitDone:
+        $ points += 3 
+        play sound "right.mp3"
         hide pda backpack s onlayer top
         hide vendor angry
         hide vendor confused
@@ -515,6 +581,8 @@ label start:
             jump offtopicbd1
             
     label politebd1:
+        $ points -= 1 
+        play sound "wrong.wav"
         show driv confused
         with dissolve
         driver "......"
@@ -524,6 +592,8 @@ label start:
         jump bdq1
     
     label usagebd1:
+        $ points -= 1 
+        play sound "wrong.wav"
         show driv confused
         with dissolve
         driver "......"
@@ -533,6 +603,8 @@ label start:
         jump bdq1
         
     label offtopicbd1:
+        $ points -= 1 
+        play sound "wrong.wav"
         show driv confused
         with dissolve
         driver "......"
@@ -542,6 +614,8 @@ label start:
         jump bdq1
             
     label bdq2:
+        $ points += 3 
+        play sound "right.mp3"
         hide pda backpack s onlayer top
         show driv happy
         with dissolve
@@ -559,6 +633,8 @@ label start:
             jump contextbd2
             
     label politebd2:
+        $ points -= 1 
+        play sound "wrong.wav"
         show driv confused
         with dissolve
         driver "......"
@@ -568,6 +644,8 @@ label start:
         jump bdq2
         
     label usagebd2:
+        $ points -= 1 
+        play sound "wrong.wav"
         show driv confused
         with dissolve
         driver "......"
@@ -577,6 +655,8 @@ label start:
         jump bdq2
         
     label contextbd2:
+        $ points -= 1 
+        play sound "wrong.wav"
         show driv confused
         with dissolve
         driver "......"
@@ -586,6 +666,8 @@ label start:
         jump bdq2
         
     label donebd:
+        $ points += 3 
+        play sound "right.mp3"
         driver "公交车都不到。你得打车了。"
         
     label janet:
@@ -621,6 +703,8 @@ label start:
                 jump rightTaxi1
                 
         label grammarTaxi1:
+            $ points -= 1 
+            play sound "wrong.wav"
             show taxidriver confused
             taxi "......"
             show pda backpack s onlayer top
@@ -629,6 +713,8 @@ label start:
             jump taxiQ1
             
         label usageTaxi1:
+            $ points -= 1 
+            play sound "wrong.wav"
             show taxidriver angry
             taxi "......"
             show pda backpack s onlayer top
@@ -636,6 +722,8 @@ label start:
             jump taxiQ1
             
         label politeTaxi1:
+            $ points -= 1 
+            play sound "wrong.wav"
             show taxidriver confused
             taxi "......"
             show pda backpack s onlayer top
@@ -643,6 +731,8 @@ label start:
             jump taxiQ1
             
         label rightTaxi1:
+            $ points += 3 
+            play sound "right.mp3"
             show taxidriver normal
             with dissolve
             hide pda backpack s onlayer top
@@ -675,6 +765,8 @@ label start:
                 jump politeBank1
                 
         label grammarBank1:
+            $ points -= 1 
+            play sound "wrong.wav"
             hide bankteller normal
             show bankteller angry
             bankTeller "......"
@@ -683,6 +775,8 @@ label start:
             jump bankQ1
             
         label usageBank1:
+            $ points -= 1 
+            play sound "wrong.wav"
             hide bankteller normal
             show bankteller confused
             bankTeller "......"
@@ -691,6 +785,8 @@ label start:
             jump bankQ1
             
         label politeBank1:
+            $ points -= 1 
+            play sound "wrong.wav"
             hide bankteller normal
             show bankteller confused
             bankTeller "......"
@@ -699,6 +795,8 @@ label start:
             jump bankQ1
             
         label rightBank1:
+            $ points += 3 
+            play sound "right.mp3"
             hide pda backpack s onlayer top
             show bankteller normal
             bankTeller "好的，您有银行卡吗？"
@@ -728,6 +826,7 @@ label start:
    
     label trainIQ1:
         show ticketattendant normal
+        hide pda backpack s onlayer top
         ticketAttendant "你好。"
         
     menu trainQ1:
@@ -741,32 +840,40 @@ label start:
             jump nonConTrainQ1
     
     label correctTrainQ1:
+        $ points += 3 
+        play sound "right.mp3"
         hide pda backpack s onlayer top
         jump trainIQ2
         
     label socioTrainQ1:
+        $ points -= 1 
+        play sound "wrong.wav"
         show ticketattendant angry
         "......"
         show pda backpack s onlayer top
         with dissolve
         panda "怎么样 is used to make a suggestion. Think about the situation. "
-        jump trainQ1
+        jump trainIQ1
     
     label pragTrainQ1:
+        $ points -= 1 
+        play sound "wrong.wav"
         show ticketattendant confused
         "......"
         show pda backpack s onlayer top
         with dissolve
         panda "呢 should be 吗. "
-        jump trainQ1
+        jump trainIQ1
     
     label nonConTrainQ1:
+        $ points -= 1 
+        play sound "wrong.wav"
         show ticketattendant confused
         "......"
         show pda backpack s onlayer top
         with dissolve
         panda "This is not the conventional way to buy ticket. "
-        jump trainQ1
+        jump trainIQ1
         
     label trainIQ2:
         hide pda backpack s onlayer top
@@ -795,6 +902,8 @@ label start:
             jump conventionaltrain1
             
     label sociotrain1:
+        $ points -= 1 
+        play sound "wrong.wav"
         show trainattendant angry
         trainAttendant "......"
         show pda backpack s onlayer top
@@ -803,6 +912,8 @@ label start:
         jump insidetrainQ1
         
     label grammartrain1:
+        $ points -= 1 
+        play sound "wrong.wav"
         show trainattendant confused
         trainAttendant "......"
         show pda backpack s onlayer top
@@ -811,6 +922,8 @@ label start:
         jump insidetrainQ1
         
     label conventionaltrain1:
+        $ points -= 1 
+        play sound "wrong.wav"
         show trainattendant confused
         trainAttendant "......"
         show pda backpack s onlayer top
@@ -819,6 +932,8 @@ label start:
         jump insidetrainQ1
         
     label correcttrain1:
+        $ points += 3 
+        play sound "right.mp3"
         hide pda backpack s onlayer top
         show trainattendant normal
         trainAttendant "下一站就是了。"
@@ -874,6 +989,8 @@ label start:
             jump conventionalstore1
    
     label sociostore1:
+        $ points -= 1 
+        play sound "wrong.wav"
         show sales angry
         "......"
         show pda backpack s onlayer top
@@ -882,6 +999,8 @@ label start:
         jump storeQ1
     
     label grammarstore1:
+        $ points -= 1 
+        play sound "wrong.wav"
         show sales confused
         "......"
         show pda backpack s onlayer top
@@ -890,6 +1009,8 @@ label start:
         jump storeQ1
 
     label conventionalstore1:
+        $ points -= 1 
+        play sound "wrong.wav"
         show sales confused
         "......"
         show pda backpack s onlayer top
@@ -898,6 +1019,8 @@ label start:
         jump storeQ1
         
     label correctstore1:
+        $ points += 3 
+        play sound "right.mp3"
         hide pda backpack s onlayer top
         with dissolve
         salesperson "好的，需要什么告诉我。"
@@ -920,6 +1043,8 @@ label start:
             jump grammarstore2
 
     label sociostore2:
+        $ points -= 1 
+        play sound "wrong.wav"
         show sales angry
         "......"
         show pda backpack s onlayer top
@@ -928,6 +1053,8 @@ label start:
         jump storeQ2
     
     label grammarstore2:
+        $ points -= 1 
+        play sound "wrong.wav"
         show sales confused
         "......"
         show pda backpack s onlayer top
@@ -936,6 +1063,8 @@ label start:
         jump storeQ2
 
     label conventionalstore2:
+        $ points -= 1 
+        play sound "wrong.wav"
         show sales confused
         "......"
         show pda backpack s onlayer top
@@ -944,6 +1073,8 @@ label start:
         jump storeQ2
         
     label correctstore2:
+        $ points += 3 
+        play sound "right.mp3"
         hide pda backpack s onlayer top
         with dissolve
         show sales normal
@@ -960,6 +1091,8 @@ label start:
             jump sociostore3
             
     label sociostore3:
+        $ points -= 1 
+        play sound "wrong.wav"
         show sales angry
         "......"
         show pda backpack s onlayer top
@@ -968,6 +1101,8 @@ label start:
         jump correctstore2
     
     label grammarstore3:
+        $ points -= 1 
+        play sound "wrong.wav"
         show sales confused
         "......"
         show pda backpack s onlayer top
@@ -976,6 +1111,8 @@ label start:
         jump correctstore2
 
     label conventionalstore3:
+        $ points -= 1 
+        play sound "wrong.wav"
         show sales confused
         "......"
         show pda backpack s onlayer top
@@ -984,6 +1121,8 @@ label start:
         jump correctstore2
         
     label correctstore3:
+        $ points += 3 
+        play sound "right.mp3"
         hide pda backpack s onlayer top
         with dissolve
         salesperson "当然可以。那里是试衣间。"
@@ -1011,6 +1150,8 @@ label start:
             jump conventionalstore4
             
     label sociostore4:
+        $ points -= 1 
+        play sound "wrong.wav"
         show sales angry
         "......"
         show pda backpack s onlayer top
@@ -1019,6 +1160,8 @@ label start:
         jump storeQ4
     
     label grammarstore4:
+        $ points -= 1 
+        play sound "wrong.wav"
         show sales confused
         "......"
         show pda backpack s onlayer top
@@ -1027,6 +1170,8 @@ label start:
         jump storeQ4
 
     label conventionalstore4:
+        $ points -= 1 
+        play sound "wrong.wav"
         show sales confused
         "......"
         show pda backpack s onlayer top
@@ -1035,6 +1180,8 @@ label start:
         jump storeQ4
         
     label correctstore4:
+        $ points += 3 
+        play sound "right.mp3"
         hide pda backpack s onlayer top
         with dissolve
         salesperson "往前走，在你的左手边就是了。"
@@ -1055,6 +1202,8 @@ label start:
             jump conventionalstore5
     
     label sociostore5:
+        $ points -= 1 
+        play sound "wrong.wav"
         show sales angry
         "......"
         show pda backpack s onlayer top
@@ -1063,6 +1212,8 @@ label start:
         jump storeQ5
     
     label grammarstore5:
+        $ points -= 1 
+        play sound "wrong.wav"
         show sales confused
         "......"
         show pda backpack s onlayer top
@@ -1071,6 +1222,8 @@ label start:
         jump storeQ5
 
     label conventionalstore5:
+        $ points -= 1 
+        play sound "wrong.wav"
         show sales confused
         "......"
         show pda backpack s onlayer top
@@ -1079,6 +1232,8 @@ label start:
         jump storeQ5
         
     label correctstore5:
+        $ points += 3 
+        play sound "right.mp3"
         hide pda backpack s onlayer top
         with dissolve
         salesperson "可以。"
@@ -1110,6 +1265,8 @@ label start:
             jump conventionalrest1
             
     label sociorest1:
+        $ points -= 1 
+        play sound "wrong.wav"
         show friend angry
         "......"
         show pda backpack s onlayer top
@@ -1118,6 +1275,8 @@ label start:
         jump restaurantQ1
     
     label grammarrest1:
+        $ points -= 1 
+        play sound "wrong.wav"
         show friend confused
         "......"
         show pda backpack s onlayer top
@@ -1126,6 +1285,8 @@ label start:
         jump restaurantQ1
 
     label conventionalrest1:
+        $ points -= 1 
+        play sound "wrong.wav"
         show friend confused
         "......"
         show pda backpack s onlayer top
@@ -1134,6 +1295,8 @@ label start:
         jump restaurantQ1
 
     label correctrest1:
+        $ points += 3 
+        play sound "right.mp3"
         hide pda backpack s onlayer top
         with dissolve
         show friend normal 
@@ -1158,6 +1321,8 @@ label start:
             jump correctrest2
             
     label sociorest2:
+        $ points -= 1 
+        play sound "wrong.wav"
         show friend angry
         "......"
         show pda backpack s onlayer top
@@ -1166,6 +1331,8 @@ label start:
         jump restaurantQ2
     
     label grammarrest2:
+        $ points -= 1 
+        play sound "wrong.wav"
         show friend confused
         "......"
         show pda backpack s onlayer top
@@ -1174,6 +1341,8 @@ label start:
         jump restaurantQ2
 
     label conventionalrest2:
+        $ points -= 1 
+        play sound "wrong.wav"
         show friend confused
         "......"
         show pda backpack s onlayer top
@@ -1182,6 +1351,8 @@ label start:
         jump restaurantQ2
         
     label correctrest2:
+        $ points += 3 
+        play sound "right.mp3"
         hide pda backpack s onlayer top
         with dissolve
         friend "我看看菜单。"
@@ -1207,6 +1378,8 @@ label start:
             jump sociorest3
     
     label sociorest3:
+        $ points -= 1 
+        play sound "wrong.wav"
         show waiter angry
         "......"
         show pda backpack s onlayer top
@@ -1215,6 +1388,8 @@ label start:
         jump restaurantQ3
     
     label grammarrest3:
+        $ points -= 1 
+        play sound "wrong.wav"
         show waiter confused
         "......"
         show pda backpack s onlayer top
@@ -1223,6 +1398,8 @@ label start:
         jump restaurantQ3
 
     label conventionalrest3:
+        $ points -= 1 
+        play sound "wrong.wav"
         show waiter confused
         "......"
         show pda backpack s onlayer top
@@ -1231,6 +1408,8 @@ label start:
         jump restaurantQ3
         
     label correctrest3:
+        $ points += 3 
+        play sound "right.mp3"
         hide pda backpack s onlayer top
         show waiter normal 
         waiter"好咧。"
@@ -1264,6 +1443,8 @@ label start:
             jump conventionalrest4
     
     label sociorest4:
+        $ points -= 1 
+        play sound "wrong.wav"
         show waiter angry
         "......"
         show pda backpack s onlayer top
@@ -1272,6 +1453,8 @@ label start:
         jump restaurantQ4
     
     label grammarrest4:
+        $ points -= 1 
+        play sound "wrong.wav"
         show waiter confused
         "......"
         show pda backpack s onlayer top
@@ -1280,6 +1463,8 @@ label start:
         jump restaurantQ4
 
     label conventionalrest4:
+        $ points -= 1 
+        play sound "wrong.wav"
         show waiter confused
         "......"
         show pda backpack s onlayer top
@@ -1288,6 +1473,8 @@ label start:
         jump restaurantQ4
         
     label correctrest4:
+        $ points += 3 
+        play sound "right.mp3"
         hide pda backpack s onlayer top
         with dissolve 
         waiter"好咧。"
@@ -1322,6 +1509,8 @@ label start:
 
     
     label sociostreet1:
+        $ points -= 1 
+        play sound "wrong.wav"
         show stranger angry
         "......"
         show pda backpack s onlayer top
@@ -1330,6 +1519,8 @@ label start:
         jump streetQ1
     
     label grammarstreet1:
+        $ points -= 1 
+        play sound "wrong.wav"
         show stranger confused
         "......"
         show pda backpack s onlayer top
@@ -1338,6 +1529,8 @@ label start:
         jump streetQ1
 
     label conventionalstreet1:
+        $ points -= 1 
+        play sound "wrong.wav"
         show stranger confused
         "......"
         show pda backpack s onlayer top
@@ -1346,12 +1539,20 @@ label start:
         jump streetQ1
         
     label correctstreet1:
+        $ points += 3 
+        play sound "right.mp3"
         hide pda backpack s onlayer top
         with dissolve 
         show stranger normal 
         with dissolve
         stranger "一直往前走，到第二个路口右拐，就到了。"
+        jump street2
     
+    label street2start:
+        hide pda backpack s onlayer top
+        show stranger normal 
+        stranger "一直往前走，到第二个路口右拐，就到了。"
+        
     menu street2:
         "大概要多长?":
             jump grammarstreet2
@@ -1363,36 +1564,50 @@ label start:
             jump correctstreet2
 
     label sociostreet2:
+        $ points -= 1 
+        play sound "wrong.wav"
         show stranger angry
         "......"
         show pda backpack s onlayer top
         with dissolve
         panda "“告诉” “tell me” might be rude here. Think about the situation. "
-        jump correctstreet1
+        jump street2start
     
     label grammarstreet2:
+        $ points -= 1 
+        play sound "wrong.wav"
         show stranger confused
         "......"
         show pda backpack s onlayer top
         with dissolve
         panda "“多长” “what is the length”."
-        jump correctstreet1
+        jump street2start
 
     label conventionalstreet2:
+        $ points -= 1 
+        play sound "wrong.wav"
         show stranger confused
         "......"
         show pda backpack s onlayer top
         with dissolve
         panda "This is not the conventional way to say it."
-        jump correctstreet1
+        jump street2start
         
     label correctstreet2:
+        $ points += 3 
+        play sound "right.mp3"
         hide pda backpack s onlayer top
         with dissolve 
         show stranger normal 
         with dissolve
         stranger "大概20分钟吧。"
+        jump street3
     
+    label street3start: 
+        hide pda backpack s onlayer top
+        show stranger normal 
+        stranger "大概20分钟吧。"
+        
     menu street3:
         "谢谢你啊!":
             jump correctstreet3
@@ -1404,30 +1619,38 @@ label start:
             jump conventionalstreet3
         
     label sociostreet3:
+        $ points -= 1 
+        play sound "wrong.wav"
         show stranger angry
         "......"
         show pda backpack s onlayer top
         with dissolve
         panda "This expression might be too elaborate and formal. Think about the situation."
-        jump correctstreet2
+        jump street3start
     
     label grammarstreet3:
+        $ points -= 1 
+        play sound "wrong.wav"
         show stranger confused
         "......"
         show pda backpack s onlayer top
         with dissolve
         panda "“太” should be used with “了” to modify adjectives."
-        jump correctstreet2
+        jump street3start
 
     label conventionalstreet3:
+        $ points -= 1 
+        play sound "wrong.wav"
         show stranger confused
         "......"
         show pda backpack s onlayer top
         with dissolve
         panda "This is not the conventional way to say thank you to a stranger."
-        jump correctstreet2
+        jump street3start
         
     label correctstreet3:
+        $ points += 3 
+        play sound "right.mp3"
         hide pda backpack s onlayer top
         with dissolve 
         stranger "不客气。"

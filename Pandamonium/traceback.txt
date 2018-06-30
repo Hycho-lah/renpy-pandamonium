@@ -1,92 +1,46 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-Exception: Could not find font u'simkai.ttf'.
+  File "game/script.rpy", line 116, in script
+    with dissolve
+Exception: Required parameter points has no value.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/_layout/screen_main_menu.rpym", line 28, in script
-    python hide:
-  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/ast.py", line 814, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/python.py", line 1719, in py_exec_bytecode
-    exec bytecode in globals, locals
-  File "renpy/common/_layout/screen_main_menu.rpym", line 30, in <module>
-    ui.interact()
-  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/ui.py", line 285, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "game/script.rpy", line 116, in script
+    with dissolve
+  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/ast.py", line 1275, in execute
+    renpy.exports.with_statement(trans, paired)
+  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/exports.py", line 1381, in with_statement
+    return renpy.game.interface.do_with(trans, paired, clear=clear)
+  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/display/core.py", line 2096, in do_with
+    clear=clear)
   File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/display/core.py", line 2526, in interact
     repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
-  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/display/core.py", line 2883, in interact_core
-    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
-  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/display/core.py", line 1955, in draw_screen
-    renpy.config.screen_height,
-  File "renpy/display/render.pyx", line 427, in renpy.display.render.render_screen (gen/renpy.display.render.c:6806)
-    rv = render(root, width, height, 0, 0)
-  File "renpy/display/render.pyx", line 196, in renpy.display.render.render (gen/renpy.display.render.c:2978)
-    rv = d.render(widtho, heighto, st, at)
-  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/display/layout.py", line 693, in render
-    surf = render(child, width, height, cst, cat)
-  File "renpy/display/render.pyx", line 110, in renpy.display.render.render (gen/renpy.display.render.c:3440)
-    cpdef render(d, object widtho, object heighto, double st, double at):
-  File "renpy/display/render.pyx", line 196, in renpy.display.render.render (gen/renpy.display.render.c:2978)
-    rv = d.render(widtho, heighto, st, at)
-  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/display/layout.py", line 693, in render
-    surf = render(child, width, height, cst, cat)
-  File "renpy/display/render.pyx", line 110, in renpy.display.render.render (gen/renpy.display.render.c:3440)
-    cpdef render(d, object widtho, object heighto, double st, double at):
-  File "renpy/display/render.pyx", line 196, in renpy.display.render.render (gen/renpy.display.render.c:2978)
-    rv = d.render(widtho, heighto, st, at)
-  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/display/layout.py", line 693, in render
-    surf = render(child, width, height, cst, cat)
-  File "renpy/display/render.pyx", line 110, in renpy.display.render.render (gen/renpy.display.render.c:3440)
-    cpdef render(d, object widtho, object heighto, double st, double at):
-  File "renpy/display/render.pyx", line 196, in renpy.display.render.render (gen/renpy.display.render.c:2978)
-    rv = d.render(widtho, heighto, st, at)
-  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/display/screen.py", line 623, in render
-    child = renpy.display.render.render(self.child, w, h, st, at)
-  File "renpy/display/render.pyx", line 110, in renpy.display.render.render (gen/renpy.display.render.c:3440)
-    cpdef render(d, object widtho, object heighto, double st, double at):
-  File "renpy/display/render.pyx", line 196, in renpy.display.render.render (gen/renpy.display.render.c:2978)
-    rv = d.render(widtho, heighto, st, at)
-  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/display/layout.py", line 693, in render
-    surf = render(child, width, height, cst, cat)
-  File "renpy/display/render.pyx", line 110, in renpy.display.render.render (gen/renpy.display.render.c:3440)
-    cpdef render(d, object widtho, object heighto, double st, double at):
-  File "renpy/display/render.pyx", line 196, in renpy.display.render.render (gen/renpy.display.render.c:2978)
-    rv = d.render(widtho, heighto, st, at)
-  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/display/layout.py", line 895, in render
-    surf = render(d, width - x, rh, cst, cat)
-  File "renpy/display/render.pyx", line 110, in renpy.display.render.render (gen/renpy.display.render.c:3440)
-    cpdef render(d, object widtho, object heighto, double st, double at):
-  File "renpy/display/render.pyx", line 196, in renpy.display.render.render (gen/renpy.display.render.c:2978)
-    rv = d.render(widtho, heighto, st, at)
-  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/display/behavior.py", line 707, in render
-    rv = super(Button, self).render(width, height, st, at)
-  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/display/layout.py", line 1054, in render
-    xminimum = max(xminimum, size_groups[size_group].width(width, height, st, at))
-  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/display/layout.py", line 999, in width
-    rend = i.render(width, height, st, at)
-  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/display/behavior.py", line 707, in render
-    rv = super(Button, self).render(width, height, st, at)
-  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/display/layout.py", line 1081, in render
-    st, at)
-  File "renpy/display/render.pyx", line 110, in renpy.display.render.render (gen/renpy.display.render.c:3440)
-    cpdef render(d, object widtho, object heighto, double st, double at):
-  File "renpy/display/render.pyx", line 196, in renpy.display.render.render (gen/renpy.display.render.c:2978)
-    rv = d.render(widtho, heighto, st, at)
-  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/text/text.py", line 1732, in render
-    virtual_layout = Layout(self, width, height, renders, drawable_res=False, size_only=True)
-  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/text/text.py", line 574, in __init__
-    glyphs = ts.glyphs(s, self)
-  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/text/text.py", line 236, in glyphs
-    fo = font.get_font(self.font, self.size, self.bold, self.italic, 0, self.antialias, self.vertical, self.hinting, layout.oversample)
-  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/text/font.py", line 648, in get_font
-    face = load_face(fn)
-  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/text/font.py", line 590, in load_face
-    raise Exception("Could not find font {0!r}.".format(orig_fn))
-Exception: Could not find font u'simkai.ttf'.
+  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/display/core.py", line 2793, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/display/core.py", line 495, in visit_all
+    d.visit_all(callback)
+  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/display/core.py", line 495, in visit_all
+    d.visit_all(callback)
+  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/display/core.py", line 495, in visit_all
+    d.visit_all(callback)
+  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/display/core.py", line 495, in visit_all
+    d.visit_all(callback)
+  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/display/screen.py", line 399, in visit_all
+    callback(self)
+  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/display/core.py", line 2793, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/display/screen.py", line 409, in per_interact
+    self.update()
+  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/display/screen.py", line 578, in update
+    self.screen.function(**self.scope)
+  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/ast.py", line 152, in apply_arguments
+    return parameters.apply(args, kwargs, ignore_errors)
+  File "/Users/yeelissa/Documents/renpy-pandamonium/renpy/ast.py", line 120, in apply
+    raise Exception("Required parameter %s has no value." % name)
+Exception: Required parameter points has no value.
 
 Darwin-17.3.0-x86_64-i386-64bit
 Ren'Py 6.99.12.4.2187

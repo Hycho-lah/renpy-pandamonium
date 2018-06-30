@@ -2,8 +2,16 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 395: end of line expected.
-    jump politefrui:
-                   ^
+File "game/script.rpy", line 1559: expected 'label_name' not found.
+    jump street1.5
+        ^
+
+File "game/script.rpy", line 1569: expected 'label_name' not found.
+    jump street1.5
+        ^
+
+File "game/script.rpy", line 1579: expected 'label_name' not found.
+    jump street1.5
+        ^
 
 Ren'Py Version: Ren'Py 6.99.12.4.2187

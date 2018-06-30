@@ -2,16 +2,12 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 1559: expected 'label_name' not found.
-    jump street1.5
-        ^
+File "game/script.rpy", line 256: Line is indented, but the preceding one-line python statement statement does not expect a block. Please check this line's indentation.
+    jump fillblackOffice1_right
+    ^
 
-File "game/script.rpy", line 1569: expected 'label_name' not found.
-    jump street1.5
-        ^
-
-File "game/script.rpy", line 1579: expected 'label_name' not found.
-    jump street1.5
+File "game/script.rpy", line 257: expected statement.
+    else:
         ^
 
 Ren'Py Version: Ren'Py 6.99.12.4.2187

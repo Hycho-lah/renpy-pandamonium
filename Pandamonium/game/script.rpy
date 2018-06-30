@@ -101,7 +101,7 @@ image point box = im.Scale("pointbox.png",550,80,xoffset=620, yoffset=-600)
 define points = 0
 screen Points_display:
      text "[points]" xpos 1180 ypos 0.090 size 35
-     
+
 # The game starts here.
 
 label start:
@@ -247,7 +247,28 @@ label start:
         play sound "right.mp3"
         show prof happy
         professor "嗯，好吧。"
+        jump fillblankOffice1 #officeQ2
+    
+    label fillblankOffice1:
+        show pda backpack s onlayer top 
+        with dissolve
+        panda "Now try recalling what you just learned. Fill in the missing sentence fragment."
+        $answer=renpy.input("我可以___吗？")
+        $answer=answer.strip()
+        if answer == "请几天假":
+            jump fillblackOffice1_right
+        else:
+            jump fillblackOffice1_wrong
+    
+    label fillblackOffice1_right:
+        play sound "right.mp3"
+        panda "Correct!"
         jump officeQ2
+    
+    label fillblackOffice1_wrong:
+        play sound "wrong.wav"
+        panda "Wrong. Try Again."
+        jump fillblankOffice1
         
     label officeQ2:
         show prof happy

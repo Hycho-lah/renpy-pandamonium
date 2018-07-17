@@ -4,7 +4,6 @@
 
 init offset = -1
 
-
 ################################################################################
 ## Styles
 ################################################################################
@@ -205,7 +204,6 @@ screen choice(items):
     vbox:
         for i in items:
             textbutton i.caption action i.action
-
 
 ## When this is true, menu captions will be spoken by the narrator. When false,
 ## menu captions will be displayed as empty buttons.

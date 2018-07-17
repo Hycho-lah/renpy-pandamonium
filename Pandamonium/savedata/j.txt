@@ -1,0 +1,32 @@
+username: j
+officeQ1: username: j
+officeQ1: r 33.27375817299
+officeQ2: r 64.14606189728
+username: j
+officeQ1: sr 2
+officeQ2: sr 4
+sofficeQ3: gr 5
+r 8
+fruitQ1: r 11
+fruitQ2: r 14
+busQ1: sgr 15
+busQ2: gusername: j
+officeQ1: ggcr 0
+officeQ2: sr 2
+officeQ3: r 5
+officeQ4: sr 7
+fruitQ1: gcr 8
+fruitQ2: r 11
+busQ1: sgr 12
+busQ2: gsr 13
+taxiQ1: scr 14
+bankQ1: ssr 15
+trainQ1: r 18
+insidetrainQ1: gr 20
+storeQ1: gsr 21
+storeQ2: r 24
+storeQ3: gr 26
+storeQ4: scr 27
+storeQ5: r 30
+restaurantQ1: r 33
+restaurantQ2: sccg

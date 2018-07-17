@@ -1,0 +1,18 @@
+username: baobao
+officeQ1: gr 2
+officeQ2: r 5
+officeQ3: sr 7
+officeQ4: sr 9
+fruitQ1: gr 11
+fruitQ2: r 14
+busQ1: sgr 15
+busQ2: gsr 16
+taxiQ1: r 19
+bankQ1: r 22
+trainQ1: r 25
+insdetrainQ1: cr 27
+storeQ1: gsr 28
+storeQ2: r 31
+storeQ3: ccr 33
+storeQ4: gr 35
+storeQ5: storeQ5: s

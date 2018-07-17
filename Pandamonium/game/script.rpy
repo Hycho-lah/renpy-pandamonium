@@ -19,7 +19,7 @@ define salesperson=Character("Salesperson")
 define waiter=Character("Waiter")
 define hotelclerk=Character("Hotel Clerk")
 
-image bg park="Park View Sketch.png"
+image bg park=im.Scale("Park View Sketch.png",1280,780)
 image bg parkbush="Panda in Bush Sketch.png"
 image bg office=im.Scale("Professor Office Sketch.png",1280,780)
 image university=im.Scale("Peking University Sketch.png",1280,780)
@@ -97,10 +97,45 @@ image stranger normal = im.Scale("stranger normal.png",600,600)
 image stranger confused = im.Scale("stranger confuse.png",600,600)
 image stranger angry = im.Scale("stranger angry.png",600,600)
 image point box = im.Scale("pointbox.png",550,80,xoffset=620, yoffset=-600)
+
 # Screen for displaying points  
 define points = 0
+define start_time = 0
+define elapsed_time = 0
 screen Points_display:
      text "[points]" xpos 1180 ypos 0.090 size 35
+
+#Save data initializations
+init python:
+    from datetime import datetime
+
+#set directory for saving data
+define config.savedir = "/Users/yeelissa/Documents/renpy-pandamonium/Pandamonium/savedata/"
+define first_officeQ1 = True
+define first_officeQ2 = True
+define first_officeQ3 = True
+define first_officeQ4 = True
+define first_fruitQ1 = True
+define first_fruitQ2 = True
+define first_busQ1 = True
+define first_busQ2 = True
+define first_taxiQ1 = True
+define first_bankQ1 = True
+define first_trainQ1 = True
+define first_insidetrainQ1 = True
+define first_storeQ1 = True
+define first_storeQ2 = True
+define first_storeQ3 = True
+define first_storeQ4 = True 
+define first_storeQ5 = True
+define first_restaurantQ1 = True
+define first_restaurantQ2 = True
+define first_restaurantQ3 = True
+define first_restaurantQ4 = True
+define first_streetQ1 = True
+define first_streetQ2 = True
+define first_streetQ3 = True
+
 
 # The game starts here.
 
@@ -160,6 +195,9 @@ label start:
     with dissolve
     $povname=renpy.input("你叫什么名字?")
     $povname=povname.strip()
+    $ filename = povname + ".txt"
+    $ f = open(config.savedir + filename, 'a+')
+    $ f.write('username: ' + povname + "\n")
     panda "你好，我叫包包。"
 
 
@@ -194,26 +232,29 @@ label start:
     professor "请进。" 
     player "李老师，您好。"
   
-    
     label officeQ1:
+        if first_officeQ1:
+            $ f.write('officeQ1: ')
+            #$ renpy.clear_game_runtime() 
+            $ first_officeQ1 = False
         hide pda backpack s onlayer top 
         show prof happy
         professor "你好。请坐，有事吗？"
         player "李老师，不好意思，我家有点急事。"
-        
+    
     menu oq1:
-
         "我得有一个假期，好不好？":
-            jump grammarOffice1
+            jump socioOffice1
         "我可以请假几天呢？":
-            jump usageOffice1
+            jump grammarOffice1
         "我想有几天不参加上课。":
-            jump politeOffice1
+            jump conventionalOffice1
         "我可以请几天假吗？":
             jump rightOffice1
             
-    label grammarOffice1:
+    label socioOffice1:
         $ points -= 1 
+        $ f.write('s')
         play sound "wrong.wav"
         show prof angry
         "......"
@@ -222,8 +263,9 @@ label start:
         panda "得 might be too demanding here. Think about the context."
         jump officeQ1
         
-    label usageOffice1:
+    label grammarOffice1:
         $ points -= 1 
+        $ f.write('g')
         play sound "wrong.wav"
         show prof angry
         "......"
@@ -232,8 +274,9 @@ label start:
         panda "呢 is grammatically incorrect here."
         jump officeQ1
     
-    label politeOffice1:
+    label conventionalOffice1:
         $ points -= 1 
+        $ f.write('c')
         play sound "wrong.wav"
         show prof angry
         "......"
@@ -243,7 +286,11 @@ label start:
         jump officeQ1
     
     label rightOffice1:
+        #$ elapsed_time = renpy.get_game_runtime() 
         $ points += 3 
+        $ f.write('r ')
+        $ f.write(str(points) + "\n")
+        #$ f.write(str(points) + str(elapsed_time) + "\n")
         play sound "right.mp3"
         show prof happy
         professor "嗯，好吧。"
@@ -271,6 +318,10 @@ label start:
         jump fillblankOffice1
         
     label officeQ2:
+        if first_officeQ2:
+            $ f.write('officeQ2: ')
+            $ renpy.clear_game_runtime() 
+            $ first_officeQ2 = False
         show prof happy
         hide pda backpack s onlayer top 
         professor "不过你会错过明天的考试哦。"
@@ -278,16 +329,17 @@ label start:
     menu oq2:
 
         "我回来以后补考怎么样？":
-            jump politeOffice2
+            jump socioOffice2
         "我可不可以回来以后补考吗？":
-            jump usageOffice2
-        "我可不可以回来以后补考呢？":
+            jump grammarOffice2
+        "我可不可以回来以后补考呢?":
             jump rightOffice2
         "我回来以后再考一次，好不好？":
-            jump wrongOffice2
+            jump conventionalOffice2
     
-    label wrongOffice2:
+    label conventionalOffice2:
         $ points -= 1 
+        $ f.write('c')
         play sound "wrong.wav"
         show prof angry
         "......"
@@ -296,8 +348,9 @@ label start:
         panda "再考一次 is not the conventional way to say it."
         jump officeQ2
         
-    label usageOffice2:
+    label grammarOffice2:
         $ points -= 1 
+        $ f.write('g')
         play sound "wrong.wav"
         show prof angry
         professor "......"
@@ -306,8 +359,9 @@ label start:
         panda "吗 is redundant."
         jump officeQ2
     
-    label politeOffice2:
+    label socioOffice2:
         $ points -= 1 
+        $ f.write('s')
         play sound "wrong.wav"
         show prof angry
         "......"
@@ -317,15 +371,37 @@ label start:
         jump officeQ2
     
     label rightOffice2:
+        #$ elapsed_time2 = renpy.get_game_runtime() 
         $ points += 3 
+        $ f.write('r ')
+        $ f.write(str(points) + "\n")
+        #$ f.write(str(points) + str(elapsed_time2) + "\n")
         play sound "right.mp3"
         show prof happy
         hide pda backpack s onlayer top
-        professor "好的，那下星期回来以后补考吧。"
-        jump moq3
-    
+        #professor "好的，那下星期回来以后补考吧。"
+        jump officeQ3
+        #jump arrangeOffice2
+        
+    #label arrangeOffice2:
+        #$ message = "Testing this out."
+        #yes_action = jump officeQ3
+        #no_action = jump arrangeOffice2
+        #show screen confirm(message, yes_action, no_action)
+        #$ test="a"
+        #$ fragments=["我","可不可以","回来","以后","补考","呢","?"]
+        #$ fragments=["hi","how","are","you","?"]
+        #$ correct_sentence="我可不可以回来以后补考呢?"
+        #$ arranged_sentence = []
+        #$ sentence = ""
+        #show screen show_sentence
+        #call screen arrange_screen(fragments,correct_sentence,arranged_sentence,sentence,test) 
+        
     label officeQ3:
         hide pda backpack s onlayer top
+        if first_officeQ3:
+            $ f.write('officeQ3: ')
+            $ first_officeQ3 = False
         show prof happy
         professor "好的，那下星期回来以后补考吧。"
         
@@ -333,14 +409,15 @@ label start:
         "太好了！谢谢老师。":
             jump rightOffice3
         "太好了！谢了啊！":
-            jump politeOffice3
+            jump socioOffice3
         "太好了！很谢谢您了！":
             jump grammarOffice3
         "多谢！多谢啊！":
-            jump wrongOffice3
+            jump conventionalOffice3
         
-    label politeOffice3:
+    label socioOffice3:
         $ points -= 1 
+        $ f.write('s')
         play sound "wrong.wav"
         show prof angry
         "......"
@@ -351,6 +428,7 @@ label start:
         
     label grammarOffice3:
         $ points -= 1 
+        $ f.write('g')
         play sound "wrong.wav"
         show prof angry
         "......"
@@ -359,8 +437,9 @@ label start:
         panda "We don't say 很......了."
         jump officeQ3
         
-    label wrongOffice3:
+    label conventionalOffice3:
         $ points -= 1 
+        $ f.write('c')
         play sound "wrong.wav"
         show prof angry
         "......"
@@ -371,31 +450,36 @@ label start:
     
     label rightOffice3:
         $ points += 3 
+        $ f.write('r ')
+        $ f.write(str(points) + "\n")
         play sound "right.mp3"
         show prof happy
         hide pda backpack s onlayer top
         professor "不客气。还有别的事吗？"
-        player "没事了，谢谢老师。"
-        jump moq4
+        jump officeQ4
 
     label officeQ4:
         hide pda backpack s onlayer top
+        if first_officeQ4:
+            $ f.write('officeQ4: ')
+            $ first_officeQ4 = False
         show prof happy
         player "没事了，谢谢老师。"
         
     menu moq4:
 
         "我要离开了！再见！":
-            jump politeOffice4
+            jump socioOffice4
         "那我先走了。再见！":
             jump rightOffice4
         "那我出去。再见！":
             jump grammarOffice4
         "我要走。再见！":
-            jump wrongOffice4
+            jump conventionalOffice4
             
-    label politeOffice4:
+    label socioOffice4:
         $ points -= 1 
+        $ f.write('s')
         play sound "wrong.wav"
         show prof angry
         with dissolve
@@ -407,6 +491,7 @@ label start:
     
     label grammarOffice4:
         $ points -= 1 
+        $ f.write('g')
         play sound "wrong.wav"
         show prof angry
         with dissolve
@@ -416,8 +501,9 @@ label start:
         panda "出去 means going out."
         jump officeQ4
     
-    label wrongOffice4:
+    label conventionalOffice4:
         $ points -= 1 
+        $ f.write('c')
         play sound "wrong.wav"
         show prof angry
         with dissolve
@@ -429,6 +515,8 @@ label start:
         
     label rightOffice4:
         $ points += 3 
+        $ f.write('r ')
+        $ f.write(str(points) + "\n")
         play sound "right.mp3"
         show prof happy
         professor "好，再见！"
@@ -456,23 +544,28 @@ label start:
     scene bg fruit
     
     label fvq1:
-    hide pda backpack s onlayer top
-    show vendor normal
-    with dissolve
-    vendor "买点苹果吗？"
+        hide pda backpack s onlayer top
+        show vendor normal
+        with dissolve
+        if first_fruitQ1:
+            $ f.write('fruitQ1: ')
+            $ first_fruitQ1 = False
+        vendor "买点苹果吗？"
+    
     menu mfvq1:
         
         "苹果值多少钱？":
-            jump politefruit1
+            jump sociofruit1
         "苹果多少钱？":
-            jump fvq2
+            jump rightfruit1
         "苹果多少？":
-            jump usagefruit1
+            jump grammarfruit1
         "一个苹果几块钱？":
-            jump wrongfruit1
+            jump conventionalfruit1
             
-    label wrongfruit1:
+    label conventionalfruit1:
         $ points -= 1 
+        $ f.write('c')
         play sound "wrong.wav"
         hide pda backpack s onlayer top
         hide vendor normal
@@ -484,8 +577,9 @@ label start:
         panda "一个 is not the conventional way to ask for the price of fruit in China because fruit is sold by kilos here."
         jump fvq1
     
-    label usagefruit1:
+    label grammarfruit1:
         $ points -= 1 
+        $ f.write('g')
         play sound "wrong.wav"
         hide pda backpack s onlayer top
         hide vendor normal
@@ -497,8 +591,9 @@ label start:
         panda "钱 is missing here. "
         jump fvq1
     
-    label politefruit1:
+    label sociofruit1:
         $ points -= 1 
+        $ f.write('s')
         play sound "wrong.wav"
         hide pda backpack s onlayer top
         hide vendor normal
@@ -510,27 +605,33 @@ label start:
         panda "值 (worth) sounds too formal in this context."
         jump fvq1
             
-    label fvq2:
+    label rightfruit1:
         $ points += 3 
+        $ f.write('r ')
+        $ f.write(str(points) + "\n")
         play sound "right.mp3"
         hide pda backpack s onlayer top
         hide vendor angry
         hide vendor confused
+        if first_fruitQ2:
+            $ f.write('fruitQ2: ')
+            $ first_fruitQ2 = False
         show vendor normal
         vendor "六块钱一斤。"
         
-    menu mfvq2:
+    menu fvq2:
         "便宜点吧！":
-            jump fruitDone
+            jump rightfruit2
         "便宜一下吧！":
             jump grammarfruit2
         "能不能打折？":
-            jump usagefruit2
+            jump sociofruit2
         "不要太贵了。":
-            jump wrongfruit2
+            jump conventionalfruit2
     
     label grammarfruit2:
         $ points -= 1 
+        $ f.write('g')
         play sound "wrong.wav"
         hide pda backpack s onlayer top
         hide vendor angry
@@ -542,8 +643,9 @@ label start:
         panda "一下 doesn't go with 便宜 because 便宜 is an adjective."
         jump fvq2
     
-    label usagefruit2:
+    label sociofruit2:
         $ points -= 1 
+        $ f.write('s')
         play sound "wrong.wav"
         hide pda backpack s onlayer top
         hide vendor angry
@@ -555,8 +657,9 @@ label start:
         panda "打折 sounds too formal here."
         jump fvq2
     
-    label wrongfruit2:
+    label conventionalfruit2:
         $ points -= 1 
+        $ f.write('c')
         play sound "wrong.wav"
         hide pda backpack s onlayer top
         hide vendor confused
@@ -568,8 +671,10 @@ label start:
         panda "不要太贵了 is not the way people bargain. "
         jump fvq2
 
-    label fruitDone:
+    label rightfruit2:
         $ points += 3 
+        $ f.write('r ')
+        $ f.write(str(points) + "\n")
         play sound "right.mp3"
         hide pda backpack s onlayer top
         hide vendor angry
@@ -588,21 +693,25 @@ label start:
     label bdq1:
         hide bg bus
         hide pda backpack s onlayer top
+        if first_busQ1:
+            $ f.write('busQ1: ')
+            $ first_busQ1 = False
         show driv standard
         with dissolve
         
     menu mbdq1:
         "师傅，我要去中国银行，去不去？":
-            jump politebd1
+            jump sociobd1
         "师傅，请问，向中国银行吗？":
-            jump usagebd1
+            jump grammarbd1
         "师傅，请问，到中国银行吗？":
-            jump bdq2
+            jump rightbd1
         "师傅，请问，你的公共汽车去不去中国银行？":
-            jump offtopicbd1
+            jump conventionalbd1
             
-    label politebd1:
+    label sociobd1:
         $ points -= 1 
+        $ f.write('s')
         play sound "wrong.wav"
         show driv confused
         with dissolve
@@ -612,8 +721,9 @@ label start:
         panda "要 might be too demanding here. Think about the context/situation. "
         jump bdq1
     
-    label usagebd1:
+    label grammarbd1:
         $ points -= 1 
+        $ f.write('g')
         play sound "wrong.wav"
         show driv confused
         with dissolve
@@ -623,8 +733,9 @@ label start:
         panda "向 means towards. Is it correct here?"
         jump bdq1
         
-    label offtopicbd1:
+    label conventionalbd1:
         $ points -= 1 
+        $ f.write('c')
         play sound "wrong.wav"
         show driv confused
         with dissolve
@@ -634,27 +745,33 @@ label start:
         panda "你的公共汽车 is not the conventional way to say it. "
         jump bdq1
             
-    label bdq2:
+    label rightbd1:
         $ points += 3 
+        $ f.write('r ')
+        $ f.write(str(points) + "\n")
         play sound "right.mp3"
         hide pda backpack s onlayer top
+        if first_busQ2:
+            $ f.write('busQ2: ')
+            $ first_busQ2 = False
         show driv happy
         with dissolve
         driver "这辆车不到。"
         
-    menu mbdq2:
+    menu bdq2:
         
         "我怎么去中国银行？":
-            jump politebd2
+            jump sociobd2
         "那请问哪辆车到中国银行吗？":
-            jump usagebd2
+            jump grammarbd2
         "那请问哪辆车到中国银行？":
-            jump donebd
+            jump rightbd2
         "那请问什么公共汽车可以去中国银行？":
-            jump contextbd2
+            jump conventionalbd2
             
-    label politebd2:
+    label sociobd2:
         $ points -= 1 
+        $ f.write('s')
         play sound "wrong.wav"
         show driv confused
         with dissolve
@@ -664,8 +781,9 @@ label start:
         panda "怎么去 sounds a little demanding here. Think about the context/situation."
         jump bdq2
         
-    label usagebd2:
+    label grammarbd2:
         $ points -= 1 
+        $ f.write('g')
         play sound "wrong.wav"
         show driv confused
         with dissolve
@@ -675,8 +793,9 @@ label start:
         panda "吗 is redundant here."
         jump bdq2
         
-    label contextbd2:
+    label conventionalbd2:
         $ points -= 1 
+        $ f.write('c')
         play sound "wrong.wav"
         show driv confused
         with dissolve
@@ -686,8 +805,10 @@ label start:
         panda "什么公共汽车 is not the conventional way to refer to buses."
         jump bdq2
         
-    label donebd:
+    label rightbd2:
         $ points += 3 
+        $ f.write('r ')
+        $ f.write(str(points) + "\n")
         play sound "right.mp3"
         driver "公交车都不到。你得打车了。"
         
@@ -709,22 +830,26 @@ label start:
             hide taxidriver confused
             hide taxidriver angry
             hide pda backpack s onlayer top
+            if first_taxiQ1:
+                $ f.write('taxiQ1: ')
+                $ first_taxiQ1 = False
             show taxidriver normal
             with dissolve
             taxi "你好!"
     
         menu tq1:
             "请问我可不可以去中国银行？":
-                jump grammarTaxi1
+                jump socioTaxi1
             "到中国银行。":
-                jump usageTaxi1
+                jump grammarTaxi1
             "去中国银行怎么样？":
-                jump politeTaxi1
+                jump conventionalTaxi1
             "去中国银行。":
                 jump rightTaxi1
                 
-        label grammarTaxi1:
+        label socioTaxi1:
             $ points -= 1 
+            $ f.write('s')
             play sound "wrong.wav"
             show taxidriver confused
             taxi "......"
@@ -733,8 +858,9 @@ label start:
             panda "Is this too elaborate here? Think about the context/situation. "
             jump taxiQ1
             
-        label usageTaxi1:
+        label grammarTaxi1:
             $ points -= 1 
+            $ f.write('g')
             play sound "wrong.wav"
             show taxidriver angry
             taxi "......"
@@ -742,8 +868,9 @@ label start:
             panda "到 means arrive. "
             jump taxiQ1
             
-        label politeTaxi1:
+        label conventionalTaxi1:
             $ points -= 1 
+            $ f.write('c')
             play sound "wrong.wav"
             show taxidriver confused
             taxi "......"
@@ -753,6 +880,8 @@ label start:
             
         label rightTaxi1:
             $ points += 3 
+            $ f.write('r ')
+            $ f.write(str(points) + "\n")
             play sound "right.mp3"
             show taxidriver normal
             with dissolve
@@ -772,21 +901,25 @@ label start:
             hide bankteller angry
             hide bankteller confused
             hide pda backpack s onlayer top
+            if first_bankQ1:
+                $ f.write('bankQ1: ')
+                $ first_bankQ1 = False
             show bankteller normal
             bankTeller "您好，请问您需要办理什么业务?"
 
         menu bq2:
             "我想拿800块钱。":
-                jump grammarBank1
+                jump socioBank1
             "我想取800块钱。":
                 jump rightBank1
             "我想取800块钱吗? ":
-                jump usageBank1
+                jump grammarBank1
             "拿800块钱怎么样？":
-                jump politeBank1
+                jump conventionalBank1
                 
-        label grammarBank1:
+        label socioBank1:
             $ points -= 1 
+            $ f.write('s')
             play sound "wrong.wav"
             hide bankteller normal
             show bankteller angry
@@ -795,8 +928,9 @@ label start:
             panda "拿 fetch, hold. Think about the situation. "
             jump bankQ1
             
-        label usageBank1:
+        label grammarBank1:
             $ points -= 1 
+            $ f.write('g')
             play sound "wrong.wav"
             hide bankteller normal
             show bankteller confused
@@ -805,8 +939,9 @@ label start:
             panda "吗 is redundant here. "
             jump bankQ1
             
-        label politeBank1:
+        label conventionalBank1:
             $ points -= 1 
+            $ f.write('c')
             play sound "wrong.wav"
             hide bankteller normal
             show bankteller confused
@@ -817,6 +952,8 @@ label start:
             
         label rightBank1:
             $ points += 3 
+            $ f.write('r ')
+            $ f.write(str(points) + "\n")
             play sound "right.mp3"
             hide pda backpack s onlayer top
             show bankteller normal
@@ -848,26 +985,32 @@ label start:
     label trainIQ1:
         show ticketattendant normal
         hide pda backpack s onlayer top
+        if first_trainQ1:
+                $ f.write('trainQ1: ')
+                $ first_trainQ1 = False
         ticketAttendant "你好。"
         
     menu trainQ1:
         "我买一张去西安的火车票，怎么样？":
             jump socioTrainQ1
         "我可以买一张去西安火车票呢？":
-            jump pragTrainQ1
+            jump grammarTrainQ1
         "我想买一张去西安的火车票。":
-            jump correctTrainQ1
+            jump rightTrainQ1
         "我能有火车票去西安吗？":
-            jump nonConTrainQ1
+            jump conventionalTrainQ1
     
-    label correctTrainQ1:
+    label rightTrainQ1:
         $ points += 3 
+        $ f.write('r ')
+        $ f.write(str(points) + "\n")
         play sound "right.mp3"
         hide pda backpack s onlayer top
         jump trainIQ2
         
     label socioTrainQ1:
         $ points -= 1 
+        $ f.write('s')
         play sound "wrong.wav"
         show ticketattendant angry
         "......"
@@ -876,8 +1019,9 @@ label start:
         panda "怎么样 is used to make a suggestion. Think about the situation. "
         jump trainIQ1
     
-    label pragTrainQ1:
+    label grammarTrainQ1:
         $ points -= 1 
+        $ f.write('g')
         play sound "wrong.wav"
         show ticketattendant confused
         "......"
@@ -886,8 +1030,9 @@ label start:
         panda "呢 should be 吗. "
         jump trainIQ1
     
-    label nonConTrainQ1:
+    label conventionalTrainQ1:
         $ points -= 1 
+        $ f.write('c')
         play sound "wrong.wav"
         show ticketattendant confused
         "......"
@@ -909,12 +1054,15 @@ label start:
     label insidetrainQ1:
         scene bg insideTrain
         hide pda backpack s onlayer top
+        if first_insidetrainQ1:
+                $ f.write('insidetrainQ1: ')
+                $ first_insidetrainQ1 = False
         show trainattendant normal
         with dissolve
        
     menu insidetrain01:
         "请问西安哪站下？":
-            jump correcttrain1
+            jump righttrain1
         "请问什么站下车去西安？":
             jump grammartrain1
         "我要去西安怎么走？":
@@ -924,6 +1072,7 @@ label start:
             
     label sociotrain1:
         $ points -= 1 
+        $ f.write('s')
         play sound "wrong.wav"
         show trainattendant angry
         trainAttendant "......"
@@ -934,6 +1083,7 @@ label start:
         
     label grammartrain1:
         $ points -= 1 
+        $ f.write('g')
         play sound "wrong.wav"
         show trainattendant confused
         trainAttendant "......"
@@ -944,6 +1094,7 @@ label start:
         
     label conventionaltrain1:
         $ points -= 1 
+        $ f.write('c')
         play sound "wrong.wav"
         show trainattendant confused
         trainAttendant "......"
@@ -952,8 +1103,10 @@ label start:
         panda "This is not the conventional way to ask for train stops. "
         jump insidetrainQ1
         
-    label correcttrain1:
+    label righttrain1:
         $ points += 3 
+        $ f.write('r ')
+        $ f.write(str(points) + "\n")
         play sound "right.mp3"
         hide pda backpack s onlayer top
         show trainattendant normal
@@ -996,12 +1149,15 @@ label start:
         "Shanxi Restaurant is in a mall. You arrive at the mall half an hour early so you start to browse in a clothing store. The salesperson approaches you. But you’re just browsing."
     
     label storeQ1:
+        if first_storeQ1:
+                $ f.write('storeQ1: ')
+                $ first_storeQ1 = False
         show sales normal 
         salesperson "您好。请问您要买什么?"
     
     menu store1:
         "我随便看看。":
-            jump correctstore1
+            jump rightstore1
         "我不买什么。":
             jump sociostore1
         "我随便看着。":
@@ -1011,6 +1167,7 @@ label start:
    
     label sociostore1:
         $ points -= 1 
+        $ f.write('s')
         play sound "wrong.wav"
         show sales angry
         "......"
@@ -1021,6 +1178,7 @@ label start:
     
     label grammarstore1:
         $ points -= 1 
+        $ f.write('g')
         play sound "wrong.wav"
         show sales confused
         "......"
@@ -1031,6 +1189,7 @@ label start:
 
     label conventionalstore1:
         $ points -= 1 
+        $ f.write('c')
         play sound "wrong.wav"
         show sales confused
         "......"
@@ -1039,8 +1198,10 @@ label start:
         panda "This is not the conventional way to respond to shop assistant’s greeting."
         jump storeQ1
         
-    label correctstore1:
+    label rightstore1:
         $ points += 3 
+        $ f.write('r ')
+        $ f.write(str(points) + "\n")
         play sound "right.mp3"
         hide pda backpack s onlayer top
         with dissolve
@@ -1050,6 +1211,10 @@ label start:
         "After walking around for a while, you found a T-shirt you want. You ask the price of the T-shirt and if you can try it on. "
     
     label storeQ2:
+        hide pda backpack s onlayer top 
+        if first_storeQ2:
+                $ f.write('storeQ2: ')
+                $ first_storeQ2 = False
         show sales normal
         with dissolve
     
@@ -1057,7 +1222,7 @@ label start:
         "请问，这件T恤衫贵吗？":
             jump conventionalstore2
         "请问，这件T恤衫多少钱?":
-            jump correctstore2
+            jump rightstore2
         "请问，这件T恤衫值多少钱？":
             jump sociostore2
         "请问，这件T恤衫多少块？":
@@ -1065,6 +1230,7 @@ label start:
 
     label sociostore2:
         $ points -= 1 
+        $ f.write('s')
         play sound "wrong.wav"
         show sales angry
         "......"
@@ -1075,6 +1241,7 @@ label start:
     
     label grammarstore2:
         $ points -= 1 
+        $ f.write('g')
         play sound "wrong.wav"
         show sales confused
         "......"
@@ -1085,6 +1252,7 @@ label start:
 
     label conventionalstore2:
         $ points -= 1 
+        $ f.write('c')
         play sound "wrong.wav"
         show sales confused
         "......"
@@ -1093,56 +1261,71 @@ label start:
         panda "This is not the conventional way to ask for the price."
         jump storeQ2
         
-    label correctstore2:
+    label rightstore2:
         $ points += 3 
+        $ f.write('r ')
+        $ f.write(str(points) + "\n")
         play sound "right.mp3"
         hide pda backpack s onlayer top
         with dissolve
         show sales normal
         salesperson "这件T恤衫120块。"
     
+    label storeQ3:
+        hide pda backpack s onlayer top
+        if first_storeQ3:
+                $ f.write('storeQ3: ')
+                $ first_storeQ3 = False
+        with dissolve
+        show sales normal
+        
     menu store3:
         "我想试一下吗?":
             jump grammarstore3
         "我可以穿一下吗？":
             jump conventionalstore3
         "我可以试一下吗？": 
-            jump correctstore3
+            jump rightstore3
         "我可不可能试试？":
             jump sociostore3
             
     label sociostore3:
         $ points -= 1 
+        $ f.write('s')
         play sound "wrong.wav"
         show sales angry
         "......"
         show pda backpack s onlayer top
         with dissolve
         panda "“可不可能” is too elaborate here. Think about the situation."
-        jump correctstore2
+        jump storeQ3
     
     label grammarstore3:
         $ points -= 1 
+        $ f.write('g')
         play sound "wrong.wav"
         show sales confused
         "......"
         show pda backpack s onlayer top
         with dissolve
         panda "“吗” should be “好吗” here."
-        jump correctstore2
+        jump storeQ3
 
     label conventionalstore3:
         $ points -= 1 
+        $ f.write('c')
         play sound "wrong.wav"
         show sales confused
         "......"
         show pda backpack s onlayer top
         with dissolve
         panda "This is not the conventional way to say it. "
-        jump correctstore2
+        jump storeQ3
         
-    label correctstore3:
+    label rightstore3:
         $ points += 3 
+        $ f.write('r ')
+        $ f.write(str(points) + "\n")
         play sound "right.mp3"
         hide pda backpack s onlayer top
         with dissolve
@@ -1157,6 +1340,9 @@ label start:
     label storeQ4:
         hide pda backpack s onlayer top
         with dissolve
+        if first_storeQ4:
+                $ f.write('storeQ4: ')
+                $ first_storeQ4 = False
         show sales normal
         "To purchase the clothes, you walk towards the salesperson."
     
@@ -1164,7 +1350,7 @@ label start:
         "请问在哪儿收款台？":
             jump grammarstore4
         "请问收款台在哪儿？":
-            jump correctstore4
+            jump rightstore4
         "请问怎么给钱？":
             jump sociostore4
         "请问付钱给谁？":
@@ -1172,6 +1358,7 @@ label start:
             
     label sociostore4:
         $ points -= 1 
+        $ f.write('s')
         play sound "wrong.wav"
         show sales angry
         "......"
@@ -1182,6 +1369,7 @@ label start:
     
     label grammarstore4:
         $ points -= 1 
+        $ f.write('g')
         play sound "wrong.wav"
         show sales confused
         "......"
@@ -1192,6 +1380,7 @@ label start:
 
     label conventionalstore4:
         $ points -= 1 
+        $ f.write('c')
         play sound "wrong.wav"
         show sales confused
         "......"
@@ -1200,8 +1389,10 @@ label start:
         panda "This is not the conventional way to ask where the cashier is."
         jump storeQ4
         
-    label correctstore4:
+    label rightstore4:
         $ points += 3 
+        $ f.write('r ')
+        $ f.write(str(points) + "\n")
         play sound "right.mp3"
         hide pda backpack s onlayer top
         with dissolve
@@ -1209,12 +1400,15 @@ label start:
         
     label storeQ5:
         hide pda backpack s onlayer top
+        if first_storeQ5:
+                $ f.write('storeQ5: ')
+                $ first_storeQ5 = False
         with dissolve
         show sales normal 
         
     menu store5:
         "可以用信用卡吗？":
-            jump correctstore5
+            jump rightstore5
         "用信用卡怎么样？":
             jump sociostore5
         "可以用信用卡呢？":
@@ -1224,6 +1418,7 @@ label start:
     
     label sociostore5:
         $ points -= 1 
+        $ f.write('s')
         play sound "wrong.wav"
         show sales angry
         "......"
@@ -1234,6 +1429,7 @@ label start:
     
     label grammarstore5:
         $ points -= 1 
+        $ f.write('g')
         play sound "wrong.wav"
         show sales confused
         "......"
@@ -1244,6 +1440,7 @@ label start:
 
     label conventionalstore5:
         $ points -= 1 
+        $ f.write('c')
         play sound "wrong.wav"
         show sales confused
         "......"
@@ -1252,8 +1449,10 @@ label start:
         panda "This is not the conventional way to say it."
         jump storeQ5
         
-    label correctstore5:
+    label rightstore5:
         $ points += 3 
+        $ f.write('r ')
+        $ f.write(str(points) + "\n")
         play sound "right.mp3"
         hide pda backpack s onlayer top
         with dissolve
@@ -1271,6 +1470,9 @@ label start:
     label restaurantQ1:
         hide pda backpack s onlayer top
         show friend normal
+        if first_restaurantQ1:
+                $ f.write('restaurantQ1: ')
+                $ first_restaurantQ1 = False
         with dissolve
         friend "来啦！"
         
@@ -1281,12 +1483,13 @@ label start:
         "不好意思，我很晚。":
             jump grammarrest1
         "不好意思，我来晚了。":
-            jump correctrest1
+            jump rightrest1
         "对不起，我晚到":
             jump conventionalrest1
             
     label sociorest1:
         $ points -= 1 
+        $ f.write('s')
         play sound "wrong.wav"
         show friend angry
         "......"
@@ -1297,6 +1500,7 @@ label start:
     
     label grammarrest1:
         $ points -= 1 
+        $ f.write('g')
         play sound "wrong.wav"
         show friend confused
         "......"
@@ -1307,6 +1511,7 @@ label start:
 
     label conventionalrest1:
         $ points -= 1 
+        $ f.write('c')
         play sound "wrong.wav"
         show friend confused
         "......"
@@ -1315,8 +1520,10 @@ label start:
         panda "This is not the conventional way to apologize for being late."
         jump restaurantQ1
 
-    label correctrest1:
+    label rightrest1:
         $ points += 3 
+        $ f.write('r ')
+        $ f.write(str(points) + "\n")
         play sound "right.mp3"
         hide pda backpack s onlayer top
         with dissolve
@@ -1328,7 +1535,11 @@ label start:
     label restaurantQ2:
         scene bg restaurant
         hide pda backpack s onlayer top
+        if first_restaurantQ2:
+                $ f.write('restaurantQ2: ')
+                $ first_restaurantQ2 = False
         show friend normal
+        with dissolve
         
     menu rest2:
         
@@ -1339,10 +1550,11 @@ label start:
         "你想吃一下什么？":
             jump grammarrest2
         "你想吃点什么？":
-            jump correctrest2
+            jump rightrest2
             
     label sociorest2:
         $ points -= 1 
+        $ f.write('s')
         play sound "wrong.wav"
         show friend angry
         "......"
@@ -1353,6 +1565,7 @@ label start:
     
     label grammarrest2:
         $ points -= 1 
+        $ f.write('g')
         play sound "wrong.wav"
         show friend confused
         "......"
@@ -1363,6 +1576,7 @@ label start:
 
     label conventionalrest2:
         $ points -= 1 
+        $ f.write('c')
         play sound "wrong.wav"
         show friend confused
         "......"
@@ -1371,8 +1585,10 @@ label start:
         panda "This is not the conventional way to say it."
         jump restaurantQ2
         
-    label correctrest2:
-        $ points += 3 
+    label rightrest2:
+        $ points += 3
+        $ f.write('r ')
+        $ f.write(str(points) + "\n")
         play sound "right.mp3"
         hide pda backpack s onlayer top
         with dissolve
@@ -1386,6 +1602,9 @@ label start:
         hide pda backpack s onlayer top
         show waiter normal
         with dissolve
+        if first_restaurantQ3:
+                $ f.write('restaurantQ3: ')
+                $ first_restaurantQ3 = False
         waiter "请问点什么?"
     
     menu rest3:
@@ -1394,12 +1613,13 @@ label start:
         "来鱼香肉丝和一个饺子。":
             jump grammarrest3
         "来个鱼香肉丝和一盘饺子。":
-            jump correctrest3
+            jump rightrest3
         "请来个鱼香肉丝和一盘饺子吧。":
             jump sociorest3
     
     label sociorest3:
         $ points -= 1 
+        $ f.write('s')
         play sound "wrong.wav"
         show waiter angry
         "......"
@@ -1410,6 +1630,7 @@ label start:
     
     label grammarrest3:
         $ points -= 1 
+        $ f.write('g')
         play sound "wrong.wav"
         show waiter confused
         "......"
@@ -1420,6 +1641,7 @@ label start:
 
     label conventionalrest3:
         $ points -= 1 
+        $ f.write('c')
         play sound "wrong.wav"
         show waiter confused
         "......"
@@ -1428,8 +1650,10 @@ label start:
         panda "This is not the conventional way to order food. "
         jump restaurantQ3
         
-    label correctrest3:
+    label rightrest3:
         $ points += 3 
+        $ f.write('r ')
+        $ f.write(str(points) + "\n")
         play sound "right.mp3"
         hide pda backpack s onlayer top
         show waiter normal 
@@ -1449,13 +1673,16 @@ label start:
     label restaurantQ4:
         hide pda backpack s onlayer top
         hide friend normal
+        if first_restaurantQ4:
+                $ f.write('restaurantQ4: ')
+                $ first_restaurantQ4 = False
         show waiter normal
         with dissolve
         waiter "请问需要什么?"
     
     menu rest4:
         "打包。":
-            jump correctrest4
+            jump rightrest4
         "打包怎么样？":
             jump sociorest4
         "打包一下。":
@@ -1465,6 +1692,7 @@ label start:
     
     label sociorest4:
         $ points -= 1 
+        $ f.write('s')
         play sound "wrong.wav"
         show waiter angry
         "......"
@@ -1475,6 +1703,7 @@ label start:
     
     label grammarrest4:
         $ points -= 1 
+        $ f.write('g')
         play sound "wrong.wav"
         show waiter confused
         "......"
@@ -1485,6 +1714,7 @@ label start:
 
     label conventionalrest4:
         $ points -= 1 
+        $ f.write('c')
         play sound "wrong.wav"
         show waiter confused
         "......"
@@ -1493,8 +1723,10 @@ label start:
         panda "This is not the conventional way to say it. "
         jump restaurantQ4
         
-    label correctrest4:
-        $ points += 3 
+    label rightrest4:
+        $ points += 3
+        $ f.write('r ')
+        $ f.write(str(points) + "\n")
         play sound "right.mp3"
         hide pda backpack s onlayer top
         with dissolve 
@@ -1515,6 +1747,9 @@ label start:
     label streetQ1:
         hide pda backpack s onlayer top
         with dissolve 
+        if first_streetQ1:
+                $ f.write('streetQ1: ')
+                $ first_streetQ1 = False
         show stranger normal 
         with dissolve 
     
@@ -1522,7 +1757,7 @@ label start:
         "请问，我想去熊猫基地，你知道吗?":
             jump conventionalstreet1
         "请问，你知道怎么去熊猫基地怎么走吗？":
-            jump correctstreet1
+            jump rightstreet1
         "请问，有没有可能请您告诉我怎么去熊猫基地呢?":
             jump sociostreet1
         "请问，去熊猫基地怎么办":
@@ -1531,6 +1766,7 @@ label start:
     
     label sociostreet1:
         $ points -= 1 
+        $ f.write('s')
         play sound "wrong.wav"
         show stranger angry
         "......"
@@ -1541,6 +1777,7 @@ label start:
     
     label grammarstreet1:
         $ points -= 1 
+        $ f.write('g')
         play sound "wrong.wav"
         show stranger confused
         "......"
@@ -1551,6 +1788,7 @@ label start:
 
     label conventionalstreet1:
         $ points -= 1 
+        $ f.write('c')
         play sound "wrong.wav"
         show stranger confused
         "......"
@@ -1559,18 +1797,23 @@ label start:
         panda "This is not the conventional way to ask for direction."
         jump streetQ1
         
-    label correctstreet1:
+    label rightstreet1:
         $ points += 3 
+        $ f.write('r ')
+        $ f.write(str(points) + "\n")
         play sound "right.mp3"
         hide pda backpack s onlayer top
         with dissolve 
         show stranger normal 
         with dissolve
         stranger "一直往前走，到第二个路口右拐，就到了。"
-        jump street2
+        jump street2start
     
     label street2start:
         hide pda backpack s onlayer top
+        if first_streetQ2:
+                $ f.write('streetQ2: ')
+                $ first_streetQ2 = False
         show stranger normal 
         stranger "一直往前走，到第二个路口右拐，就到了。"
         
@@ -1582,10 +1825,11 @@ label start:
         "你告诉我要多久?":
             jump sociostreet2
         "大概要多久?":
-            jump correctstreet2
+            jump rightstreet2
 
     label sociostreet2:
         $ points -= 1 
+        $ f.write('s')
         play sound "wrong.wav"
         show stranger angry
         "......"
@@ -1596,6 +1840,7 @@ label start:
     
     label grammarstreet2:
         $ points -= 1 
+        $ f.write('g')
         play sound "wrong.wav"
         show stranger confused
         "......"
@@ -1606,6 +1851,7 @@ label start:
 
     label conventionalstreet2:
         $ points -= 1 
+        $ f.write('c')
         play sound "wrong.wav"
         show stranger confused
         "......"
@@ -1614,24 +1860,29 @@ label start:
         panda "This is not the conventional way to say it."
         jump street2start
         
-    label correctstreet2:
+    label rightstreet2:
         $ points += 3 
+        $ f.write('r ')
+        $ f.write(str(points) + "\n")
         play sound "right.mp3"
         hide pda backpack s onlayer top
         with dissolve 
         show stranger normal 
         with dissolve
         stranger "大概20分钟吧。"
-        jump street3
+        jump street3start
     
     label street3start: 
         hide pda backpack s onlayer top
+        if first_streetQ3:
+                $ f.write('streetQ3: ')
+                $ first_streetQ3 = False
         show stranger normal 
         stranger "大概20分钟吧。"
         
     menu street3:
         "谢谢你啊!":
-            jump correctstreet3
+            jump rightstreet3
         "非常感谢你的帮助!":
             jump sociostreet3
         "太谢谢!":
@@ -1641,6 +1892,7 @@ label start:
         
     label sociostreet3:
         $ points -= 1 
+        $ f.write('s')
         play sound "wrong.wav"
         show stranger angry
         "......"
@@ -1651,6 +1903,7 @@ label start:
     
     label grammarstreet3:
         $ points -= 1 
+        $ f.write('g')
         play sound "wrong.wav"
         show stranger confused
         "......"
@@ -1661,6 +1914,7 @@ label start:
 
     label conventionalstreet3:
         $ points -= 1 
+        $ f.write('c')
         play sound "wrong.wav"
         show stranger confused
         "......"
@@ -1669,8 +1923,10 @@ label start:
         panda "This is not the conventional way to say thank you to a stranger."
         jump street3start
         
-    label correctstreet3:
+    label rightstreet3:
         $ points += 3 
+        $ f.write('r ')
+        $ f.write(str(points) + "\n")
         play sound "right.mp3"
         hide pda backpack s onlayer top
         with dissolve 

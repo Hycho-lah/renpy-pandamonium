@@ -1,0 +1,7 @@
+username: pandaaaa
+officeQ1: gr 2
+officeQ2: sgr 3
+officeQ3: r 6
+sofficeQ4: r 8
+fruitQ1: gr 10
+fruitQ2: g

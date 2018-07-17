@@ -1,0 +1,12 @@
+username: testinngggg
+officeQ1: gr 2
+officeQ2: sgr 3
+r 6
+sofficeQ4: r 8
+fruitQ1: cgr 9
+fruitQ2: r 12
+busQ1: gsr 13
+busQ2: sgr 14
+taxiQ1: gcr 15
+bankQ1: r 18
+trainQ1: gs

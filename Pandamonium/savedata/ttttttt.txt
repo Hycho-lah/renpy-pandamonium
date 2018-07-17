@@ -1,0 +1,25 @@
+username: ttttttt
+officeQ1: scgr 0
+officeQ2: gr 2
+officeQ3: sr 4
+officeQ4: r 7
+fruitQ1: gcr 8
+fruitQ2: r 11
+busQ1: sr 13
+busQ2: sgcsgr 11
+taxiQ1: gscr 11
+bankQ1: r 14
+trainQ1: r 17
+insidetrainQ1: r 20
+storeQ1: ggcsr 19
+storeQ2: cr 21
+storeQ3: r 24
+storeQ4: cr 26
+storeQ5: sr 28
+restaurantQ1: gsr 29
+restaurantQ2: r 32
+restaurantQ3: gr 34
+restaurantQ4: ssr 35
+streetQ1: r 38
+sstreetQ2: cgr 38
+sstreetQ3: r 40
